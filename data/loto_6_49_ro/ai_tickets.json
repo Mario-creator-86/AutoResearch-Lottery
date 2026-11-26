@@ -1,0 +1,707 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "draw_date": "2026-09-17",
+   "draw_index": 1,
+   "draw_time": "18:00",
+   "next_draw_times": [
+    "18:00"
+   ],
+   "model": "gpt-oss:120b-cloud",
+   "created_at": "2026-09-17T00:21:01",
+   "reasoning": "Start with core anchor numbers (16,6,25,21,18) plus gap hedges, then blend deterministic top ranks, AI suggestions, rare pairs, and finally explore low‑ and high‑unused ranges while keeping overlap low.",
+   "strategy_metric": 0.786497,
+   "tickets": [
+    {
+     "main": [
+      5,
+      25,
+      26,
+      36,
+      38,
+      43
+     ],
+     "bonus": [],
+     "why": "Top deterministic six without core overlap",
+     "score": 15
+    },
+    {
+     "main": [
+      2,
+      9,
+      12,
+      16,
+      25,
+      38
+     ],
+     "bonus": [],
+     "why": "Core anchor enriched by AI extra 42 · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 84
+    },
+    {
+     "main": [
+      5,
+      6,
+      16,
+      32,
+      40,
+      44
+     ],
+     "bonus": [],
+     "why": "Core pair plus top deterministic numbers · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 98
+    },
+    {
+     "main": [
+      6,
+      23,
+      27,
+      33,
+      38,
+      47
+     ],
+     "bonus": [],
+     "why": "Core with rare pair and gap hedge · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 102
+    },
+    {
+     "main": [
+      10,
+      17,
+      36,
+      39,
+      44,
+      47
+     ],
+     "bonus": [],
+     "why": "Upper deterministic cluster with extra mid numbers · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 105
+    },
+    {
+     "main": [
+      15,
+      21,
+      25,
+      29,
+      39,
+      43
+     ],
+     "bonus": [],
+     "why": "Core anchor with third gap candidate · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 107
+    },
+    {
+     "main": [
+      1,
+      4,
+      20,
+      38,
+      40,
+      48
+     ],
+     "bonus": [],
+     "why": "Core anchor + long gap hedge · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 115
+    },
+    {
+     "main": [
+      4,
+      13,
+      16,
+      18,
+      37,
+      46
+     ],
+     "bonus": [],
+     "why": "Core anchor hedged by 47 · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 117
+    },
+    {
+     "main": [
+      3,
+      7,
+      18,
+      26,
+      35,
+      41
+     ],
+     "bonus": [],
+     "why": "Core anchor swapped with alternative gap · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 132
+    },
+    {
+     "main": [
+      13,
+      24,
+      30,
+      31,
+      36,
+      45
+     ],
+     "bonus": [],
+     "why": "Exploratory spread across unused range · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 141
+    },
+    {
+     "main": [
+      12,
+      23,
+      32,
+      35,
+      41,
+      48
+     ],
+     "bonus": [],
+     "why": "Mid-low sector balanced spread · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 142
+    },
+    {
+     "main": [
+      4,
+      20,
+      23,
+      34,
+      44,
+      45
+     ],
+     "bonus": [],
+     "why": "Diverse early ranking mix · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 143
+    },
+    {
+     "main": [
+      8,
+      19,
+      37,
+      43,
+      44,
+      49
+     ],
+     "bonus": [],
+     "why": "Deterministic mix with core pair · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 145
+    },
+    {
+     "main": [
+      3,
+      6,
+      11,
+      34,
+      37,
+      38
+     ],
+     "bonus": [],
+     "why": "Rare pair (11,16) combined with core · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 160
+    },
+    {
+     "main": [
+      3,
+      8,
+      9,
+      17,
+      20,
+      42
+     ],
+     "bonus": [],
+     "why": "AI balanced set replacing core with 42,46 · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 174
+    },
+    {
+     "main": [
+      1,
+      12,
+      28,
+      31,
+      46,
+      47
+     ],
+     "bonus": [],
+     "why": "Mix deterministic, overdue gap and low number · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 175
+    },
+    {
+     "main": [
+      2,
+      14,
+      22,
+      27,
+      32,
+      37
+     ],
+     "bonus": [],
+     "why": "Balanced low-mid sector numbers · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 175
+    },
+    {
+     "main": [
+      7,
+      10,
+      14,
+      15,
+      40,
+      43
+     ],
+     "bonus": [],
+     "why": "Low unused consecutive block · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 185
+    },
+    {
+     "main": [
+      10,
+      11,
+      22,
+      26,
+      42,
+      46
+     ],
+     "bonus": [],
+     "why": "Pair, gap and AI numbers combined · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 199
+    },
+    {
+     "main": [
+      22,
+      30,
+      33,
+      41,
+      45,
+      49
+     ],
+     "bonus": [],
+     "why": "High unused block for exploration · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 216
+    }
+   ],
+   "portfolio": {
+    "min_prize_hits": 3,
+    "p_any_prize_before": 0.2541,
+    "p_any_prize_after": 0.3329,
+    "mean_overlap_before": 1.063,
+    "mean_overlap_after": 0.547,
+    "popularity_before": 0.867,
+    "popularity_after": 0.708,
+    "simulated_draws": 20000
+   },
+   "status": "checked",
+   "checked_at": "2026-09-17T21:12:04",
+   "draw_numbers": [
+    2,
+    3,
+    22,
+    28,
+    41,
+    44
+   ],
+   "draw_bonus": [],
+   "results": [
+    {
+     "main": [
+      5,
+      25,
+      26,
+      36,
+      38,
+      43
+     ],
+     "played_bonus": [],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Top deterministic six without core overlap"
+    },
+    {
+     "main": [
+      2,
+      9,
+      12,
+      16,
+      25,
+      38
+     ],
+     "played_bonus": [],
+     "hits": [
+      2
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Core anchor enriched by AI extra 42 · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      5,
+      6,
+      16,
+      32,
+      40,
+      44
+     ],
+     "played_bonus": [],
+     "hits": [
+      44
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Core pair plus top deterministic numbers · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      6,
+      23,
+      27,
+      33,
+      38,
+      47
+     ],
+     "played_bonus": [],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Core with rare pair and gap hedge · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      10,
+      17,
+      36,
+      39,
+      44,
+      47
+     ],
+     "played_bonus": [],
+     "hits": [
+      44
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Upper deterministic cluster with extra mid numbers · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      15,
+      21,
+      25,
+      29,
+      39,
+      43
+     ],
+     "played_bonus": [],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Core anchor with third gap candidate · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      1,
+      4,
+      20,
+      38,
+      40,
+      48
+     ],
+     "played_bonus": [],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Core anchor + long gap hedge · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      4,
+      13,
+      16,
+      18,
+      37,
+      46
+     ],
+     "played_bonus": [],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Core anchor hedged by 47 · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      3,
+      7,
+      18,
+      26,
+      35,
+      41
+     ],
+     "played_bonus": [],
+     "hits": [
+      3,
+      41
+     ],
+     "hit_count": 2,
+     "bonus_hits": [],
+     "prize": {
+      "category": "2 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Core anchor swapped with alternative gap · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      13,
+      24,
+      30,
+      31,
+      36,
+      45
+     ],
+     "played_bonus": [],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Exploratory spread across unused range · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      12,
+      23,
+      32,
+      35,
+      41,
+      48
+     ],
+     "played_bonus": [],
+     "hits": [
+      41
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Mid-low sector balanced spread · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      4,
+      20,
+      23,
+      34,
+      44,
+      45
+     ],
+     "played_bonus": [],
+     "hits": [
+      44
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Diverse early ranking mix · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      8,
+      19,
+      37,
+      43,
+      44,
+      49
+     ],
+     "played_bonus": [],
+     "hits": [
+      44
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Deterministic mix with core pair · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      3,
+      6,
+      11,
+      34,
+      37,
+      38
+     ],
+     "played_bonus": [],
+     "hits": [
+      3
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Rare pair (11,16) combined with core · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      3,
+      8,
+      9,
+      17,
+      20,
+      42
+     ],
+     "played_bonus": [],
+     "hits": [
+      3
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "AI balanced set replacing core with 42,46 · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      1,
+      12,
+      28,
+      31,
+      46,
+      47
+     ],
+     "played_bonus": [],
+     "hits": [
+      28
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Mix deterministic, overdue gap and low number · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      2,
+      14,
+      22,
+      27,
+      32,
+      37
+     ],
+     "played_bonus": [],
+     "hits": [
+      2,
+      22
+     ],
+     "hit_count": 2,
+     "bonus_hits": [],
+     "prize": {
+      "category": "2 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Balanced low-mid sector numbers · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      7,
+      10,
+      14,
+      15,
+      40,
+      43
+     ],
+     "played_bonus": [],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Low unused consecutive block · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      10,
+      11,
+      22,
+      26,
+      42,
+      46
+     ],
+     "played_bonus": [],
+     "hits": [
+      22
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Pair, gap and AI numbers combined · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      22,
+      30,
+      33,
+      41,
+      45,
+      49
+     ],
+     "played_bonus": [],
+     "hits": [
+      22,
+      41
+     ],
+     "hit_count": 2,
+     "bonus_hits": [],
+     "prize": {
+      "category": "2 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "High unused block for exploration · ajustat: acoperire mai bună / numere mai puțin populare"
+    }
+   ],
+   "estimated_prize": {
+    "amount": 0.0,
+    "currency": ""
+   }
+  }
+ ]
+}

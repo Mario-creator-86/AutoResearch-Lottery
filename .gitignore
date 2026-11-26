@@ -1,0 +1,102 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+*.egg-info/
+.claude/
+.server.lock
+
+# Runtime data (per-lottery state, logs)
+data/*/progress.json
+data/*/progress.json.tmp
+data/*/progress.json.recovery
+data/*/autoloop_state.json
+data/*/autoloop_state.json.tmp
+data/*/autoloop_state.json.recovery
+data/*/ticket_history.json
+data/*/ticket_history.json.recovery
+data/*/.experiment.lock
+data/*/*.tmp
+data/*/loop.out.log
+data/*/loop.err.log
+data/*/run.out.log
+data/*/run.err.log
+data/*/.autoloop.stop
+autoloop_state.json
+autoloop_state.json.recovery
+progress.json
+progress.json.tmp
+.experiment.lock
+
+# Log files
+*.log
+server.stderr.log
+server.stdout.log
+
+# Temp/runtime files
+error.txt
+output.txt
+Prompt.txt
+result_current.json
+_tmp_*.js
+tmp_server_*.log
+
+# Screenshots and test artifacts
+*.png
+
+# Runtime state
+autoloop_state.json
+progress.json
+
+# Session documentation
+HISTORY_*.md
+MULTI_*.md
+TESTING.md
+UI_UX_*.md
+
+# Irrelevant directories
+audit/
+.pi/
+design-system/
+ui-ux-pro-max-skill/
+tasks/
+
+# Telegram config (may contain tokens)
+.telegram_chat_id
+
+# Old root-level results (data is now in data/*/results.tsv)
+results_eurojackpot.tsv
+results_joker_ro.tsv
+results_loto_5_40_ro.tsv
+results_loto_6_49_ro.tsv
+results_lotto_pl.tsv
+results_mega_millions_us.tsv
+results_mini_lotto_pl.tsv
+results_powerball_us.tsv
+# AI (Ollama) runtime artifacts
+data/*/ai_predictions.json
+data/*/ai_insights.json
+
+# Server boot log & auto-update state
+server_boot.log
+data/.auto_update.json
+.playwright-mcp/
+
+# Agent runtime state (rescrise la fiecare ciclu — nu aparțin istoricului git)
+agents/logs/
+agents/status/
+agents/messages/
+agents/incidents/
+agents/tasks/
+agents/.server_pid
+agents/.monitor_running
+agents/experiments_summary.json
+ai_strategies/*/.last_generation
+data/*/.autoloop.paused
+*.log.1
+
+# Local scratch
+.superpowers/
+.tmp_ls.html
+*.bak
+.pytest_cache/

@@ -1,0 +1,65 @@
+{
+  "lottery_id": "superenalotto_it",
+  "strategy": "iw40_best",
+  "backtest_score": 0.417258,
+  "wf_score": 0.411492,
+  "gap": 0.005766,
+  "stability": 0.9418,
+  "baseline_avg": 0.4,
+  "baseline_edge": 0.011492,
+  "folds": [
+    {
+      "fold": 1,
+      "train_size": 2583,
+      "test_size": 344,
+      "score": 0.392442,
+      "baseline": 0.4,
+      "hit_rate_2plus": 0.0581,
+      "hit_rate_3plus": 0.0029,
+      "portfolio_avg": 0.985465
+    },
+    {
+      "fold": 2,
+      "train_size": 2927,
+      "test_size": 344,
+      "score": 0.406977,
+      "baseline": 0.4,
+      "hit_rate_2plus": 0.0552,
+      "hit_rate_3plus": 0.0,
+      "portfolio_avg": 0.918605
+    },
+    {
+      "fold": 3,
+      "train_size": 3271,
+      "test_size": 344,
+      "score": 0.44186,
+      "baseline": 0.4,
+      "hit_rate_2plus": 0.061,
+      "hit_rate_3plus": 0.0087,
+      "portfolio_avg": 0.921512
+    },
+    {
+      "fold": 4,
+      "train_size": 3615,
+      "test_size": 344,
+      "score": 0.430233,
+      "baseline": 0.4,
+      "hit_rate_2plus": 0.0698,
+      "hit_rate_3plus": 0.0116,
+      "portfolio_avg": 0.889535
+    },
+    {
+      "fold": 5,
+      "train_size": 3959,
+      "test_size": 347,
+      "score": 0.386167,
+      "baseline": 0.4,
+      "hit_rate_2plus": 0.0403,
+      "hit_rate_3plus": 0.0,
+      "portfolio_avg": 0.927954
+    }
+  ],
+  "timestamp": "2026-11-22T20:49:21",
+  "elapsed_seconds": 0.81,
+  "num_folds": 5
+}

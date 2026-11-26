@@ -1,0 +1,12 @@
+[
+ {
+  "file": "zgaphaze_20260908_163238.py",
+  "key": "zgaphaze",
+  "metric": 0.41706,
+  "baseline": 0.4,
+  "description": "Strategie bazata pe hazard de intarziere: raportul dintre gap-ul curent si gap-ul mediu empiric al fiecarui numar, transformat neliniar (tanh), combinat cu deviatia z pe termen lung, moment EWMA (gamma=0.95) pe fereastra recenta si presiune de revenire pe sectoare de 10 modulata de entropia distributiei extragerilor recente pe sectoare. Orientarea deque-ului recent este auto-detectata din recența last_seen si raportata in DIAG['orient_flips'] pentru validare externa.",
+  "model": "model cantitativ + 2026-09-08",
+  "promoted_at": "2026-09-08T16:32:39",
+  "promoted": true
+ }
+]

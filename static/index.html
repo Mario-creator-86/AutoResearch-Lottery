@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoResearch Dashboard</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<div class="header">
+  <h1><span>AutoResearch</span> Dashboard</h1>
+  <div class="header-actions">
+    <div id="agent-activity" class="agent-activity" title="Starea agentului AI">
+      <div class="aa-dots">
+        <span class="aa-dot aa-idle" id="aa-dot"></span>
+        <span class="aa-ring" id="aa-ring"></span>
+      </div>
+      <div class="aa-info">
+        <span id="aa-state" class="aa-state">agent idle</span>
+        <span id="aa-task" class="aa-task">se inițializează…</span>
+        <span id="aa-since" class="aa-since"></span>
+      </div>
+      <div class="aa-mini" id="aa-mini"></div>
+    </div>
+    <span id="active-lottery-chip" class="selected-lottery">Loading lottery...</span>
+    <span id="connection-status" style="font-size:11px;color:var(--text-tertiary)">Connecting...</span>
+    <button id="btn-loop" class="btn btn-warning" onclick="toggleLoop()">Auto Loop</button>
+    <button id="btn-start" class="btn btn-success" onclick="startExperiment()">Start</button>
+    <button id="btn-stop" class="btn btn-danger" onclick="stopExperiment()" disabled>Stop</button>
+  </div>
+</div>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">Lotteries</div>
+      <div id="lottery-rail" class="lottery-rail"></div>
+    </div>
+
+  </aside>
+
+  <main class="container">
+    <div class="view-tabs">
+      <button id="tab-strategy" class="view-tab active" onclick="switchMainTab('strategy')">Strategie</button>
+      <button id="tab-history" class="view-tab" onclick="switchMainTab('history')">History</button>
+      <button id="tab-ai" class="view-tab" onclick="switchMainTab('ai')">AI Agent</button>
+    </div>
+
+    <section id="ai-view" style="display:none;">
+      <!-- Propuneri AI în așteptare -->
+      <div class="card" id="ai-pending-block" style="display:none;">
+        <div class="card-header">
+          <span class="card-title">🎬 Propuneri AI (aprobare necesară)</span>
+          <span class="status-badge badge-finished">AI are control — tu aprobii</span>
+        </div>
+        <div id="ai-pending-list"></div>
+      </div>
+
+      <!-- Bilete AI -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Bilete propuse de AI</span>
+          <span id="ai-tickets-model" class="status-badge badge-finished">--</span>
+        </div>
+        <div id="ai-tickets-summary" class="mb-md" style="color:var(--text-tertiary);font-size:13px;">
+          AI-ul propune bilete înaintea fiecărei extrageri, le salvează, le compară cu numerele
+          câștigătoare și învață din rezultate. Toate deciziile apar în Decision Ledger mai jos.
+        </div>
+        <div class="chart-container" style="height:180px;margin-bottom:var(--space-md);">
+          <canvas id="ai-tickets-chart"></canvas>
+        </div>
+        <div id="ai-tickets-list"></div>
+      </div>
+
+      <!-- Decision Ledger -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Decision Ledger</span>
+          <div class="d-flex align-center gap-sm">
+            <select id="ledger-type-filter" onchange="loadLedger()" style="background:var(--bg-secondary);color:var(--text);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:12px;padding:2px 6px;">
+              <option value="">Toate deciziile</option>
+              <option value="ai_analysis">Analize AI</option>
+              <option value="ai_tickets">Bilete propuse</option>
+              <option value="ticket_result">Rezultate bilete</option>
+              <option value="strategy_code">Cod strategii</option>
+              <option value="web_research">Cercetare web</option>
+              <option value="self_improvement">Auto-îmbunătățire</option>
+            </select>
+          </div>
+        </div>
+        <div id="ledger-list" class="ledger-list">
+          <div style="color:var(--text-tertiary);font-size:13px;">Se încarcă…</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="strategy-view">
+      <!-- AI (Ollama) Analysis Panel — sus, la cererea utilizatorului -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">AI Analysis (Ollama)</span>
+          <div class="d-flex align-center gap-sm">
+            <span id="ai-model-badge" class="status-badge badge-idle">AI: --</span>
+            <button id="ai-analyze-btn" class="btn btn-primary" onclick="runAIAnalysis()">Analizează cu AI</button>
+          </div>
+        </div>
+        <div id="ai-panel-content">
+          <div id="ai-empty" style="color:var(--text-tertiary);font-size:13px;padding:var(--space-sm) 0;">
+            Încă nu există analiză AI pentru această loterie. Agentul <strong>ollama_strategist</strong> rulează
+            analize automate periodic, sau apasă <strong>Analizează cu AI</strong> pentru una imediată.
+          </div>
+          <div id="ai-details" style="display:none;">
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-label">Următoarea extragere</div>
+                <div class="stat-value" id="ai-next-draw">--</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Încredere</div>
+                <div class="stat-value" id="ai-confidence">--</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Generat</div>
+                <div class="stat-value" id="ai-generated-at" style="font-size:13px;">--</div>
+              </div>
+            </div>
+            <div style="margin:var(--space-sm) 0 var(--space-xs);font-size:12px;color:var(--text-tertiary);">Numere propuse de AI (ordonate după potențial):</div>
+            <div id="ai-numbers" class="ai-numbers"></div>
+            <div style="margin:var(--space-md) 0 var(--space-xs);font-size:12px;color:var(--text-tertiary);">Investigația AI:</div>
+            <div id="ai-analysis" style="font-size:13px;line-height:1.65;color:var(--text);"></div>
+            <div id="ai-noise-block" style="display:none;margin-top:var(--space-sm);padding:var(--space-sm);background:var(--bg-secondary);border-radius:var(--radius-sm);font-size:12px;line-height:1.6;color:var(--text-tertiary);">
+              <strong style="color:var(--warning);">Zgomot probabil:</strong> <span id="ai-noise"></span>
+            </div>
+            <div id="ai-suggestions-block" style="display:none;margin-top:var(--space-sm);">
+              <div style="font-size:12px;color:var(--text-tertiary);margin-bottom:var(--space-xs);">Sugestii de parametri pentru auto-loop (trimise către pending_review):</div>
+              <div id="ai-suggestions" style="font-size:12px;line-height:1.7;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status Card -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title" id="lottery-label">Current Experiment</span>
+          <span class="status-badge badge-idle" id="status-badge">IDLE</span>
+        </div>
+        <div id="status-idle-msg" class="text-center" style="color:var(--text-tertiary);padding:var(--space-lg) 0;">
+          No experiment running. Click <b>Start</b> to begin.
+        </div>
+        <div id="status-running" style="display:none;">
+          <div class="progress-container">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="progress-fill" style="width:0%">0%</div>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-label">Tested</div>
+              <div class="stat-value" id="stat-tested">0 / 0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Best So Far</div>
+              <div class="stat-value best" id="stat-best">--</div>
+              <div class="stat-sub" id="stat-best-config"></div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">ETA</div>
+              <div class="stat-value" id="stat-eta">--</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Elapsed</div>
+              <div class="stat-value" id="stat-elapsed">--</div>
+            </div>
+          </div>
+          <div class="recent-list" id="recent-list"></div>
+        </div>
+        <div id="status-finished" style="display:none;">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-label">Final Metric</div>
+              <div class="stat-value best" id="finished-metric">--</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Best Config</div>
+              <div class="stat-value" id="finished-config" style="font-size:14px;">--</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Total Tested</div>
+              <div class="stat-value" id="finished-total">--</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Generate Numbers Section -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Generate Numbers</span>
+          <span id="strategy-badge" class="status-badge badge-finished">Strategy: loading...</span>
+        </div>
+        <div id="generator-rules" class="mb-md" style="color:var(--text-tertiary);font-size:13px;line-height:1.6;">Rules: loading...</div>
+        <div class="generator-controls">
+          <div class="generator-control">
+            <label>Numere per bilet</label>
+            <div class="generator-input-group">
+              <input type="range" id="nums-per-ticket" min="1" max="20" value="10"
+                     oninput="updateNumsPerTicketLabel(this.value)">
+              <span id="nums-per-ticket-val" class="generator-val">10</span>
+            </div>
+            <span id="nums-per-ticket-fixed" class="fixed-control-value" style="display:none;"></span>
+          </div>
+          <div id="bonus-control" class="generator-control" style="display:none;">
+            <label>Bonus per bilet</label>
+            <div class="generator-input-group">
+              <input type="range" id="bonus-per-ticket" min="0" max="0" value="0"
+                     oninput="updateBonusPerTicketLabel(this.value)">
+              <span id="bonus-per-ticket-val" class="generator-val">0</span>
+            </div>
+            <span id="bonus-per-ticket-fixed" class="fixed-control-value" style="display:none;"></span>
+          </div>
+          <div class="generator-control">
+            <label>Număr bilete</label>
+            <div class="generator-input-group">
+              <input type="range" id="ticket-slider" min="1" max="20" value="10"
+                     oninput="document.getElementById('ticket-count').textContent = this.value">
+              <span id="ticket-count" class="generator-val">10</span>
+            </div>
+          </div>
+          <div id="draw-time-control" class="generator-control" style="display:none;">
+            <label>Extragere</label>
+            <div class="generator-input-group">
+              <select id="draw-time-select" onchange="onDrawTimeChange()" style="width:100%;padding:var(--space-xs) var(--space-sm);background:var(--bg-secondary);color:var(--text);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;"></select>
+            </div>
+          </div>
+        </div>
+        <button id="btn-generate" class="btn btn-primary w-full mt-md" onclick="generateNumbers()">Generează Numere</button>
+      </div>
+
+      <div class="mb-md" style="color:var(--text-tertiary);font-size:12px;">
+        Ultima extragere: <span id="last-draw-date" style="color:var(--accent-primary)">--</span>
+        <span style="margin-left:var(--space-md);">Următoarea:</span> <span id="next-draw-date" style="color:var(--accent-primary)">--</span>
+        <span style="margin-left:var(--space-md);">Numere extrase:</span>
+        <span id="last-draw-nums" style="color:var(--success)">--</span>
+      </div>
+
+      <div id="tickets-summary" style="display:none;margin-bottom:var(--space-sm);padding:var(--space-xs) var(--space-lg);border-radius:var(--radius-sm);font-size:13px;font-weight:700;"></div>
+      <div id="tickets-display" class="tickets-grid"></div>
+    </section>
+
+    <!-- Chart -->
+    <div id="chart-card" class="card">
+      <div class="card-header">
+        <h2 class="card-title">Metric Evolution</h2>
+        <span id="edge-badge" style="font-size:14px;font-weight:normal;margin-left:var(--space-lg);color:var(--success);"></span>
+      </div>
+      <div class="chart-container">
+        <canvas id="evolution-chart"></canvas>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div id="table-card" class="card">
+      <div class="card-header">
+        <h2 class="card-title">Experiment History</h2>
+        <label style="font-size:12px;font-weight:normal;color:var(--text-tertiary);cursor:pointer;display:flex;align-items:center;gap:var(--space-xs);">
+          <input type="checkbox" id="toggle-collapse" onchange="renderTable(); renderChart();" checked>
+          <span>Group consecutive DISCARDs</span>
+        </label>
+      </div>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th onclick="sortTable(0)"># <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(1)">Status <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(2)">Avg Hits <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(3)">Strategy <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(4)">2+ Rate <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(5)">3+ Rate <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(6)">Portfolio <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(7)">Duration <span class="sort-arrow"></span></th>
+            </tr>
+          </thead>
+          <tbody id="exp-table-body"></tbody>
+        </table>
+        <button id="exp-show-more" class="btn btn-secondary" style="display:none;width:100%;margin-top:var(--space-sm);" onclick="toggleShowAll()">Show all experiments</button>
+      </div>
+    </div>
+
+    <!-- Walk-Forward Validation Panel -->
+    <div id="walkforward-panel" class="card">
+      <div class="card-header">
+        <span class="card-title">Walkforward Validation</span>
+        <button id="wf-run-btn" class="btn btn-primary" onclick="runWalkforward()">Run Walkforward</button>
+      </div>
+      <div id="walkforward-content" style="font-size:12px;color:var(--text-tertiary);padding:4px 0;">No walkforward data. Click <strong>Run Walkforward</strong> to validate current strategy.</div>
+    </div>
+
+    <!-- Reality Check: edge real sau zgomot de selecție? -->
+    <div id="reality-panel" class="card">
+      <div class="card-header">
+        <span class="card-title">Reality Check — edge sau zgomot?</span>
+        <button class="btn btn-secondary" onclick="loadRealityCheck()">Recalculează</button>
+      </div>
+      <div id="reality-content" style="font-size:12px;color:var(--text-tertiary);padding:4px 0;">Se calculează...</div>
+    </div>
+  </section>
+
+  <section id="history-view" style="display:none;">
+    <!-- AI Ticket Progress -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Progres bilete AI</span>
+        <span id="ai-hist-price" class="status-badge badge-idle">--</span>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Extrageri urmărite</div>
+          <div class="stat-value" id="ai-hist-draws">--</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Bilete jucate</div>
+          <div class="stat-value" id="ai-hist-tickets">--</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Numere nimerite (total)</div>
+          <div class="stat-value" id="ai-hist-hits">--</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Câștig estimat</div>
+          <div class="stat-value" id="ai-hist-winnings">--</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Cost estimat</div>
+          <div class="stat-value" id="ai-hist-cost">--</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Balanță (câștig − cost)</div>
+          <div class="stat-value" id="ai-hist-balance">--</div>
+        </div>
+      </div>
+      <div id="ai-hist-distribution" class="mb-md" style="margin-top:var(--space-sm);font-size:12px;color:var(--text-tertiary);line-height:1.7;">
+        Din toate biletele jucate: încă nu există date.
+      </div>
+    </div>
+
+    <!-- AI Ticket History table -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Istoric bilete AI</span>
+      </div>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Extragere</th>
+              <th>Numere câștigătoare</th>
+              <th>Bilete</th>
+              <th>Hits (total)</th>
+              <th>Cel mai bun bilet</th>
+              <th>Câștig estimat</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="ai-hist-table-body">
+            <tr><td colspan="8" style="color:var(--text-tertiary);">Se încarcă...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Saved Ticket History</span>
+        <div class="d-flex align-center gap-sm">
+          <span id="history-capacity" class="status-badge badge-idle">Today 0 / 20</span>
+          <button id="scrape-draws-btn" class="icon-btn" title="Update draw results from official sources" onclick="scrapeDrawResults()" style="position:relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"></path>
+            </svg>
+            <span id="scrape-status" style="display:none;position:absolute;top:-8px;right:-8px;width:8px;height:8px;border-radius:50%;"></span>
+          </button>
+          <button id="history-refresh-btn" class="icon-btn" title="Refresh history" onclick="refreshHistoryManually()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M23 4v6h-6"></path>
+              <path d="M1 20v-6h6"></path>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="history-summary" class="mb-md" style="color:var(--text-tertiary);font-size:13px;">Saved tickets and draw checks will appear here.</div>
+      <div id="history-empty" class="history-empty">No saved tickets for this lottery yet. Use the <strong>+</strong> button from Strategie's generated tickets.</div>
+      <div id="history-groups"></div>
+    </div>
+  </section>
+</main>
+</div>
+
+<!-- Dashboard JS (external, served via StaticFiles mount) -->
+<script src="/static/dashboard.js?v=11"></script>
+<!-- Inline fallback: if dashboard.js fails to load (404, network error), boot minimal functionality -->
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    // Check if key functions from dashboard.js are available
+    if (typeof loadLotteries !== 'function') {
+      console.warn('dashboard.js failed to load — activating inline fallback');
+      // Minimal fallback: load lotteries and display them in the rail
+      (async function() {
+        try {
+          const resp = await fetch('/api/lotteries');
+          if (!resp.ok) return;
+          const lotteries = await resp.json();
+          const rail = document.getElementById('lottery-rail');
+          if (rail) {
+            rail.innerHTML = lotteries.map(l =>
+              '<button class="lottery-item" onclick="location.hash=\'' + l.id + '\'">' +
+              '<div class="lottery-item-head"><span class="lottery-item-name">' + (l.name || l.id) + '</span>' +
+              '<span class="lottery-item-status badge-idle">idle</span></div>' +
+              '<div class="lottery-item-meta"><span>Best ' + (l.best_metric ? l.best_metric.toFixed(3) : '--') + '</span>' +
+              '<span>' + (l.draw_count || 0) + ' draws</span></div></button>'
+            ).join('');
+          }
+          // Load progress for first lottery
+          const first = lotteries[0];
+          if (first) {
+            const badge = document.getElementById('status-badge');
+            const idleMsg = document.getElementById('status-idle-msg');
+            if (badge) { badge.textContent = 'LOADING'; badge.className = 'status-badge badge-idle'; }
+            if (idleMsg) { idleMsg.style.display = 'block'; idleMsg.innerHTML = 'Loading... (dashboard.js unavailable — limited UI)'; }
+            try {
+              const pResp = await fetch('/api/' + first.id + '/progress');
+              const pData = await pResp.json();
+              if (badge) { badge.textContent = (pData.status || 'IDLE').toUpperCase(); }
+            } catch(e) {}
+          }
+        } catch(e) {
+          console.error('Fallback load failed:', e);
+        }
+      })();
+    }
+  });
+</script>
+
+</body>
+</html>

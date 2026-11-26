@@ -1,0 +1,65 @@
+{
+  "lottery_id": "powerball_us",
+  "strategy": "tf3.0_hc2.0_b4.01_sb1.0_jc0.0_bf0.0_dd2.5_ps20.0_el0.05",
+  "backtest_score": 0.405675,
+  "wf_score": 0.382143,
+  "gap": 0.023532,
+  "stability": 0.8644,
+  "baseline_avg": 0.362319,
+  "baseline_edge": 0.019824,
+  "folds": [
+    {
+      "fold": 1,
+      "train_size": 838,
+      "test_size": 112,
+      "score": 0.428571,
+      "baseline": 0.362319,
+      "hit_rate_2plus": 0.0625,
+      "hit_rate_3plus": 0.0,
+      "portfolio_avg": 0.857143
+    },
+    {
+      "fold": 2,
+      "train_size": 950,
+      "test_size": 112,
+      "score": 0.330357,
+      "baseline": 0.362319,
+      "hit_rate_2plus": 0.0089,
+      "hit_rate_3plus": 0.0,
+      "portfolio_avg": 0.955357
+    },
+    {
+      "fold": 3,
+      "train_size": 1062,
+      "test_size": 112,
+      "score": 0.446429,
+      "baseline": 0.362319,
+      "hit_rate_2plus": 0.0446,
+      "hit_rate_3plus": 0.0,
+      "portfolio_avg": 0.821429
+    },
+    {
+      "fold": 4,
+      "train_size": 1174,
+      "test_size": 112,
+      "score": 0.357143,
+      "baseline": 0.362319,
+      "hit_rate_2plus": 0.0625,
+      "hit_rate_3plus": 0.0089,
+      "portfolio_avg": 0.919643
+    },
+    {
+      "fold": 5,
+      "train_size": 1286,
+      "test_size": 112,
+      "score": 0.348214,
+      "baseline": 0.362319,
+      "hit_rate_2plus": 0.0268,
+      "hit_rate_3plus": 0.0,
+      "portfolio_avg": 0.839286
+    }
+  ],
+  "timestamp": "2026-09-08T05:54:24",
+  "elapsed_seconds": 0.16,
+  "num_folds": 5
+}

@@ -1,0 +1,12 @@
+[
+ {
+  "file": "zphasecy_20260908_040703.py",
+  "key": "zphasecy",
+  "metric": 0.661765,
+  "baseline": 0.610169,
+  "description": "Rezonanță de fază pe cicluri de întârziere: fiecare număr primește un ciclu personal (mediana ultimelor gap-uri) scorat prin 3 multipli armonici, amplificat când sectorul său (1 din 10 benzi) e în aceeași fază de întoarcere. Un prior de bază recompensează numerele ale căror gap-uri curente sunt aproape de ciclul global, iar un gate de entropie pe fereastra recentă decide cât de mult se amplifică rezonanțele.",
+  "model": "cycle-phase research model + 2026-09-08",
+  "promoted_at": "2026-09-08T04:07:03",
+  "promoted": true
+ }
+]

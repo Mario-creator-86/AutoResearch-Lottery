@@ -1,0 +1,3 @@
+commit	average_hits	status	strategy	hit_rate_2_plus	hit_rate_3_plus	portfolio_avg	elapsed_s	description
+exp1	0.500	DISCARD	baseline	0.0	0.0	0.0	60	Initial baseline test. Only 52 draws available. Baseline expected ~0.500
+auto	1.0	KEEP	iw50_best	0.0	0.0	2.0	3.16	AutoLoop phase1 iter1 KEEP: iw50_best -> 1.000000 (87 configs, radius=0.500)

@@ -1,0 +1,299 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "draw_date": "2026-09-09",
+   "next_draw_times": [
+    "20:45"
+   ],
+   "model": "glm-5.3-flash:cloud",
+   "created_at": "2026-09-08T08:14:32",
+   "reasoning": "Am structurat 20 de bilete în patru blocuri: primele cinci ancorate pe topul strategiei deterministe (9, 33, 59, 12, 40, 54), apoi cinci mixte strategie+AI care combină nucleul momentum (33, 54, 59, 32, 22, 12, 14, 47) cu perechile 22-56 și 12-15, apoi cinci orientate pe banda overdue (37, 25, 8, 30) plus 21, 28, 31, 51, iar ultimele cinci explorează perechi și sectoare pentru acoperire echilibrată pe 1-59. Am păstrat raportul ~60% momentum / ~40% overdue, fără duplicate de linii, cu paritate și zone echilibrate în fiecare bilet, bonusurile extrase din ambele clasamente.",
+   "strategy_metric": 0.5,
+   "tickets": [
+    {
+     "main": [
+      9,
+      12,
+      33,
+      40,
+      54,
+      59
+     ],
+     "bonus": [
+      22
+     ],
+     "why": "Top 5 strategie backtest, echilibru paritate și zone."
+    },
+    {
+     "main": [
+      22,
+      33,
+      34,
+      36,
+      56,
+      59
+     ],
+     "bonus": [
+      12
+     ],
+     "why": "Nucleu strategie plus perechea 22-56, bonus 12."
+    },
+    {
+     "main": [
+      6,
+      15,
+      31,
+      32,
+      35,
+      47
+     ],
+     "bonus": [
+      9
+     ],
+     "why": "Strategie nivel doi, bandă 31-35, acoperire joasă."
+    },
+    {
+     "main": [
+      6,
+      12,
+      32,
+      40,
+      47,
+      54
+     ],
+     "bonus": [
+      33
+     ],
+     "why": "Momentum 32-40-47 cu ancore joase 6 și 12."
+    },
+    {
+     "main": [
+      9,
+      22,
+      34,
+      35,
+      43,
+      54
+     ],
+     "bonus": [
+      56
+     ],
+     "why": "Diversificare top strategie, zone 9-43 echilibrate."
+    },
+    {
+     "main": [
+      12,
+      14,
+      33,
+      47,
+      54,
+      59
+     ],
+     "bonus": [
+      30
+     ],
+     "why": "Nucleu AI aproape complet, bonus 30 overdue."
+    },
+    {
+     "main": [
+      12,
+      22,
+      31,
+      32,
+      40,
+      56
+     ],
+     "bonus": [
+      15
+     ],
+     "why": "Sinergii 22-56 și 12-15, bloc 31-40."
+    },
+    {
+     "main": [
+      9,
+      25,
+      33,
+      37,
+      47,
+      54
+     ],
+     "bonus": [
+      32
+     ],
+     "why": "AI momentum plus overdue 25 și 37."
+    },
+    {
+     "main": [
+      12,
+      22,
+      30,
+      32,
+      54,
+      56
+     ],
+     "bonus": [
+      59
+     ],
+     "why": "Perechi 22-56 și 12-15 indirect, bonus 59."
+    },
+    {
+     "main": [
+      6,
+      15,
+      21,
+      28,
+      40,
+      59
+     ],
+     "bonus": [
+      14
+     ],
+     "why": "Mix AI 21, 28 cu echilibru strategie."
+    },
+    {
+     "main": [
+      8,
+      14,
+      25,
+      33,
+      37,
+      47
+     ],
+     "bonus": [
+      59
+     ],
+     "why": "Overdue 8, 25, 37 cu nucleu 14-33-47."
+    },
+    {
+     "main": [
+      8,
+      15,
+      21,
+      30,
+      31,
+      51
+     ],
+     "bonus": [
+      47
+     ],
+     "why": "Bandă overdue 8-21-30, perechea 31-51."
+    },
+    {
+     "main": [
+      14,
+      25,
+      28,
+      30,
+      37,
+      59
+     ],
+     "bonus": [
+      22
+     ],
+     "why": "Overdue 25-37 cu sinergia 28-59, bonus 22."
+    },
+    {
+     "main": [
+      8,
+      28,
+      31,
+      37,
+      40,
+      51
+     ],
+     "bonus": [
+      12
+     ],
+     "why": "Overdue 8 și 37, perechea 31-51 extinsă."
+    },
+    {
+     "main": [
+      21,
+      22,
+      25,
+      28,
+      30,
+      54
+     ],
+     "bonus": [
+      33
+     ],
+     "why": "Cluster AI 21-30 cu momentum 22 și 54."
+    },
+    {
+     "main": [
+      12,
+      15,
+      22,
+      28,
+      56,
+      59
+     ],
+     "bonus": [
+      31
+     ],
+     "why": "Explorare perechi 22-56 și 12-15, bonus 31."
+    },
+    {
+     "main": [
+      9,
+      22,
+      31,
+      47,
+      51,
+      56
+     ],
+     "bonus": [
+      14
+     ],
+     "why": "Perechi 31-51 și 22-56, bonus 14."
+    },
+    {
+     "main": [
+      2,
+      7,
+      9,
+      14,
+      18,
+      22
+     ],
+     "bonus": [
+      33
+     ],
+     "why": "Explorare sector jos 2-22, bonus 33."
+    },
+    {
+     "main": [
+      32,
+      35,
+      39,
+      43,
+      51,
+      54
+     ],
+     "bonus": [
+      59
+     ],
+     "why": "Explorare sector mijlociu-sus 32-54, bonus 59."
+    },
+    {
+     "main": [
+      6,
+      20,
+      34,
+      40,
+      48,
+      56
+     ],
+     "bonus": [
+      12
+     ],
+     "why": "Explorare dispersie completă 6-56, bonus 12."
+    }
+   ],
+   "status": "cancelled",
+   "cancel_note": "loterie retrasă din exploatare (2026-09-08)"
+  }
+ ]
+}

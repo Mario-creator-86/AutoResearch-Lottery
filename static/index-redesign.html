@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoResearch Dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@300;400;500;600;700&display=swap">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      /* UI/UX Pro Max recommended color palette */
+      --color-primary: #0F172A;
+      --color-on-primary: #FFFFFF;
+      --color-secondary: #1E293B;
+      --color-accent: #22C55E;
+      --color-background: #020617;
+      --color-foreground: #F8FAFC;
+      --color-muted: #1A1E2F;
+      --color-border: #334155;
+      --color-destructive: #EF4444;
+      --color-ring: #0F172A;
+
+      /* Status colors */
+      --color-success: #22C55E;
+      --color-warning: #EAB308;
+      --color-error: #EF4444;
+      --color-info: #0EA5E9;
+
+      /* Text colors */
+      --text-primary: #F8FAFC;
+      --text-secondary: #CBD5E1;
+      --text-tertiary: #94A3B8;
+
+      /* Spacing scale */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+
+      /* Border radius */
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+
+      /* Shadows */
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+      --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+
+      /* Typography */
+      --mono: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+      --sans: 'Fira Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--color-background);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-size: 14px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--mono);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: var(--space-sm);
+    }
+
+    h1 {
+      font-size: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    h2 {
+      font-size: 18px;
+    }
+
+    h3 {
+      font-size: 16px;
+    }
+
+    /* Focus states for accessibility */
+    a:focus, button:focus, input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Header */
+    .header {
+      background: var(--color-primary);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-md) var(--space-xl);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-md);
+    }
+
+    .header h1 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .header h1 span {
+      color: var(--color-accent);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: var(--space-md);
+      align-items: center;
+    }
+
+    .selected-lottery {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--space-xs) var(--space-lg);
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      background: var(--color-muted);
+      color: var(--text-primary);
+      font-size: 12px;
+      font-weight: 600;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+    }
+
+    /* Main layout */
+    .app-shell {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      align-items: start;
+      gap: 0;
+      min-height: calc(100vh - 73px);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 73px;
+      height: calc(100vh - 73px);
+      background: linear-gradient(180deg, var(--color-primary), var(--color-background));
+      border-right: 1px solid var(--color-border);
+      padding: var(--space-xl) var(--space-lg);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xl);
+    }
+
+    .sidebar-section {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .sidebar-title {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: var(--space-sm);
+      font-weight: 700;
+      opacity: 0.8;
+    }
+
+    /* Lottery items */
+    .lottery-rail {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .lottery-item {
+      width: 100%;
+      text-align: left;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-muted);
+      color: var(--text-primary);
+      padding: var(--space-md) var(--space-lg);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .lottery-item:hover {
+      border-color: var(--color-accent);
+      background: var(--color-secondary);
+      transform: translateX(4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .lottery-item.active {
+      border-color: var(--color-accent);
+      background: linear-gradient(135deg, var(--color-muted), var(--color-secondary));
+      box-shadow: 0 0 0 1px var(--color-accent), 0 4px 12px rgba(34, 197, 94, 0.15);
+    }
+
+    .lottery-item-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-xs);
+    }
+
+    .lottery-item-name {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .lottery-item-status {
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .lottery-item-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      color: var(--text-tertiary);
+      font-size: 11px;
+      margin-bottom: var(--space-xs);
+    }
+
+    .lottery-mini-wrap {
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 999px;
+      background: rgba(13,17,23,0.9);
+      padding: 3px;
+      margin-bottom: var(--space-xs);
+    }
+
+    .lottery-mini-bar {
+      height: 9px;
+      border-radius: 999px;
+      background: rgba(48,54,61,0.95);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .lottery-mini-fill {
+      height: 100%;
+      min-width: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #5fd652, #58a6ff);
+      transition: width 0.35s ease;
+    }
+
+    .lottery-mini-fill.status-crashed {
+      background: linear-gradient(90deg, #f85149, #ff7b72);
+    }
+
+    .lottery-mini-fill.status-stalled {
+      background: linear-gradient(90deg, #d29922, #f2cc60);
+    }
+
+    .lottery-mini-fill.status-idle,
+    .lottery-mini-fill.status-stopped {
+      background: linear-gradient(90deg, #4b5563, #6b7280);
+    }
+
+    .lottery-item-foot {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      color: var(--text-tertiary);
+      font-size: 11px;
+    }
+
+    /* Agent items */
+    .agent-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--radius-sm);
+      background: var(--color-muted);
+      margin-bottom: var(--space-xs);
+    }
+
+    .agent-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #94a3b8;
+    }
+
+    .agent-name {
+      flex: 1;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .agent-status {
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+
+    .agent-actions {
+      display: flex;
+      gap: var(--space-sm);
+      margin-top: var(--space-sm);
+    }
+
+    /* Main content */
+    .container {
+      width: 100%;
+      padding: var(--space-lg) var(--space-xl) var(--space-xxl);
+    }
+
+    /* View tabs */
+    .view-tabs {
+      display: inline-flex;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-xl);
+      padding: var(--space-xs);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      background: var(--color-secondary);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .view-tab {
+      min-width: 120px;
+      padding: var(--space-sm) var(--space-md);
+      border: 1px solid transparent;
+      border-radius: var(--radius-md);
+      background: transparent;
+      color: var(--text-tertiary);
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .view-tab:hover {
+      color: var(--text-primary);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .view-tab.active {
+      background: var(--color-accent);
+      color: #000;
+      border-color: var(--color-accent);
+      box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+    }
+
+    /* Cards */
+    .card {
+      background: var(--color-muted);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--shadow-md);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-lg);
+    }
+
+    .card-title {
+      font-size: 16px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    /* Status badges */
+    .status-badge {
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .badge-idle {
+      background: var(--color-muted);
+      color: var(--text-tertiary);
+      border: 1px solid var(--color-border);
+    }
+
+    .badge-running {
+      background: rgba(34, 197, 94, 0.1);
+      color: var(--color-success);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+
+    .badge-finished {
+      background: rgba(34, 197, 94, 0.1);
+      color: var(--color-success);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+
+    .badge-crashed {
+      background: rgba(248,81,73,0.15);
+      color: var(--color-error);
+    }
+
+    .badge-stopped {
+      background: rgba(210,153,34,0.15);
+      color: var(--color-warning);
+    }
+
+    .badge-stalled {
+      background: rgba(210,153,34,0.15);
+      color: var(--color-warning);
+    }
+
+    /* Progress bar */
+    .progress-container {
+      margin: var(--space-md) 0;
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 28px;
+      background: var(--color-muted);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      position: relative;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--color-success), var(--color-accent));
+      border-radius: var(--radius-sm);
+      transition: width 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #000;
+      min-width: 40px;
+    }
+
+    /* Stats grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-md);
+      margin: var(--space-md) 0;
+    }
+
+    .stat-card {
+      background: var(--color-muted);
+      padding: var(--space-lg);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      transition: all 0.2s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-accent);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      margin-bottom: var(--space-xs);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .stat-value.best {
+      color: var(--color-success);
+    }
+
+    .stat-sub {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      margin-top: var(--space-xs);
+      opacity: 0.8;
+    }
+
+    /* Recent list */
+    .recent-list {
+      margin-top: var(--space-md);
+      max-height: 110px;
+      overflow-y: auto;
+    }
+
+    .recent-list::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .recent-list::-webkit-scrollbar-track {
+      background: var(--color-muted);
+      border-radius: 3px;
+    }
+
+    .recent-list::-webkit-scrollbar-thumb {
+      background: var(--color-border);
+      border-radius: 3px;
+    }
+
+    .recent-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px var(--space-sm);
+      border-bottom: 1px solid var(--color-muted);
+      font-size: 12px;
+    }
+
+    .recent-item:nth-child(1) .recent-metric {
+      color: var(--color-success);
+      font-weight: 700;
+    }
+
+    /* Buttons */
+    .btn {
+      padding: var(--space-sm) var(--space-lg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-family: var(--mono);
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      background: var(--color-muted);
+      color: var(--text-primary);
+    }
+
+    .btn:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    .btn-primary {
+      background: var(--color-accent);
+      color: #000;
+      border-color: var(--color-accent);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: #4ade80;
+      border-color: #4ade80;
+      box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+    }
+
+    .btn-success {
+      background: var(--color-success);
+      color: #000;
+      border-color: var(--color-success);
+    }
+
+    .btn-success:hover:not(:disabled) {
+      background: #4ade80;
+      border-color: #4ade80;
+      box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+    }
+
+    .btn-danger {
+      background: var(--color-error);
+      color: #fff;
+      border-color: var(--color-error);
+    }
+
+    .btn-danger:hover:not(:disabled) {
+      background: #f87171;
+      border-color: #f87171;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    }
+
+    .btn-warning {
+      background: var(--color-warning);
+      color: #000;
+      border-color: var(--color-warning);
+    }
+
+    .btn-warning:hover:not(:disabled) {
+      background: #facc15;
+      border-color: #facc15;
+      box-shadow: 0 4px 12px rgba(234, 179, 8, 0.3);
+    }
+
+    /* Icon buttons */
+    .icon-btn {
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      background: var(--color-secondary);
+      color: var(--color-accent);
+      font-family: var(--mono);
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-1px);
+    }
+
+    .icon-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .icon-btn.saved {
+      color: var(--color-success);
+      border-color: rgba(34, 197, 94, 0.4);
+    }
+
+    .icon-btn.danger {
+      color: var(--color-error);
+      border-color: rgba(248,81,73,0.28);
+    }
+
+    .icon-btn.danger:hover {
+      border-color: var(--color-error);
+    }
+
+    /* Generator controls */
+    .generator-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-lg);
+      margin: var(--space-lg) 0;
+      align-items: end;
+    }
+
+    .generator-control {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      background: var(--color-muted);
+      padding: var(--space-md);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+    }
+
+    .generator-control label {
+      color: var(--text-tertiary);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .generator-input-group {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .generator-control input[type="range"] {
+      flex: 1;
+      cursor: pointer;
+      accent-color: var(--color-accent);
+    }
+
+    .generator-val {
+      color: var(--color-accent);
+      font-weight: 700;
+      min-width: 30px;
+      text-align: right;
+      font-family: var(--mono);
+    }
+
+    .fixed-control-value {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 var(--space-sm);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: var(--color-secondary);
+      color: var(--color-accent);
+      font-weight: 700;
+      font-size: 11px;
+    }
+
+    /* Tickets grid */
+    .tickets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+
+    .ticket-card {
+      background: var(--color-muted);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: var(--radius-md);
+      padding: var(--space-sm) var(--space-md);
+      min-height: 86px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .ticket-card:hover {
+      border-color: var(--color-border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .ticket-card.win {
+      border-color: rgba(34, 197, 94, 0.6);
+      box-shadow: inset 0 0 0 1px rgba(34, 197, 94, 0.18), 0 0 12px rgba(34, 197, 94, 0.15);
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), var(--color-muted));
+      position: relative;
+    }
+
+    .ticket-card.win::before {
+      content: 'WINNER';
+      position: absolute;
+      top: -8px;
+      right: 12px;
+      background: var(--color-success);
+      color: #0d1117;
+      font-size: 9px;
+      font-weight: 900;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .ticket-card.miss {
+      border-color: rgba(248,81,73,0.18);
+    }
+
+    .ticket-head {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--space-sm);
+      margin-bottom:var(--space-xs);
+    }
+
+    .ticket-actions {
+      display:flex;
+      align-items:center;
+      gap:var(--space-xs);
+    }
+
+    .ticket-index {
+      color: var(--text-tertiary);
+    }
+
+    .ticket-status {
+      min-width: 28px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 14px;
+      border-radius: 999px;
+      padding: 2px 8px;
+    }
+
+    .ticket-status.win {
+      color: var(--color-success);
+      background: rgba(34, 197, 94, 0.15);
+    }
+
+    .ticket-status.miss {
+      color: var(--color-error);
+      background: rgba(248,81,73,0.12);
+    }
+
+    .ticket-lines {
+      display:flex;
+      flex-direction:column;
+      gap:5px;
+    }
+
+    .ticket-line {
+      line-height: 1.45;
+      word-break: break-word;
+    }
+
+    .ticket-bonus-label {
+      color: var(--text-tertiary);
+      margin-right: 6px;
+    }
+
+    .ticket-foot {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--space-xs);
+      margin-top:var(--space-xs);
+      font-size:11px;
+      color:var(--text-tertiary);
+    }
+
+    .ticket-outcome.win {
+      color: var(--color-success);
+      font-weight: 700;
+    }
+
+    .ticket-outcome.miss {
+      color: var(--color-error);
+      font-weight: 700;
+    }
+
+    .ticket-reason {
+      text-align: right;
+    }
+
+    /* History */
+    .history-group-card {
+      background: var(--color-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg) var(--space-xl);
+      margin-bottom: var(--space-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .history-group-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:var(--space-sm);
+      align-items:center;
+      color:var(--text-tertiary);
+      font-size:12px;
+      margin:var(--space-xs) 0 var(--space-sm);
+    }
+
+    .history-chip {
+      display:inline-flex;
+      align-items:center;
+      padding:4px 10px;
+      border-radius:999px;
+      border:1px solid var(--color-border);
+      background:var(--color-muted);
+      color:var(--text-tertiary);
+      font-size:11px;
+      font-weight:700;
+    }
+
+    .history-draw-line {
+      color: var(--text-tertiary);
+      font-size: 12px;
+      margin-bottom: var(--space-sm);
+      line-height: 1.5;
+    }
+
+    .history-draw-line strong {
+      color: var(--text-primary);
+    }
+
+    .history-empty {
+      background: var(--color-secondary);
+      border: 1px dashed var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-xl);
+      color: var(--text-tertiary);
+      text-align: center;
+    }
+
+    .history-loading {
+      background: var(--color-secondary);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-xl);
+      color: var(--text-tertiary);
+      text-align: center;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    .history-error {
+      background: rgba(248,81,73,0.1);
+      border: 1px solid var(--color-error);
+      border-radius: var(--radius-md);
+      padding: var(--space-xl);
+      color: var(--color-error);
+      text-align: center;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 13px;
+    }
+
+    th {
+      text-align: left;
+      padding: var(--space-md);
+      border-bottom: 2px solid var(--color-border);
+      color: var(--text-tertiary);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    th:hover {
+      color: var(--color-accent);
+      background: rgba(34, 197, 94, 0.05);
+    }
+
+    td {
+      padding: var(--space-md);
+      border-bottom: 1px solid var(--color-border);
+      transition: background 0.15s ease;
+    }
+
+    tr.row-keep {
+      background: rgba(34, 197, 94, 0.03);
+    }
+
+    tr.row-discard {
+      background: rgba(239, 68, 68, 0.03);
+    }
+
+    tr:hover td {
+      background: var(--color-muted);
+      color: var(--text-primary);
+    }
+
+    .status-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .chip-keep {
+      background: rgba(34, 197, 94, 0.15);
+      color: var(--color-success);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+
+    .chip-discard {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--color-error);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .metric-cell {
+      font-weight: 700;
+    }
+
+    .desc-row td {
+      padding: var(--space-sm) var(--space-md) var(--space-lg) 40px;
+      color: var(--text-tertiary);
+      font-size: 12px;
+      border: none;
+    }
+
+    .expandable {
+      cursor: pointer;
+    }
+
+    .expand-icon {
+      color: var(--text-tertiary);
+      margin-right: var(--space-xs);
+      transition: transform 0.2s;
+      display: inline-block;
+    }
+
+    .expand-icon.open {
+      transform: rotate(90deg);
+    }
+
+    /* Charts */
+    .chart-container {
+      position: relative;
+      height: 300px;
+      margin-top: var(--space-md);
+    }
+
+    /* Utility classes */
+    .text-center {
+      text-align: center;
+    }
+
+    .text-right {
+      text-align: right;
+    }
+
+    .mt-md {
+      margin-top: var(--space-md);
+    }
+
+    .mb-md {
+      margin-bottom: var(--space-md);
+    }
+
+    .d-flex {
+      display: flex;
+    }
+
+    .justify-between {
+      justify-content: space-between;
+    }
+
+    .align-center {
+      align-items: center;
+    }
+
+    .gap-sm {
+      gap: var(--space-sm);
+    }
+
+    .gap-md {
+      gap: var(--space-md);
+    }
+
+    .w-full {
+      width: 100%;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .app-shell {
+        grid-template-columns: 280px minmax(0, 1fr);
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      }
+    }
+
+    @media (max-width: 900px) {
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+        padding: var(--space-lg) var(--space-xl);
+      }
+
+      .lottery-rail {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: var(--space-xs);
+      }
+
+      .lottery-item {
+        min-width: 240px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      table {
+        font-size: 12px;
+      }
+
+      th, td {
+        padding: var(--space-sm);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        gap: var(--space-sm);
+        text-align: center;
+      }
+
+      .header-actions {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .generator-controls {
+        grid-template-columns: 1fr;
+      }
+
+      .tickets-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1><span>AutoResearch</span> Dashboard</h1>
+  <div class="header-actions">
+    <span id="active-lottery-chip" class="selected-lottery">Loading lottery...</span>
+    <span id="connection-status" style="font-size:11px;color:var(--text-tertiary)">Connecting...</span>
+    <button id="btn-loop" class="btn btn-warning" onclick="toggleLoop()">Auto Loop</button>
+    <button id="btn-start" class="btn btn-success" onclick="startExperiment()">Start</button>
+    <button id="btn-stop" class="btn btn-danger" onclick="stopExperiment()" disabled>Stop</button>
+  </div>
+</div>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">Lotteries</div>
+      <div id="lottery-rail" class="lottery-rail"></div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Multi-Agent System</div>
+      <div id="agents-rail" class="lottery-rail">
+        <div class="agent-item" id="agent-strategy_researcher">
+          <span class="agent-dot" id="dot-strategy_researcher"></span>
+          <span class="agent-name">Strategy Researcher</span>
+          <span class="agent-status" id="status-strategy_researcher">--</span>
+        </div>
+        <div class="agent-item" id="agent-lottery_manager">
+          <span class="agent-dot" id="dot-lottery_manager"></span>
+          <span class="agent-name">Lottery Manager</span>
+          <span class="agent-status" id="status-lottery_manager">--</span>
+        </div>
+        <div class="agent-item" id="agent-ticket_generator">
+          <span class="agent-dot" id="dot-ticket_generator"></span>
+          <span class="agent-name">Ticket Generator</span>
+          <span class="agent-status" id="status-ticket_generator">--</span>
+        </div>
+        <div class="agent-item" id="agent-system_monitor">
+          <span class="agent-dot" id="dot-system_monitor"></span>
+          <span class="agent-name">System Monitor</span>
+          <span class="agent-status" id="status-system_monitor">--</span>
+        </div>
+        <div class="agent-item" id="agent-experiment_monitor">
+          <span class="agent-dot" id="dot-experiment_monitor"></span>
+          <span class="agent-name">Experiment Monitor</span>
+          <span class="agent-status" id="status-experiment_monitor">--</span>
+        </div>
+      </div>
+      <div class="agent-actions">
+        <button class="btn btn-success w-full" onclick="startAllAgents()" id="btn-start-agents">Start All</button>
+        <button class="btn btn-danger w-full" onclick="stopAllAgents()" id="btn-stop-agents">Stop All</button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="container">
+    <div class="view-tabs">
+      <button id="tab-strategy" class="view-tab active" onclick="switchMainTab('strategy')">Strategie</button>
+      <button id="tab-history" class="view-tab" onclick="switchMainTab('history')">History</button>
+    </div>
+
+    <section id="strategy-view">
+      <!-- Status Card -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title" id="lottery-label">Current Experiment</span>
+          <span class="status-badge badge-idle" id="status-badge">IDLE</span>
+        </div>
+        <div id="status-idle-msg" class="text-center" style="color:var(--text-tertiary);padding:var(--space-lg) 0;">
+          No experiment running. Click <b>Start</b> to begin.
+        </div>
+        <div id="status-running" style="display:none;">
+          <div class="progress-container">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="progress-fill" style="width:0%">0%</div>
+            </div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-label">Tested</div>
+              <div class="stat-value" id="stat-tested">0 / 0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Best So Far</div>
+              <div class="stat-value best" id="stat-best">--</div>
+              <div class="stat-sub" id="stat-best-config"></div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">ETA</div>
+              <div class="stat-value" id="stat-eta">--</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Elapsed</div>
+              <div class="stat-value" id="stat-elapsed">--</div>
+            </div>
+          </div>
+          <div class="recent-list" id="recent-list"></div>
+        </div>
+        <div id="status-finished" style="display:none;">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-label">Final Metric</div>
+              <div class="stat-value best" id="finished-metric">--</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Best Config</div>
+              <div class="stat-value" id="finished-config" style="font-size:14px;">--</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Total Tested</div>
+              <div class="stat-value" id="finished-total">--</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Generate Numbers Section -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Generate Numbers</span>
+          <span id="strategy-badge" class="status-badge badge-finished">Strategy: loading...</span>
+        </div>
+        <div id="generator-rules" class="mb-md" style="color:var(--text-tertiary);font-size:13px;line-height:1.6;">Rules: loading...</div>
+        <div class="generator-controls">
+          <div class="generator-control">
+            <label>Numere per bilet</label>
+            <div class="generator-input-group">
+              <input type="range" id="nums-per-ticket" min="1" max="20" value="10"
+                     oninput="updateNumsPerTicketLabel(this.value)">
+              <span id="nums-per-ticket-val" class="generator-val">10</span>
+            </div>
+            <span id="nums-per-ticket-fixed" class="fixed-control-value" style="display:none;"></span>
+          </div>
+          <div id="bonus-control" class="generator-control" style="display:none;">
+            <label>Bonus per bilet</label>
+            <div class="generator-input-group">
+              <input type="range" id="bonus-per-ticket" min="0" max="0" value="0"
+                     oninput="updateBonusPerTicketLabel(this.value)">
+              <span id="bonus-per-ticket-val" class="generator-val">0</span>
+            </div>
+            <span id="bonus-per-ticket-fixed" class="fixed-control-value" style="display:none;"></span>
+          </div>
+          <div class="generator-control">
+            <label>Număr bilete</label>
+            <div class="generator-input-group">
+              <input type="range" id="ticket-slider" min="1" max="20" value="10"
+                     oninput="document.getElementById('ticket-count').textContent = this.value">
+              <span id="ticket-count" class="generator-val">10</span>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary w-full mt-md" onclick="generateNumbers()">Generează Numere</button>
+      </div>
+
+      <div class="mb-md" style="color:var(--text-tertiary);font-size:12px;">
+        Ultima extragere: <span id="last-draw-date" style="color:var(--color-accent)">--</span>
+        <span style="margin-left:var(--space-md);">Numere:</span>
+        <span id="last-draw-nums" style="color:var(--color-success)">--</span>
+      </div>
+
+      <div id="tickets-summary" style="display:none;margin-bottom:var(--space-sm);padding:var(--space-xs) var(--space-lg);border-radius:var(--radius-sm);font-size:13px;font-weight:700;"></div>
+      <div id="tickets-display" class="tickets-grid"></div>
+    </section>
+
+    <!-- Chart -->
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">Metric Evolution</h2>
+        <span id="edge-badge" style="font-size:14px;font-weight:normal;margin-left:var(--space-lg);color:var(--color-success);"></span>
+      </div>
+      <div class="chart-container">
+        <canvas id="evolution-chart"></canvas>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">Experiment History</h2>
+        <label style="font-size:12px;font-weight:normal;color:var(--text-tertiary);cursor:pointer;display:flex;align-items:center;gap:var(--space-xs);">
+          <input type="checkbox" id="toggle-collapse" onchange="renderTable(); renderChart();" checked>
+          <span>Group consecutive DISCARDs</span>
+        </label>
+      </div>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th onclick="sortTable(0)"># <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(1)">Status <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(2)">Avg Hits <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(3)">Strategy <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(4)">2+ Rate <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(5)">3+ Rate <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(6)">Portfolio <span class="sort-arrow"></span></th>
+              <th onclick="sortTable(7)">Duration <span class="sort-arrow"></span></th>
+            </tr>
+          </thead>
+          <tbody id="exp-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Walk-Forward Validation Panel -->
+    <div id="walkforward-panel" class="card">
+      <div class="card-header">
+        <span class="card-title">Walkforward Validation</span>
+        <button id="wf-run-btn" class="btn btn-primary" onclick="runWalkforward()">Run Walkforward</button>
+      </div>
+      <div id="walkforward-content" style="font-size:12px;color:var(--text-tertiary);padding:4px 0;">No walkforward data. Click <strong>Run Walkforward</strong> to validate current strategy.</div>
+    </div>
+  </section>
+
+  <section id="history-view" style="display:none;">
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Saved Ticket History</span>
+        <div class="d-flex align-center gap-sm">
+          <span id="history-capacity" class="status-badge badge-idle">Today 0 / 20</span>
+          <button id="history-refresh-btn" class="icon-btn" title="Refresh history" onclick="refreshHistoryManually()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M23 4v6h-6"></path>
+              <path d="M1 20v-6h6"></path>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="history-summary" class="mb-md" style="color:var(--text-tertiary);font-size:13px;">Saved tickets and draw checks will appear here.</div>
+      <div id="history-empty" class="history-empty">No saved tickets for this lottery yet. Use the <strong>+</strong> button from Strategie's generated tickets.</div>
+      <div id="history-groups"></div>
+    </div>
+  </section>
+</main>
+</div>
+
+<!-- JavaScript code would go here, keeping all existing functionality -->
+
+</body>
+</html>

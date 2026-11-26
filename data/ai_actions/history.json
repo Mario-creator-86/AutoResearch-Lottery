@@ -1,0 +1,3500 @@
+[
+ {
+  "id": "act_1788818445496_f288de",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_5_40_ro"
+  },
+  "why": "Validarea walkforward pentru 5/40 RO nu a mai rulat de mai bine de o zi. Îți propun să o rulez acum ca să verificăm că strategia curentă (0.7774) ține și out-of-sample. Răspunde cu ✅ sau ❌ aici în chat.",
+  "proposed_by": "audit-session",
+  "created_at": "2026-09-08T01:00:45",
+  "status": "failed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T01:00:45",
+  "result": "name 'config' is not defined",
+  "elapsed_s": 0.1
+ },
+ {
+  "id": "act_1788834439974_2b7504",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "iw": 40,
+   "rw": 350,
+   "folds": 5
+  },
+  "why": "Validează edge-ul de +1.7% al configurației iw40_best out-of-sample înainte de modificarea ponderilor.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T05:27:19",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T05:27:20",
+  "result": "WF score=0.590696, gap=0.014744, stabilitate=0.9482",
+  "elapsed_s": 0.7
+ },
+ {
+  "id": "act_1788834784706_e6aa27",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "lotto_pl",
+   "windows": {
+    "iw": 120,
+    "rw": 250
+   },
+   "test_grid": {
+    "momentum": [
+     1.0,
+     1.15,
+     1.3
+    ],
+    "delay": [
+     1.0,
+     1.05,
+     1.2
+    ]
+   }
+  },
+  "why": "Validare out-of-sample a nudge-urilor momentum/delay înainte de aplicare, pentru a separa edge real de zgomot.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T05:33:04",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T05:33:05",
+  "result": "WF score=0.744932, gap=-0.001882, stabilitate=0.9627",
+  "elapsed_s": 0.7
+ },
+ {
+  "id": "act_1788834856832_ec2b70",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "kaskada_pl",
+   "folds": 5,
+   "iw": 50,
+   "rw": 150,
+   "metric": "hits_per_ticket"
+  },
+  "why": "Verifică out-of-sample dacă edge-ul de +0.03 din backtest e real sau doar overfitting in-sample.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T05:34:16",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T05:34:17",
+  "result": "WF score=6.006117, gap=0.024316, stabilitate=0.9904",
+  "elapsed_s": 0.7
+ },
+ {
+  "id": "act_1788834919344_edf9b2",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_6_49_ro",
+   "folds": 5,
+   "strategy": "current_best"
+  },
+  "why": "11 parametri ajustați pe 2301 extrageri riscă puternic overfit; metricul 0.786 trebuie confirmat pe fold-uri out-of-sample înainte de orice repondere.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T05:35:19",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T05:35:19",
+  "result": "WF score=0.830664, gap=-0.044167, stabilitate=0.9351",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1788834974890_93a98e",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_5_40_ro",
+   "test_params": {
+    "momentum": 1.2,
+    "rw": 150
+   },
+   "folds": 6,
+   "mode": "rolling"
+  },
+  "why": "Validarea out-of-sample a tweak-urilor momentum/rw înainte de aplicare — backtestul determinist curent riscă overfitting pe zgomotul de frecvență.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T05:36:14",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T05:36:15",
+  "result": "WF score=0.780396, gap=-0.002974, stabilitate=0.9574",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1788834975231_f5e324",
+  "type": "update_history",
+  "params": {
+   "lottery": "loto_5_40_ro"
+  },
+  "why": "Asigură că ultimele extrageri (până la 2026-09-06) sunt în set înainte de rularea walk-forward.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T05:36:15",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T05:36:15",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1788835025021_4f621b",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "joker_ro",
+   "folds": 5,
+   "params_test": {
+    "momentum": [
+     1.0,
+     1.4,
+     1.8
+    ],
+    "delay": [
+     1.0,
+     1.25,
+     1.6
+    ],
+    "rw": [
+     200,
+     300
+    ]
+   }
+  },
+  "why": "Validare out-of-sample a noilor ponderi inainte de adoptare permanenta, pentru a elimina riscul de overfitting pe cele 2110 extrageri.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T05:37:05",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T05:37:05",
+  "result": "WF score=0.622121, gap=-0.034436, stabilitate=0.8760",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1788835670694_b34237",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "multi_multi_pl",
+   "folds": 5,
+   "windows": "iw=40, rw=200",
+   "metrics": [
+    "hits_per_ticket",
+    "metric_iw40"
+   ]
+  },
+  "why": "Validează cei 7 parametri ajustați împotriva overfitting-ului înainte de aplicarea live; edge-ul de +1.6% e suficient de mic încât să fie fit de zgomot.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T05:47:50",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T05:47:53",
+  "result": "WF score=2.515126, gap=0.024445, stabilitate=0.9858",
+  "elapsed_s": 3.3
+ },
+ {
+  "id": "act_1788835674124_c4dadc",
+  "type": "update_history",
+  "params": {
+   "lottery": "multi_multi_pl"
+  },
+  "why": "Asigură că scorarea pentru următoarea extragere include extragerile ulterioare datei 2026-09-07.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T05:47:54",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T05:47:54",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1788835987800_c8e719",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "superenalotto_it",
+   "grid": {
+    "bf": [
+     0.0,
+     0.3,
+     0.6
+    ],
+    "rw": [
+     150,
+     200
+    ],
+    "delay": [
+     1.0,
+     1.5
+    ]
+   },
+   "n_folds": 6
+  },
+  "why": "validează out-of-sample dacă factorul de pereche și ponderarea întârzierilor aduc câștig real față de strategia actuală înainte de orice aplicare live",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T05:53:07",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T05:53:08",
+  "result": "WF score=0.395894, gap=0.020496, stabilitate=0.9261",
+  "elapsed_s": 0.6
+ },
+ {
+  "id": "act_1788836031908_5c6286",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "eurojackpot",
+   "folds": 5,
+   "window": 200
+  },
+  "why": "Validarea edge-ului de +5.3% (0.526 vs 0.5) pe fold-uri out-of-sample înainte de orice ajustare de parametri.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T05:53:51",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T05:53:52",
+  "result": "WF score=0.541772, gap=-0.015395, stabilitate=0.8022",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1788836064586_0c10cb",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "powerball_us",
+   "candidates": [
+    {
+     "delay": 1.3,
+     "momentum": 1.2,
+     "rw": 300
+    }
+   ],
+   "baseline_metric": 0.405675
+  },
+  "why": "Validează incrementarea delay/momentum/rw contra baseline-ului determinist înainte de aplicare, pentru a separa semnal de zgomot.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T05:54:24",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T05:54:24",
+  "result": "WF score=0.382143, gap=0.023532, stabilitate=0.8644",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1788836089869_2b3e36",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "mega_millions_us",
+   "folds": 6,
+   "window": 200
+  },
+  "why": "Validarea out-of-sample a metricii 0.403 vs baseline 0.357 pentru a exclude overfit înainte de a aplica modificări de ponderi.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T05:54:49",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T05:54:49",
+  "result": "WF score=0.375676, gap=0.027607, stabilitate=0.7691",
+  "elapsed_s": 0.1
+ },
+ {
+  "id": "act_1788836130153_41131f",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "uk_lotto",
+   "folds": 5,
+   "min_train_draws": 60,
+   "baseline": "uniform_random"
+  },
+  "why": "98 extrageri cu ~7 parametri riscă overfitting; validarea walk-forward vs baseline uniform decide dacă metric=0.5 are edge real.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T05:55:30",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T05:55:30",
+  "result": "WF score=0.525000, gap=-0.025000, stabilitate=0.4838",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1788836279989_a6b5fc",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "euromillions",
+   "strategy": "iw50_best",
+   "test_window": 30,
+   "variants": [
+    {
+     "delay": 1.0,
+     "rw": 200
+    },
+    {
+     "delay": 1.5,
+     "rw": 100
+    }
+   ]
+  },
+  "why": "Validează pe datele din 98 extrageri dacă creșterea delay și reducerea rw îmbunătățesc hit-rate-ul real față de baseline, înainte de aplicare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T05:57:59",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T05:58:00",
+  "result": "WF score=0.450000, gap=0.550000, stabilitate=0.3310",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1788818581598_360598",
+  "type": "update_history",
+  "params": {},
+  "why": "Am reparat executorul de walkforward și am validat strategia 5/40 RO (WF 0.7804, stabilitate 0.957). Ca demo al fluxului de aprobare: dacă apeși ✅, systemul actualizează imediat istoricul tuturor loteriilor (de obicei așteaptă următorul ciclu de 6h). Dacă apeși ❌, renunț.",
+  "proposed_by": "audit-session",
+  "created_at": "2026-09-08T01:03:01",
+  "status": "executed",
+  "approved_by": "autonomous-switch",
+  "closed_at": "2026-09-08T08:01:18",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1788844250749_f9231f",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "superenalotto_it",
+   "folds": 5,
+   "metric": "hits_per_ticket",
+   "baseline": 0.4
+  },
+  "why": "Validați dacă marginea de +4% (0.416 vs 0.4) supraviețuiește out-of-sample înainte de orice ajustare de parametri.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T08:10:50",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T08:10:51",
+  "result": "WF score=0.395894, gap=0.020496, stabilitate=0.9261",
+  "elapsed_s": 0.6
+ },
+ {
+  "id": "act_1788843888699_50f305",
+  "type": "run_ai_analysis",
+  "params": {
+   "lottery": "superenalotto_it"
+  },
+  "why": "TEST BUTOANE: am reparat eroarea care făcea ca tap-ul tău de ieri să nu aibă efect. Apasă ✅ sau ❌ ca să confirmi că butoanele funcționează acum. Dacă apeși ✅, rulez o analiză AI proaspătă pe SuperEnalotto.",
+  "proposed_by": "fix-verification",
+  "created_at": "2026-09-08T08:04:48",
+  "status": "executed",
+  "approved_by": "telegram",
+  "closed_at": "2026-09-08T08:10:51",
+  "result": "Analiză superenalotto_it gata (glm-5.3-flash:cloud): top [85, 48, 6, 79, 5, 41]",
+  "elapsed_s": 30.4
+ },
+ {
+  "id": "act_1788856121914_8d3b63",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "iw_candidates": [
+    40,
+    60
+   ],
+   "rw": 350,
+   "folds": 5
+  },
+  "why": "Metrica 0.6054 vs bază 0.5952 e o diferență de ~1.7%, tipică pentru overfitting; walkforward out-of-sample decide dacă parametrii actuali merită păstrați.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T11:28:41",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T11:28:42",
+  "result": "WF score=0.590696, gap=0.014744, stabilitate=0.9482",
+  "elapsed_s": 0.8
+ },
+ {
+  "id": "act_1788856122864_49e4af",
+  "type": "update_history",
+  "params": {
+   "lottery": "mini_lotto_pl"
+  },
+  "why": "Istoricul se oprește la 2026-09-07; actualizarea înainte de walkforward și de următoarea extragere asigură întârzieri și perechi calculate pe date proaspete.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T11:28:42",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T11:28:42",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1788856506743_152150",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "lotto_pl",
+   "folds": 5,
+   "iw": 120,
+   "rw": 250
+  },
+  "why": "Edge-ul de +1.1% al strategiei curente trebuie validat out-of-sample înainte de orice ajustare de ponderi.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T11:35:06",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T11:35:07",
+  "result": "WF score=0.744932, gap=-0.001882, stabilitate=0.9627",
+  "elapsed_s": 0.7
+ },
+ {
+  "id": "act_1788856805704_af1ec0",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "kaskada_pl",
+   "metric_baseline": 6.0,
+   "metric_current": 6.030433,
+   "focus": "delay_weight"
+  },
+  "why": "Edge-ul de +0.03 lovituri/bilet e în interiorul zgomotului; walk-forward verifică dacă cei 10 parametri optimizați nu sunt overfit pe istoric.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T11:40:05",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T11:40:06",
+  "result": "WF score=6.006117, gap=0.024316, stabilitate=0.9904",
+  "elapsed_s": 0.8
+ },
+ {
+  "id": "act_1788856821692_35a946",
+  "type": "update_history",
+  "params": {
+   "lottery": "kaskada_pl"
+  },
+  "why": "Reîmprospătează istoricul înainte de reoptimizare, ca lista overdue și recent-50 să reflecte ultima extragere.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T11:40:21",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T11:40:21",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1788856959887_01531e",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_6_49_ro",
+   "folds": 5,
+   "params_under_test": "tf=2.149,hc=2.645,bal=3.878,sb=1.017,delay=1.0,momentum=1.0,iw=20,rw=150",
+   "metric_threshold": 0.75
+  },
+  "why": "Metricul 0.786 este probabil in-sample; walk-forward pe 5 folduri verifică dacă există edge real out-of-sample înainte de ajustări.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T11:42:39",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T11:42:40",
+  "result": "WF score=0.830664, gap=-0.044167, stabilitate=0.9351",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1788857046998_8292c6",
+  "type": "update_history",
+  "params": {
+   "lottery": "loto_5_40_ro"
+  },
+  "why": "Istoricul se oprește la 2026-09-06; sincronizează ultimele extrageri înainte de recalibrare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T11:44:06",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T11:44:07",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1788857047198_bb855c",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_5_40_ro",
+   "overrides": {
+    "momentum": 1.3,
+    "iw": 50,
+    "delay": 1.2
+   }
+  },
+  "why": "Validează out-of-sample noile ponderi înainte de aplicarea definitivă,dat fiind că majoritatea pattern-urilor sunt probabil zgomot.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T11:44:07",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T11:44:07",
+  "result": "WF score=0.780396, gap=-0.002974, stabilitate=0.9574",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1788857123421_9e8a01",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "joker_ro",
+   "strategy_params": {
+    "tf": 3.0,
+    "hc": 1.99,
+    "bal": 4.07,
+    "sb": 1.0,
+    "delay": 1.0,
+    "momentum": 1.0,
+    "iw": 80,
+    "rw": 300
+   },
+   "variants_to_test": [
+    {
+     "momentum": 1.3,
+     "delay": 0.8
+    },
+    {
+     "momentum": 1.3
+    }
+   ],
+   "folds": 5
+  },
+  "why": "Validare out-of-sample a parametrilor optimalizați (mai ales bal=4.07, risc de overfit) înainte de a aplica ajustările momentum/delay propuse.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T11:45:23",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T11:45:23",
+  "result": "WF score=0.622121, gap=-0.034436, stabilitate=0.8760",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1788857366521_1adf49",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "multi_multi_pl",
+   "train_range": "1996-03-19..2020-12-31",
+   "test_range": "2021-01-01..2026-09-07",
+   "folds": 5,
+   "metric": "hits_per_ticket"
+  },
+  "why": "Edge-ul de 2.54 vs 2.5 din backtest determinist pe 6 ponderi optimizate in-sample are risc ridicat de overfitting; validarea out-of-sample pe fold-uri este obligatorie înainte de a crește mizele.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T11:49:26",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T11:49:30",
+  "result": "WF score=2.515126, gap=0.024445, stabilitate=0.9858",
+  "elapsed_s": 3.7
+ },
+ {
+  "id": "act_1788865946513_e8c333",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "superenalotto_it",
+   "variants": [
+    {
+     "delay": 1.2
+    },
+    {
+     "bf": 0.3
+    },
+    {
+     "rw": 150
+    }
+   ]
+  },
+  "why": "Validează out-of-sample cele 3 ajustări propuse înainte de aplicarea lor în producție.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T14:12:26",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T14:12:27",
+  "result": "WF score=0.395894, gap=0.020496, stabilitate=0.9261",
+  "elapsed_s": 0.6
+ },
+ {
+  "id": "act_1788865947346_b75ebf",
+  "type": "update_history",
+  "params": {
+   "lottery": "superenalotto_it"
+  },
+  "why": "Istorcul se termină la 2026-09-05; sincronizarea cu ultimele extrageri asigură că întârzierile și fereastra recentă sunt actuale înainte de decizie.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T14:12:27",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T14:12:27",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1788877833558_8f07ce",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "folds": 5,
+   "iw": 40,
+   "rw_options": [
+    250,
+    350
+   ],
+   "baseline": "random_uniform"
+  },
+  "why": "Avantajul de +0.0102 potriviri/bilet are z≈1.28, sub semnificație statistică; walk-forward out-of-sample decide dacă e edge real sau doar overfit al parametrilor tf/hc/bal/sb.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T17:30:33",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T17:30:34",
+  "result": "WF score=0.590696, gap=0.014744, stabilitate=0.9482",
+  "elapsed_s": 0.8
+ },
+ {
+  "id": "act_1788878172727_61f6a3",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "lotto_pl",
+   "iw": 120,
+   "rw_list": [
+    180,
+    250
+   ],
+   "metric": "expected_hits_per_ticket"
+  },
+  "why": "Avantajul de backtest (+1.1% vs bază) e în interiorul zgomotului; doar validarea out-of-sample decide dacă parametrii rw250_best sunt reali.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T17:36:12",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T17:36:13",
+  "result": "WF score=0.744932, gap=-0.001882, stabilitate=0.9627",
+  "elapsed_s": 0.8
+ },
+ {
+  "id": "act_1788878236072_96ed94",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "lotto_pl",
+   "folds": 5,
+   "rw_candidates": [
+    250,
+    400
+   ],
+   "iw_candidates": [
+    120,
+    200
+   ]
+  },
+  "why": "Validare out-of-sample a avantajului de +1.1% — verific dacă rw=250 și iw=120 nu sunt peste-ajustate pe istoric.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T17:37:16",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T17:37:16",
+  "result": "WF score=0.744932, gap=-0.001882, stabilitate=0.9627",
+  "elapsed_s": 0.8
+ },
+ {
+  "id": "act_1788878173755_1e7457",
+  "type": "run_ai_analysis",
+  "params": {
+   "lottery": "lotto_pl",
+   "target": "pair_window_check",
+   "pair": [
+    17,
+    20
+   ],
+   "observed": 14,
+   "expected_per_50": 0.64
+  },
+  "why": "Co-ocrențele 17-20 depășesc cu ~22x așteptarea pentru fereastra de 50 — verificăm fereastra de calcul sau posibila corupție de date înainte de a o folosi ca semnal.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T17:36:13",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T17:37:17",
+  "result": "Analiză lotto_pl gata (glm-5.3-flash:cloud): top [17, 20, 21, 36, 38, 34]",
+  "elapsed_s": 63.3
+ },
+ {
+  "id": "act_1788878563910_364c1e",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "kaskada_pl",
+   "candidate_params": {
+    "momentum": 0.6,
+    "delay": 0.7,
+    "jc": 0.1
+   },
+   "baseline_metric": 6.030433,
+   "folds": 5
+  },
+  "why": "Validare out-of-sample a reducerii ponderelor pe memorie înainte de aplicare",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T17:42:43",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T17:42:44",
+  "result": "WF score=6.005053, gap=0.025380, stabilitate=0.9906",
+  "elapsed_s": 0.8
+ },
+ {
+  "id": "act_1788878874769_1bd510",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_6_49_ro",
+   "folds": 6,
+   "windows": [
+    100,
+    150,
+    200,
+    300
+   ],
+   "compare_baseline": "uniform_random"
+  },
+  "why": "Metrica 0.7865 vs baseline 0.7347 (+7%) e suspectă de overfit pe 2301 extrageri cu 8+ parametri; validează greutățile tf/hc/bal și ferestrele pe fold-uri out-of-sample înainte de orice ajustare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T17:47:54",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T17:47:54",
+  "result": "WF score=0.830664, gap=-0.044167, stabilitate=0.9351",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1788878926389_55b063",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_5_40_ro",
+   "folds": 5,
+   "windows": {
+    "iw": 30,
+    "rw": 250
+   },
+   "test_params": {
+    "momentum": 1.15,
+    "jc": 0.15
+   }
+  },
+  "why": "validează out-of-sample tweak-urile de momentum și mean-reversion înainte de aplicare, reducând riscul de overfitting",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T17:48:46",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T17:48:46",
+  "result": "WF score=0.780396, gap=-0.002974, stabilitate=0.9574",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1788878926843_65bd20",
+  "type": "update_history",
+  "params": {
+   "lottery": "loto_5_40_ro",
+   "up_to": "2026-09-06"
+  },
+  "why": "asigură că backtest-ul și clasamentul folosesc istoricul complet până la ultima extragere",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T17:48:46",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T17:48:46",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1788879006602_50f060",
+  "type": "update_history",
+  "params": {
+   "lottery": "joker_ro",
+   "ensure_through": "latest"
+  },
+  "why": "Asigură că statisticile și backtestul includ cele mai recente extrageri înainte de validare",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T17:50:06",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T17:50:06",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1788879006833_324416",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "joker_ro",
+   "baseline_metric": 0.587685,
+   "variants": [
+    {
+     "delay": 1.2
+    },
+    {
+     "iw": 100
+    },
+    {
+     "delay": 1.2,
+     "iw": 100
+    }
+   ],
+   "folds": 6
+  },
+  "why": "Validează out-of-sample propunerile delay/iw înainte de aplicarea parametrilor",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T17:50:06",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T17:50:07",
+  "result": "WF score=0.622121, gap=-0.034436, stabilitate=0.8760",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1788879200168_710b0f",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "multi_multi_pl",
+   "iw": 40,
+   "rw": 200,
+   "folds": 5,
+   "baseline_metric": 2.5
+  },
+  "why": "Edge-ul de 2.54 (+1.6% față de baseline) trebuie validat out-of-sample înainte de orice ajustare de parametri.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T17:53:20",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T17:53:25",
+  "result": "WF score=2.514916, gap=0.024655, stabilitate=0.9860",
+  "elapsed_s": 5.0
+ },
+ {
+  "id": "act_1788887612834_e1d3a4",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "superenalotto_it",
+   "baseline": {
+    "tf": 2.795,
+    "hc": 2.019,
+    "bal": 4.0,
+    "sb": 0.922,
+    "delay": 1.0,
+    "momentum": 1.0,
+    "iw": 40,
+    "rw": 200,
+    "jc": 2.717,
+    "bf": 0.0,
+    "dd": 0.0,
+    "ps": 20.0,
+    "el": 0.02
+   },
+   "variants": [
+    {
+     "momentum": 1.2
+    },
+    {
+     "delay": 1.2
+    },
+    {
+     "momentum": 1.2,
+     "delay": 1.2
+    }
+   ]
+  },
+  "why": "Deviațiile văzute sunt la nivel de zgomot; ajustările momentum/delay propuse trebuie demonstrate pe walk-forward înainte de aplicare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T20:13:32",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T20:13:33",
+  "result": "WF score=0.395894, gap=0.020496, stabilitate=0.9261",
+  "elapsed_s": 0.5
+ },
+ {
+  "id": "act_1788887628599_2541ad",
+  "type": "update_history",
+  "params": {
+   "lottery": "superenalotto_it"
+  },
+  "why": "Asigură includerea extragerilor până la 2026-09-05 pentru recalcularea gap-urilor (48, 5, 41) și a ferestrelor iw=40/rw=200 înainte de următoarea generare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T20:13:48",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T20:13:48",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1788899510997_5ac13c",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "iw_grid": [
+    40,
+    55,
+    70
+   ],
+   "rw_grid": [
+    350,
+    500
+   ],
+   "metric": "iw40_best"
+  },
+  "why": "Avantajul de +1.7% al metricii 0.6054 vs baseline 0.5952 este probabil overfit cu 7 parametri; validarea walk-forward pe grilele de ferestre confirmă sau respinge robustețea înainte de orice re-tuning.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T23:31:50",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T23:31:51",
+  "result": "WF score=0.590703, gap=0.014737, stabilitate=0.9470",
+  "elapsed_s": 0.8
+ },
+ {
+  "id": "act_1788899962708_ca4ed2",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "lotto_pl",
+   "metric_baseline": 0.743051,
+   "variants": [
+    {
+     "sb": 1.55,
+     "momentum": 1.3,
+     "rw": 220
+    },
+    {
+     "sb": 1.55
+    },
+    {
+     "momentum": 1.3
+    }
+   ],
+   "windows": {
+    "iw": 120,
+    "rw": 250
+   }
+  },
+  "why": "Validează înainte de aplicare dacă bump-urile sb/momentum și rw=220 îmbunătățesc metrica out-of-sample, reducând riscul de overfitting al backtest-ului curent.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T23:39:22",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T23:39:23",
+  "result": "WF score=0.745024, gap=-0.001973, stabilitate=0.9628",
+  "elapsed_s": 0.8
+ },
+ {
+  "id": "act_1788900306095_894d86",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "kaskada_pl",
+   "folds": 5,
+   "iw": 35,
+   "rw": 150
+  },
+  "why": "Validare out-of-sample pentru metric 6.03 înainte de orice ajustare de parametri; backtest-ul determinist riscă overfit.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T23:45:06",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T23:45:06",
+  "result": "WF score=6.005053, gap=0.025380, stabilitate=0.9906",
+  "elapsed_s": 0.8
+ },
+ {
+  "id": "act_1788900643334_27ac61",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_6_49_ro",
+   "window_sizes": [
+    20,
+    40,
+    60
+   ],
+   "validation_horizon": 30
+  },
+  "why": "Verifică robustitatea noilor parametri pe date recente înainte de producție.",
+  "proposed_by": "strategist:gpt-oss:120b-cloud",
+  "created_at": "2026-09-08T23:50:43",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T23:50:43",
+  "result": "WF score=0.830664, gap=-0.044167, stabilitate=0.9351",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1788900672215_e5cf14",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_5_40_ro",
+   "folds": 5,
+   "test_params": {
+    "momentum": 1.25,
+    "delay": 1.1
+   }
+  },
+  "why": "Validează tweak-ul momentum/delay pe ferestre out-of-sample înainte de orice commit.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T23:51:12",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T23:51:12",
+  "result": "WF score=0.780396, gap=-0.002974, stabilitate=0.9574",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1788900952159_633b1b",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "multi_multi_pl",
+   "param_grid": {
+    "momentum": [
+     1.0,
+     1.4
+    ],
+    "delay": [
+     2.5,
+     3.0
+    ]
+   },
+   "folds": 8,
+   "windows": {
+    "iw": 40,
+    "rw": 200
+   }
+  },
+  "why": "Validarea out-of-sample a creșterii momentum și reducerii delay înainte de aplicarea parametrilor.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T23:55:52",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T23:55:55",
+  "result": "WF score=2.514916, gap=0.024655, stabilitate=0.9860",
+  "elapsed_s": 3.5
+ },
+ {
+  "id": "act_1788900955891_f10f32",
+  "type": "update_history",
+  "params": {
+   "lottery": "multi_multi_pl"
+  },
+  "why": "Asigură că istoricul include ultimele extrageri până la 2026-09-08 înainte de recalcularea clasamentului.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T23:55:55",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T23:55:55",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1788901008747_a289d5",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "joker_ro",
+   "candidates": [
+    {
+     "momentum": 1.25,
+     "delay": 1.15,
+     "rw": 240
+    },
+    {
+     "momentum": 1.0,
+     "delay": 1.0,
+     "rw": 300
+    }
+   ],
+   "folds": 6
+  },
+  "why": "Validează ajustările propuse (momentum/delay/rw) față de baseline-ul metric=0.5877 înainte de aplicare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T23:56:48",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T23:56:48",
+  "result": "WF score=0.622121, gap=-0.034436, stabilitate=0.8760",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1788901009175_3e0e57",
+  "type": "update_history",
+  "params": {
+   "lottery": "joker_ro"
+  },
+  "why": "Sincronizează istoricul până la ultima extragere (2026-09-06) ca ranking-ul și perechile recente să reflecte starea reală.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T23:56:49",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-08T23:56:49",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1789494276581_cda82b",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "multi_multi_pl",
+   "folds": 10,
+   "train_window": 12000,
+   "test_window": 500,
+   "metrics": [
+    "hits_per_ticket",
+    "hit_rate_vs_baseline"
+   ]
+  },
+  "why": "Metric 2.5396 vs 2.5 bază = edge de +1.6%, probabil parțial overfit din căutarea iw40_best; walk-forward confirmă sau respinge edge-ul înainte de orice ajustare de miză.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-15T20:44:36",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-15T20:44:42",
+  "result": "WF score=2.513656, gap=0.025915, stabilitate=0.9863",
+  "elapsed_s": 5.7
+ },
+ {
+  "id": "act_1789494511171_1e860f",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "lotto_pl",
+   "grid": {
+    "momentum": [
+     1.0,
+     1.3
+    ],
+    "rw": [
+     250,
+     300
+    ]
+   },
+   "metric": "hits_per_ticket"
+  },
+  "why": "Avantajul de +1.1% e prea subțire; validăm dacă momentum și ferestre mai lungi îl stabilizează.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-15T20:48:31",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-15T20:48:32",
+  "result": "WF score=0.745789, gap=-0.002738, stabilitate=0.9649",
+  "elapsed_s": 0.9
+ },
+ {
+  "id": "act_1789494512256_3afe8d",
+  "type": "update_history",
+  "params": {
+   "lottery": "lotto_pl"
+  },
+  "why": "Asigură că statisticile includ cele mai recente extrageri înainte de recalcularea clasamentului.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-15T20:48:32",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-15T20:48:32",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1789494588096_e1787b",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "iw": 40,
+   "rw_options": [
+    300,
+    350,
+    400
+   ],
+   "compare_metric": true
+  },
+  "why": "Validare out-of-sample înainte de a schimba rw sau momentum — diferența 300 vs 350 e probabil sub nivelul de zgomot al backtest-ului.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-15T20:49:48",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-15T20:49:48",
+  "result": "WF score=0.591799, gap=0.013640, stabilitate=0.9467",
+  "elapsed_s": 0.7
+ },
+ {
+  "id": "act_1789494666652_64b39c",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "kaskada_pl",
+   "candidate_params": {
+    "momentum": 1.25,
+    "rw": 120,
+    "delay": 1.2
+   },
+   "baseline_metric": 6.030433,
+   "folds": 5
+  },
+  "why": "Edge-ul actual (+0.03) e la nivel de zgomot; walkforward verifică dacă noii parametri aduc valoare reală sau doar overfit pe momentum-ul recent.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-15T20:51:06",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-15T20:51:07",
+  "result": "WF score=6.004761, gap=0.025672, stabilitate=0.9910",
+  "elapsed_s": 1.1
+ },
+ {
+  "id": "act_1789494735708_1fbd2f",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_6_49_ro",
+   "folds": 5,
+   "window": 150
+  },
+  "why": "Metric 0.786 cu max|z|=2.38 sub nul sugerează risc de overfit; validarea out-of-sample pe 5 folduri confirmă dacă parametrii tf/hc/bal generalizează.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-15T20:52:15",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-15T20:52:15",
+  "result": "WF score=0.828740, gap=-0.042243, stabilitate=0.9278",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1789494736161_7326fc",
+  "type": "update_history",
+  "params": {
+   "lottery": "loto_6_49_ro",
+   "until": "2026-09-13"
+  },
+  "why": "Istoricul se oprește la 2026-09-13; actualizarea asigură că întârzierile (38/29) și forma recentă din ultimele 5 extrageri sunt sincronizate înainte de următoarea generare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-15T20:52:16",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-15T20:52:16",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1789494808409_850343",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_5_40_ro",
+   "folds": 5,
+   "test_size": 150,
+   "mode": "rolling"
+  },
+  "why": "Parametrii cu precizie mare (tf=2.95, dd=2.506, sb=1.022) riscă overfitting; walk-forward verifică robustețea metricii out-of-sample înainte de orice re-ajustare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-15T20:53:28",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-15T20:53:28",
+  "result": "WF score=0.782606, gap=-0.005183, stabilitate=0.9499",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1789494873903_3e2010",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "joker_ro",
+   "windows": [
+    100,
+    250,
+    300
+   ],
+   "focus": "momentum_vs_delay_vs_pairs",
+   "hypothesis": "Verifică out-of-sample dacă momentumul recent (38, 1, 10) și perechea (10,28) aduc gain peste baseline 0.5556 sau sunt zgomot"
+  },
+  "why": "Anomaliile recente (streak 38, perechea 10-28) trebuie validate înainte de orice ajustare de ponderi.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-15T20:54:33",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-15T20:54:34",
+  "result": "WF score=0.620118, gap=-0.032434, stabilitate=0.8660",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1789494934055_8dea83",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "superenalotto_it",
+   "iw_candidates": [
+    40,
+    60,
+    80
+   ],
+   "rw_candidates": [
+    200,
+    300
+   ],
+   "folds": 5,
+   "baseline_expected_hits": 0.4
+  },
+  "why": "Metricul 0.4168 vs baseline 0.40 (+4%) poate fi overfit de selecție (iw40_best); walk-forward cu fold-uri multiple confirmă dacă avansul este robust înainte de aplicarea noilor greutăți.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-15T20:55:34",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-15T20:55:34",
+  "result": "WF score=0.396623, gap=0.020142, stabilitate=0.9270",
+  "elapsed_s": 0.9
+ },
+ {
+  "id": "act_1789580465394_a64233",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "multi_multi_pl",
+   "folds": 6,
+   "train_draws": 14000,
+   "test_draws": 500
+  },
+  "why": "2.5396 este maximul din 17256 variante (p_ajustat=0.42); walk-forward verifică dacă +1.58% supraviețuiește out-of-sample înainte de a crește expunerea",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-16T20:41:05",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-16T20:41:09",
+  "result": "WF score=2.513872, gap=0.025699, stabilitate=0.9860",
+  "elapsed_s": 4.3
+ },
+ {
+  "id": "act_1789580524770_133001",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "lotto_pl",
+   "folds": 10,
+   "window": 250
+  },
+  "why": "Edge-ul de +1.14% (z=0.94, p_adj=1.0) e compatibil cu zgomotul; walk-forward pe fold-uri out-of-sample testează dacă metric=0.7431 se menține sau e produs de selection bias după 31290 experimente.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-16T20:42:04",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-16T20:42:05",
+  "result": "WF score=0.745788, gap=-0.002737, stabilitate=0.9655",
+  "elapsed_s": 1.1
+ },
+ {
+  "id": "act_1789580570149_ce32d9",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "windows": 5,
+   "train_frac": 0.8,
+   "metrics": [
+    "hits_per_ticket",
+    "hit_rate_ge3"
+   ]
+  },
+  "why": "Backtest-ul curent (p_ajustat=1.000) nu dovedește niciun avantaj; walk-forward out-of-sample verifică dacă iw=40/rw=350 supraviețuiesc pe date nevăzute.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-16T20:42:50",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-16T20:42:51",
+  "result": "WF score=0.591800, gap=0.013639, stabilitate=0.9459",
+  "elapsed_s": 0.9
+ },
+ {
+  "id": "act_1789580571441_3bd5de",
+  "type": "update_history",
+  "params": {
+   "lottery": "mini_lotto_pl"
+  },
+  "why": "Asigură că întârzierile și ferestrele recente (rw=350) sunt calculate pe ultimele extrageri înainte de selecția următoare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-16T20:42:51",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-16T20:42:51",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1789580666987_66e8d9",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "kaskada_pl",
+   "folds": 5,
+   "metric": "hits_per_ticket"
+  },
+  "why": "p_ajustat=1.0 după 2305 experimente indică overfitting; validarea out-of-sample e necesară înainte de orice creștere a expunerii.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-16T20:44:26",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-16T20:44:28",
+  "result": "WF score=6.003945, gap=0.026488, stabilitate=0.9909",
+  "elapsed_s": 1.0
+ },
+ {
+  "id": "act_1789580668357_5de218",
+  "type": "update_history",
+  "params": {
+   "lottery": "kaskada_pl"
+  },
+  "why": "Asigură că extragerile de după 2026-09-16 sunt incluse înainte de următoarea decizie de joc.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-16T20:44:28",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-16T20:44:28",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1789580758380_60cd6f",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_6_49_ro",
+   "folds": 5
+  },
+  "why": "p_ajustat=1.0 indică overfitting pe istoric; walkforward verifică dacă metric 0.7865 se generalizează out-of-sample înainte de orice re-ajustare",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-16T20:45:58",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-16T20:45:58",
+  "result": "WF score=0.828740, gap=-0.042243, stabilitate=0.9278",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1789580860410_282b9f",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_5_40_ro",
+   "param_grid": {
+    "delay": [
+     1.0,
+     1.15
+    ],
+    "momentum": [
+     0.85,
+     1.0
+    ],
+    "rw": [
+     200,
+     250
+    ]
+   },
+   "folds": 6,
+   "metric": "expected_hits_per_ticket"
+  },
+  "why": "p_ajustat=1.0 pe backtestul curent, deci ajustările propuse trebuie validate out-of-sample pe fold-uri nevăzute înainte de adoptare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-16T20:47:40",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-16T20:47:40",
+  "result": "WF score=0.782606, gap=-0.005183, stabilitate=0.9499",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1789580960390_369362",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "joker_ro",
+   "k_folds": 6,
+   "expanding_window": true,
+   "metric": "expected_hits_per_ticket",
+   "baseline": "random",
+   "test_params": {
+    "rw": 250
+   }
+  },
+  "why": "Validare out-of-sample: optimul din 76294 experimente e aproape sigur winner's curse; walkforward decide obiectiv dacă rw=250 aduce câștig real înainte de aplicare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-16T20:49:20",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-16T20:49:20",
+  "result": "WF score=0.620118, gap=-0.032434, stabilitate=0.8660",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1789581029166_8e1acc",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "superenalotto_it",
+   "folds": 10,
+   "metric": "hits_per_ticket"
+  },
+  "why": "Edge-ul de +4.19% (z=1.84, p_ajustat=1.0 după 19303 experimente) trebuie validat out-of-sample înainte de orice creștere a expoziției.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-16T20:50:29",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-16T20:50:29",
+  "result": "WF score=0.396626, gap=0.020139, stabilitate=0.9284",
+  "elapsed_s": 0.6
+ },
+ {
+  "id": "act_1789655893544_9eff49",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "multi_multi_pl",
+   "windows": [
+    40,
+    60,
+    80
+   ],
+   "metric": "hits_per_ticket",
+   "min_draws": 30
+  },
+  "why": "Validare out-of-sample a greutăților curente — backtest-ul de +1.58% nu e semnificativ (p=0.419), e nevoie de test walk-forward pe ultimele sute de extrageri înainte de orice re-ajustare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T17:38:13",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T17:38:16",
+  "result": "WF score=2.513795, gap=0.025776, stabilitate=0.9860",
+  "elapsed_s": 3.2
+ },
+ {
+  "id": "act_1789655941510_b1d7f6",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "lotto_pl",
+   "folds": 5,
+   "window": 250
+  },
+  "why": "Validează rw250_best out-of-sample; backtestul pe 31290 experimente e predispus la overfitting (z=0.94, p_ajustat=1.0).",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T17:39:01",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T17:39:02",
+  "result": "WF score=0.745788, gap=-0.002737, stabilitate=0.9655",
+  "elapsed_s": 0.7
+ },
+ {
+  "id": "act_1789656013672_6d7ab7",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "lotto_pl",
+   "folds": 5,
+   "window": 250
+  },
+  "why": "Validare out-of-sample a greutăților rw250_best: p_ajustat=1.0 indică overfit, iar walk-forward confirmă sau respinge robustețea înainte de reoptimizare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T17:40:13",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T17:40:14",
+  "result": "WF score=0.745788, gap=-0.002737, stabilitate=0.9655",
+  "elapsed_s": 0.8
+ },
+ {
+  "id": "act_1789656014835_0ddf6a",
+  "type": "update_history",
+  "params": {
+   "lottery": "lotto_pl"
+  },
+  "why": "Istoricul se oprește la 2026-09-15; actualizarea asigură că scorurile de frecvență/întârziere reflectă extragerile celei mai recente înainte de următoarea tragere.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T17:40:14",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T17:40:14",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1789655942636_abc813",
+  "type": "run_ai_analysis",
+  "params": {
+   "lottery": "lotto_pl",
+   "min_draws": 30
+  },
+  "why": "Biletele AI au doar 2 extrageri verificate; avem nevoie de minimum 30 pentru o concluzie statistică pe reality_check.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T17:39:02",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T17:40:35",
+  "result": "Analiză lotto_pl gata (glm-5.3-flash:cloud): top [31, 17, 20, 5, 9, 14]",
+  "elapsed_s": 92.3
+ },
+ {
+  "id": "act_1789656113087_191811",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "folds": 5,
+   "windows": {
+    "iw": 40,
+    "rw": 350
+   }
+  },
+  "why": "Validare out-of-sample a metricii 0.6054 înainte de a continua cu ponderile curente, dat fiind p_ajustat=1.0.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T17:41:53",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T17:41:53",
+  "result": "WF score=0.591801, gap=0.013638, stabilitate=0.9451",
+  "elapsed_s": 0.8
+ },
+ {
+  "id": "act_1789656213643_26c96c",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "kaskada_pl",
+   "folds": 8,
+   "train_draws": 1500,
+   "test_draws": 150
+  },
+  "why": "Metricul de backtest (+0.51%, p_ajustat=1.0) poate fi artefact de selecție; validează parametrii out-of-sample înainte de orice ajustare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T17:43:33",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T17:43:34",
+  "result": "WF score=6.004722, gap=0.025711, stabilitate=0.9910",
+  "elapsed_s": 0.9
+ },
+ {
+  "id": "act_1789656278733_81dcad",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_6_49_ro",
+   "folds": 5,
+   "window": 500
+  },
+  "why": "p_ajustat=1.0 după 165896 experimente indică overfit; testarea out-of-sample reală e singura cale de a valida metrica 0.7865.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T17:44:38",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T17:44:39",
+  "result": "WF score=0.828740, gap=-0.042243, stabilitate=0.9278",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1789656344681_87f48e",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_5_40_ro",
+   "windows": 10,
+   "metric": "hits_per_ticket"
+  },
+  "why": "Verifică dacă +3.66% din backtest e stabil pe ferestre rulante sau doar un artifact de optimizare (p_ajustat=1.000 sugerează zgomot).",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T17:45:44",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T17:45:44",
+  "result": "WF score=0.782606, gap=-0.005183, stabilitate=0.9499",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1789656430893_820357",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "joker_ro",
+   "splits": 5,
+   "window": 300
+  },
+  "why": "Metricul 0.5877 provine din 85034 experimente (risc ridicat de overfit); validarea out-of-sample verifică dacă parametrii tf3.0/hc1.99/bal4.07 rezistă pe date nefolosite la optimizare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T17:47:10",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T17:47:11",
+  "result": "WF score=0.620118, gap=-0.032434, stabilitate=0.8660",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1789656520441_99ae30",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "superenalotto_it",
+   "strategy": "iw40_best",
+   "train_window": 2000,
+   "test_window": 200
+  },
+  "why": "p_ajustat=1.000 — avantajul de +4.19% trebuie confirmat out-of-sample înainte de a fi considerat real.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T17:48:40",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T17:48:41",
+  "result": "WF score=0.396626, gap=0.020139, stabilitate=0.9284",
+  "elapsed_s": 0.7
+ },
+ {
+  "id": "act_1789656521521_79e7e3",
+  "type": "update_history",
+  "params": {
+   "lottery": "superenalotto_it"
+  },
+  "why": "Asigură includerea ultimelor extrageri până la 2026-09-15 înainte de recalcularea frecvențelor și întârzierilor.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T17:48:41",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T17:48:41",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1789677631490_ccbb20",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "multi_multi_pl",
+   "strategy": "iw40_best",
+   "folds": 6,
+   "metric": "hits_per_ticket",
+   "baseline": "random_2.5"
+  },
+  "why": "Edge-ul (+1.58%, p_adj=0.419) cere validare out-of-sample înainte de orice reajustare de parametri.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T23:40:31",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T23:40:36",
+  "result": "WF score=2.513942, gap=0.025629, stabilitate=0.9858",
+  "elapsed_s": 4.6
+ },
+ {
+  "id": "act_1789677947131_a0b975",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "strategy": "iw40_best",
+   "windows": {
+    "iw": 40,
+    "rw": 350
+   },
+   "folds": 5
+  },
+  "why": "Edge-ul +1.71% (z=1.27, p_adj=1.0) provine din seleția best-of pe 14279 experimente; walk-forward out-of-sample verifică dacă supraviețuiește în afara eșantionului.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T23:45:47",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T23:45:48",
+  "result": "WF score=0.591601, gap=0.013838, stabilitate=0.9451",
+  "elapsed_s": 1.0
+ },
+ {
+  "id": "act_1789677948627_3a7306",
+  "type": "start_loop",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "tickets_per_draw": 5,
+   "min_draws": 30
+  },
+  "why": "Reality_check arată doar 5 extrageri verificate pentru biletele AI (0.510 vs 0.595); acumularea a ≥30 extrageri permite o evaluare statistică reală.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T23:45:48",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T23:45:48",
+  "result": "buclă mini_lotto_pl pornită (PID 32956)",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1789678053565_40c0db",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "kaskada_pl",
+   "folds": 5,
+   "rw": 150,
+   "iw": 35
+  },
+  "why": "p_ajustat=1.000 sugerează overfit in-sample; validăm parametrii out-of-sample înainte de orice re-optimizare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T23:47:33",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T23:47:34",
+  "result": "WF score=6.005520, gap=0.024914, stabilitate=0.9911",
+  "elapsed_s": 1.0
+ },
+ {
+  "id": "act_1789678268218_bade67",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_6_49_ro",
+   "folds": 5,
+   "scheme": "expanding_window",
+   "baseline": "random_0.7347"
+  },
+  "why": "p_ajustat=1.0 după 173k experimente indică selection bias; doar validarea out-of-sample poate confirma sau infirma edge-ul de +7.05%.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T23:51:08",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T23:51:08",
+  "result": "WF score=0.827653, gap=-0.041156, stabilitate=0.9288",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1789678308824_223e85",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_5_40_ro",
+   "folds": 5,
+   "variants": [
+    {
+     "rw": 150
+    },
+    {
+     "rw": 200
+    }
+   ],
+   "baseline_metric": 0.777422
+  },
+  "why": "Edge-ul actual e compatibil cu zgomotul (p_ajustat=1.000); walk-forward out-of-sample e singurul test onest înainte de orice ajustare de parametri.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T23:51:48",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T23:51:49",
+  "result": "WF score=0.781795, gap=-0.004373, stabilitate=0.9485",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1789678357429_113898",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "joker_ro",
+   "windows": 5
+  },
+  "why": "p_ajustat=1.000 după 91362 experimente suspectează selecție (winner's curse); doar validarea out-of-sample decide dacă parametrii tf3.0/hc1.99/bal4.07 au edge real.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T23:52:37",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T23:52:37",
+  "result": "WF score=0.619401, gap=-0.031717, stabilitate=0.8656",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1789678358145_ceb77e",
+  "type": "start_loop",
+  "params": {
+   "lottery": "joker_ro"
+  },
+  "why": "Biletele AI au doar 1 extragere verificată; reality_check cere minim 30 pentru un verdict — continuarea loop-ului acumulează eșantionul.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T23:52:38",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T23:52:38",
+  "result": "buclă joker_ro pornită (PID 35540)",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1789678404330_814d9e",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "superenalotto_it",
+   "strategy": "iw40_best",
+   "folds": 5,
+   "min_train_draws": 3000,
+   "test_window": 200
+  },
+  "why": "Edge-ul de +4,19% e selectat din 26476 experimente; walk-forward verifică dacă iw40_best rămâne peste 0,40 în afara eșantionului.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T23:53:24",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-17T23:53:25",
+  "result": "WF score=0.396989, gap=0.019776, stabilitate=0.9293",
+  "elapsed_s": 0.8
+ },
+ {
+  "id": "act_1789699340303_b14078",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "multi_multi_pl",
+   "folds": 10,
+   "train_draws": 4000,
+   "test_draws": 500
+  },
+  "why": "Validează out-of-sample metrica 2.5396; p_ajustat=0.419 ridică suspiciunea de overfitting prin selecție și doar walk-forward poate confirma sau infirma edge-ul.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-18T05:42:20",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-18T05:42:24",
+  "result": "WF score=2.513942, gap=0.025629, stabilitate=0.9858",
+  "elapsed_s": 4.2
+ },
+ {
+  "id": "act_1789699673686_7a417c",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "lotto_pl",
+   "grid": {
+    "rw": [
+     200,
+     250,
+     300
+    ],
+    "delay": [
+     0.5,
+     0.7,
+     1.0,
+     1.3
+    ],
+    "momentum": [
+     0.8,
+     1.0,
+     1.2
+    ]
+   }
+  },
+  "why": "Edge-ul actual este compatibil cu zgomotul (p_ajustat=1.0); walk-forward verifică dacă perturbările de ferestre și ponderi aduc vreun câștig real.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-18T05:47:53",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-18T05:47:54",
+  "result": "WF score=0.745787, gap=-0.002736, stabilitate=0.9664",
+  "elapsed_s": 0.9
+ },
+ {
+  "id": "act_1789699675029_e203e6",
+  "type": "update_history",
+  "params": {
+   "lottery": "lotto_pl"
+  },
+  "why": "Istoricul se oprește la 2026-09-17; reîmprospătarea înainte de următoarea extragere previne decizii pe date învechite și aduce verificarea biletelor AI spre minimul de 30 extrageri.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-18T05:47:55",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-18T05:47:55",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1789699724969_e7e04c",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "folds": 5,
+   "test_window": 400
+  },
+  "why": "Edge-ul de +1.71% provine din backtest determinist cu 17432 experimente (p_ajustat=1.000) — validare out-of-sample pe fold-uri pentru a confirma sau respinge overfit-ul.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-18T05:48:44",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-18T05:48:45",
+  "result": "WF score=0.591601, gap=0.013838, stabilitate=0.9451",
+  "elapsed_s": 0.9
+ },
+ {
+  "id": "act_1789700030758_8b691c",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "kaskada_pl",
+   "folds": 5,
+   "min_real_tickets": 30
+  },
+  "why": "Edge-ul +0.51% trebuie validat out-of-sample; doar 7 extrageri cu bilete reale verificate — necesar minim 30 pentru o concluzie.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-18T05:53:50",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-18T05:53:51",
+  "result": "WF score=6.005520, gap=0.024914, stabilitate=0.9911",
+  "elapsed_s": 0.9
+ },
+ {
+  "id": "act_1789700062498_75a8e2",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_6_49_ro",
+   "folds": 5,
+   "scheme": "expanding_window"
+  },
+  "why": "p_ajustat=1.0 indică overfit; walk-forward verifică dacă metric=0.7865 se menține out-of-sample înainte de orice tunare suplimentară de parametri.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-18T05:54:22",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-18T05:54:22",
+  "result": "WF score=0.827653, gap=-0.041156, stabilitate=0.9288",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1789700110015_7d00c8",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_5_40_ro",
+   "folds": 6,
+   "window": 200,
+   "step": 50
+  },
+  "why": "Backtest-ul 0.7774 (p_ajustat=1.000) provine din selecția celui mai bun caz din 121108 experimente; doar validarea walk-forward out-of-sample poate separa un edge real de zgomot.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-18T05:55:10",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-18T05:55:10",
+  "result": "WF score=0.781795, gap=-0.004373, stabilitate=0.9485",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1789700126371_ca4a87",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "joker_ro",
+   "folds": 5
+  },
+  "why": "Edge-ul de backtest (z=+2.16, p_ajustat=1.000) nu este validat out-of-sample; walk-forward verifica daca metric=0.5877 se pastreaza pe date nevidute.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-18T05:55:26",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-18T05:55:26",
+  "result": "WF score=0.619401, gap=-0.031717, stabilitate=0.8656",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1789700336206_ca7b68",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "superenalotto_it",
+   "windows": 10,
+   "metric": "hits_per_ticket"
+  },
+  "why": "Edge-ul de +4.19% (z=1.84, p_ajustat=1.0) trebuie validat out-of-sample înainte de orice ajustare de parametri.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-18T05:58:56",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-18T05:58:57",
+  "result": "WF score=0.396989, gap=0.019776, stabilitate=0.9293",
+  "elapsed_s": 0.7
+ },
+ {
+  "id": "act_1789922602929_aca687",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "multi_multi_pl",
+   "strategy": "iw40_best",
+   "folds": 10,
+   "test_size_draws": 200
+  },
+  "why": "Edge-ul +1.58% (p_adj=0.419) e nedistinguibil de zgomot; walk-forward out-of-sample e singurul test care poate separa robustețea de selection bias înainte de orice re-calibrare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T19:43:22",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-20T19:43:27",
+  "result": "WF score=2.514235, gap=0.025336, stabilitate=0.9855",
+  "elapsed_s": 5.0
+ },
+ {
+  "id": "act_1789922608313_3b1a96",
+  "type": "update_history",
+  "params": {
+   "lottery": "multi_multi_pl"
+  },
+  "why": "Istoricul se oprește la 2026-09-17; actualizarea înainte de extragere asigură că întârzierile (78: 19) și ferestrele iw/rw calculează pe cele mai recente date.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T19:43:28",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-20T19:43:28",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1789922691939_103e5b",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "lotto_pl",
+   "rw": 250,
+   "folds": 6,
+   "metric": "hits_per_ticket"
+  },
+  "why": "p_ajustat=1.000 pentru rw250_best - validare out-of-sample pe fold-uri inainte de orice ajustare de weights.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T19:44:51",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-20T19:44:52",
+  "result": "WF score=0.745866, gap=-0.002815, stabilitate=0.9665",
+  "elapsed_s": 1.0
+ },
+ {
+  "id": "act_1789922776403_ce7e48",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "strategy": "iw40_best",
+   "folds": 6,
+   "train_ratio": 0.8,
+   "metric": "hits_per_ticket",
+   "min_test_draws": 200
+  },
+  "why": "Metricul 0.6054 e optimist in-sample (p_ajustat=1.0 dupa 17432 experimente); walk-forward ofera estimare nepartinita inainte de ajustarea ponderilor.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T19:46:16",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-20T19:46:17",
+  "result": "WF score=0.596479, gap=0.008960, stabilitate=0.9476",
+  "elapsed_s": 1.0
+ },
+ {
+  "id": "act_1789922872981_d667bb",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "kaskada_pl",
+   "folds": 5,
+   "test_draws": 500
+  },
+  "why": "p_ajustat=1.000 după 2305 experimente indică risc mare de overfit — validează out-of-sample dacă +0.51% supraviețuiește pe date nevăzute.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T19:47:52",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-20T19:47:54",
+  "result": "WF score=6.004775, gap=0.025659, stabilitate=0.9908",
+  "elapsed_s": 1.1
+ },
+ {
+  "id": "act_1789922925592_090e47",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_6_49_ro",
+   "folds": 5,
+   "train_window": 1800,
+   "test_window": 100
+  },
+  "why": "Avantajul de backtest (+7.05%) are p_ajustat=1.000 după 183k experimente; validarea out-of-sample pe fold-uri separate este singura cale de a testa dacă edge-ul generalizează.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T19:48:45",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-20T19:48:45",
+  "result": "WF score=0.827549, gap=-0.041052, stabilitate=0.9288",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1789922991411_61ea78",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_6_49_ro",
+   "train_window": 150,
+   "test_window": 50,
+   "folds": 6
+  },
+  "why": "Validare out-of-sample a ponderilor curente — backtest-ul de 0.7865 suferă de selection bias (p_ajustat=1.0 după 183k experimente) și trebuie confirmat pe fold-uri nevedute.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T19:49:51",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-20T19:49:51",
+  "result": "WF score=0.827549, gap=-0.041052, stabilitate=0.9288",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1789922926248_966468",
+  "type": "run_ai_analysis",
+  "params": {
+   "lottery": "loto_6_49_ro",
+   "min_verified_draws": 30
+  },
+  "why": "Biletele AI au doar 1 extragere verificată (0.800 vs 0.735); minim 30 sunt necesare pentru o concluzie statistică asupra selecției AI.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T19:48:46",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-20T19:49:52",
+  "result": "Analiză loto_6_49_ro gata (glm-5.3-flash:cloud): top [25, 6, 5, 4, 21, 36]",
+  "elapsed_s": 65.9
+ },
+ {
+  "id": "act_1789923072261_81a015",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_5_40_ro",
+   "n_windows": 10,
+   "train_ratio": 0.8
+  },
+  "why": "Metricul 0.7774 este maximul a 130306 experimente (winner's curse); validarea out-of-sample arată dacă parametrii supraviețuiesc pe date nevăzute.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T19:51:12",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-20T19:51:12",
+  "result": "WF score=0.779493, gap=-0.002071, stabilitate=0.9503",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1789923103736_b8b116",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "joker_ro",
+   "folds": 5,
+   "train_ratio": 0.7,
+   "windows": {
+    "iw": 80,
+    "rw": 300
+   }
+  },
+  "why": "Validare out-of-sample a edge-ului de +5.78% înainte de orice recalibrare; p_ajustat=1.000 cere confirmare pe date nefolosite la optimizare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T19:51:43",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-20T19:51:44",
+  "result": "WF score=0.619385, gap=-0.031701, stabilitate=0.8656",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1789923179937_111a69",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "superenalotto_it",
+   "n_windows": 10,
+   "train_fraction": 0.8
+  },
+  "why": "p_ajustat=1.000 după 30454 experimente indică optimizare pe zgomot; validarea walk-forward out-of-sample verifică dacă metrica 0.4168 supraviețuiește pe date nefolosite în tuning.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T19:52:59",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-20T19:53:00",
+  "result": "WF score=0.414520, gap=0.002245, stabilitate=0.9119",
+  "elapsed_s": 0.8
+ },
+ {
+  "id": "act_1790015523747_6d31f5",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "multi_multi_pl",
+   "folds": 6,
+   "train_ratio": 0.7,
+   "strategy": "iw40_best"
+  },
+  "why": "Edge-ul +1.58% (p_ajustat=0.418) poate fi overfit din 17256 experimente; walkforward out-of-sample verifică robustețea iw=40 / rw=200 înainte de orice re-optimszare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T21:32:03",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-21T21:32:09",
+  "result": "WF score=2.514013, gap=0.025558, stabilitate=0.9848",
+  "elapsed_s": 5.7
+ },
+ {
+  "id": "act_1790015606167_93e20b",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "lotto_pl",
+   "rw": 300,
+   "iw": 120,
+   "folds": 6
+  },
+  "why": "Validează out-of-sample metrica rw250_best; edge-ul de +1.14% (z=0.94) trebuie confirmat pe fold-uri nevăzute înainte de orice re-optimizare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T21:33:26",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-21T21:33:27",
+  "result": "WF score=0.745866, gap=-0.002815, stabilitate=0.9665",
+  "elapsed_s": 1.2
+ },
+ {
+  "id": "act_1790015622778_afad0c",
+  "type": "update_history",
+  "params": {
+   "lottery": "lotto_pl"
+  },
+  "why": "Asigură includerea celor mai recente extrageri (inclusiv 2026-09-19) înainte de generarea biletelor, pentru ca întârzierile și forma recentă să fie actuale.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T21:33:42",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-21T21:33:42",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1790015703702_cc16c1",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "folds": 10,
+   "train_fraction": 0.8
+  },
+  "why": "Metricul +1.71% are p_ajustat=1.0 (probabil overfit); walk-forward verifica daca iw40_best mentine castigul out-of-sample.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T21:35:03",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-21T21:35:04",
+  "result": "WF score=0.597156, gap=0.008283, stabilitate=0.9475",
+  "elapsed_s": 1.2
+ },
+ {
+  "id": "act_1790015816282_c19351",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "kaskada_pl",
+   "windows": 5
+  },
+  "why": "Metric +0.51% (p_ajustat=1.0 după 2305 experimente) poate fi bias de selecție; validează setul tf/bal out-of-sample înainte de orice ajustare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T21:36:56",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-21T21:36:57",
+  "result": "WF score=6.005304, gap=0.025130, stabilitate=0.9909",
+  "elapsed_s": 1.2
+ },
+ {
+  "id": "act_1790015818012_ffb59b",
+  "type": "update_history",
+  "params": {
+   "lottery": "kaskada_pl"
+  },
+  "why": "Doar 8 extrageri cu bilete AI verificate — istoricul actualizat e necesar pentru pragul de ≥30 extrageri al concluziei.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T21:36:58",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-21T21:36:58",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1790015928324_3fa059",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_6_49_ro",
+   "candidates": {
+    "rw": [
+     100,
+     150
+    ],
+    "delay": [
+     0.5,
+     1.0
+    ]
+   },
+   "windows": 10
+  },
+  "why": "Backtest-ul curent e overfit (p_ajustat=1.0 după 183k experimente); validare out-of-sample înainte de orice ajustare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T21:38:48",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-21T21:38:48",
+  "result": "WF score=0.827549, gap=-0.041052, stabilitate=0.9304",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1790015929112_60d4ab",
+  "type": "start_loop",
+  "params": {
+   "lottery": "loto_6_49_ro"
+  },
+  "why": "Biletele AI au doar 1 extragere verificată; acumulare de ≥30 extrageri pentru o concluzie validă asupra loviturilor/bilet.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T21:38:49",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-21T21:38:49",
+  "result": "buclă loto_6_49_ro pornită (PID 36764)",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1790016004860_64fb8b",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_5_40_ro",
+   "folds": 5,
+   "params_to_test": {
+    "tf": 2.95,
+    "hc": 2.0,
+    "bal": 4.0,
+    "sb": 1.022
+   }
+  },
+  "why": "edge-ul +3.66% nu e semnificativ (p_adj=1.0); validează out-of-sample parametrii înainte de orice ajustare",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T21:40:04",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-21T21:40:05",
+  "result": "WF score=0.778390, gap=-0.000968, stabilitate=0.9488",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1790016005641_434868",
+  "type": "update_history",
+  "params": {
+   "lottery": "loto_5_40_ro"
+  },
+  "why": "asigură că întârzierile și recent_50 reflectă ultima extragere înainte de generarea biletelor",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T21:40:05",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-21T21:40:05",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1790016089133_cc778b",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "joker_ro",
+   "folds": 6,
+   "train_windows": 300,
+   "test_windows": 50
+  },
+  "why": "Edge-ul de +5.78% are p_ajustat=1.000 după 114346 experimente — e nevoie de validare out-of-sample înainte de orice creștere a expunerii.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T21:41:29",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-21T21:41:29",
+  "result": "WF score=0.618203, gap=-0.030519, stabilitate=0.8647",
+  "elapsed_s": 0.4
+ },
+ {
+  "id": "act_1790016135356_08d236",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "superenalotto_it",
+   "folds": 10,
+   "windows": [
+    30,
+    40,
+    60
+   ]
+  },
+  "why": "Validarea out-of-sample a configurației iw40_best — p_ajustat=1.000 după 30759 experimente indică risc ridicat de overfit.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T21:42:15",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-21T21:42:16",
+  "result": "WF score=0.414520, gap=0.002738, stabilitate=0.9119",
+  "elapsed_s": 0.9
+ },
+ {
+  "id": "act_1790184609623_2bf6ff",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "multi_multi_pl",
+   "folds": 10,
+   "reoptimize": false
+  },
+  "why": "Edge-ul de +1.58% (p_ajustat=0.418) trebuie testat out-of-sample înainte de orice re-tuning; 17,256 experimente in-sample = risc ridicat de suprascriere.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T20:30:09",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-23T20:30:14",
+  "result": "WF score=2.513422, gap=0.026149, stabilitate=0.9852",
+  "elapsed_s": 4.9
+ },
+ {
+  "id": "act_1790184615028_0bf7b1",
+  "type": "update_history",
+  "params": {
+   "lottery": "multi_multi_pl"
+  },
+  "why": "Biletele AI au doar 9 extrageri verificate (<30 minim pentru o concluzie); actualizarea istoricului acumulează verificări înainte de următoarea decizie.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T20:30:15",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-23T20:30:15",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1790184700581_9ca73b",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "lotto_pl",
+   "min_forward_draws": 30,
+   "frozen_params": {
+    "metric": "rw250_best",
+    "weights": {
+     "tf": 2.879,
+     "hc": 1.784,
+     "bal": 3.795,
+     "sb": 1.224,
+     "delay": 1.0,
+     "momentum": 1.0
+    },
+    "iw": 120,
+    "rw": 250
+   }
+  },
+  "why": "Forward testul are doar 1 extragere; sunt necesare cel puțin 30 pentru a valida sau respinge metrica rw250_best în condiții reale.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T20:31:40",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-23T20:31:41",
+  "result": "WF score=0.745866, gap=-0.002815, stabilitate=0.9665",
+  "elapsed_s": 0.9
+ },
+ {
+  "id": "act_1790184702019_a18e14",
+  "type": "update_history",
+  "params": {
+   "lottery": "lotto_pl"
+  },
+  "why": "Sincronizarea istoricului cu ultimele extrageri înainte de generarea biletelor asigură că întârzierile și ferestrele recente sunt calculate corect.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T20:31:42",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-23T20:31:42",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1790184780825_e60cc6",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "min_forward_draws": 30,
+   "frozen_strategy": "iw40_best"
+  },
+  "why": "Forward testul are doar 1 extragere după înghețarea parametrilor; sunt necesare minim 30 pentru a valida sau respinge strategia curentă.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T20:33:00",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-23T20:33:01",
+  "result": "WF score=0.597631, gap=0.007808, stabilitate=0.9463",
+  "elapsed_s": 1.0
+ },
+ {
+  "id": "act_1790184782325_c34626",
+  "type": "update_history",
+  "params": {
+   "lottery": "mini_lotto_pl"
+  },
+  "why": "Sincronizează istoricul cu cele mai recente extrageri înainte de următoarea recomandare, ca ferestrele (iw/rw) și întârzierile să fie corecte.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T20:33:02",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-23T20:33:02",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1790184865222_606a09",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "kaskada_pl",
+   "min_forward_draws": 30
+  },
+  "why": "Forward testul curent are doar 3 extrageri de la înghețarea parametrilor; sunt necesare minim 30 pentru a valida sau respinge metrica 6.03 în afara eșantionului.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T20:34:25",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-23T20:34:26",
+  "result": "WF score=6.005567, gap=0.024866, stabilitate=0.9911",
+  "elapsed_s": 1.0
+ },
+ {
+  "id": "act_1790184866724_ba3479",
+  "type": "update_history",
+  "params": {
+   "lottery": "kaskada_pl"
+  },
+  "why": "Menține istoricul la zi după 2026-09-23 pentru acumularea desenelor forward și reevaluarea periodică a clasamentului.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T20:34:26",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-23T20:34:26",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1790184943209_956dec",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_6_49_ro",
+   "folds": 6,
+   "train_window": 1500,
+   "test_window": 100
+  },
+  "why": "Metricul +7.05% are p_ajustat=1.000 după 187768 experimente — needed validare out-of-sample pe fold-uri înainte de a păstra parametrii tunati.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T20:35:43",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-23T20:35:43",
+  "result": "WF score=0.827549, gap=-0.041052, stabilitate=0.9304",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1790185078015_f33e8b",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_5_40_ro",
+   "folds": 5,
+   "min_draws_per_fold": 300,
+   "strategy": "tf2.95_hc2.0_b4.0_sb1.022_jc0.1_bf0.0_dd2.506_ps20.0_el0.01"
+  },
+  "why": "p_ajustat=1.0 sugerează câștig de selecție; validarea out-of-sample pe falduri stableclarifică dacă metric 0.7774 supraviețuiește",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T20:37:58",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-23T20:37:58",
+  "result": "WF score=0.778390, gap=-0.000968, stabilitate=0.9488",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1790185145529_c4b161",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "joker_ro",
+   "folds": 6,
+   "mode": "rolling",
+   "params_under_test": {
+    "tf": 3.0,
+    "hc": 1.99,
+    "bal": 4.07,
+    "sb": 1.0,
+    "delay": 1.0,
+    "momentum": 1.0,
+    "iw": 80,
+    "rw": 300
+   }
+  },
+  "why": "p_ajustat=1.0 sugerează overfitting; walk-forward out-of-sample verifică dacă metricul 0.5877 se păstrează înainte de orice reoptimizare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T20:39:05",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-23T20:39:05",
+  "result": "WF score=0.618203, gap=-0.030519, stabilitate=0.8647",
+  "elapsed_s": 0.4
+ },
+ {
+  "id": "act_1790185233069_62f2b8",
+  "type": "update_history",
+  "params": {
+   "lottery": "superenalotto_it"
+  },
+  "why": "Asigură istoricul complet până la ultima extragere înainte de recalculul statisticilor și de orice validare forward.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T20:40:33",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-23T20:40:33",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1790185233563_322a52",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "superenalotto_it",
+   "min_new_draws": 30,
+   "frozen_strategy": "iw40_best"
+  },
+  "why": "Forward testul are doar 1 extragere; sunt necesare minim 30 extrageri cu parametri înghețați pentru a valida sau respinge avantajul de +4.31% din backtest.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T20:40:33",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-23T20:40:34",
+  "result": "WF score=0.414277, gap=0.002980, stabilitate=0.9113",
+  "elapsed_s": 0.9
+ },
+ {
+  "id": "act_1790419902279_ca1b8c",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "multi_multi_pl",
+   "folds": 5,
+   "test_draws_per_fold": 30,
+   "iw_candidates": [
+    40,
+    80,
+    120
+   ],
+   "rw_candidates": [
+    200,
+    400
+   ]
+  },
+  "why": "Backtestul curent e maximul seleciei din 17256 experimente (p_ajustat=0.417) — doar validarea out-of-sample pe fold-uri decide dacă iw40/rw200 supraviețuiesc; verifică și dacă perechea 48-67 rezistă în afara ferestrei de selecție.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T13:51:42",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T13:51:47",
+  "result": "WF score=2.513565, gap=0.026006, stabilitate=0.9854",
+  "elapsed_s": 4.7
+ },
+ {
+  "id": "act_1790419946344_4677e5",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "lotto_pl",
+   "min_forward_draws": 30,
+   "frozen_params": {
+    "tf": 2.879,
+    "hc": 1.784,
+    "bal": 3.795,
+    "sb": 1.224,
+    "delay": 1.0,
+    "momentum": 1.0,
+    "iw": 120,
+    "rw": 250
+   }
+  },
+  "why": "Forward testul curent are doar 2 extrageri (z=-1.37, neconcludent); sunt necesare minimum 30 pentru a valida sau respinge definitiv avantajul de +1.14% din backtest.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T13:52:26",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T13:52:27",
+  "result": "WF score=0.745614, gap=-0.002563, stabilitate=0.9663",
+  "elapsed_s": 1.0
+ },
+ {
+  "id": "act_1790419962772_18d454",
+  "type": "update_history",
+  "params": {
+   "lottery": "lotto_pl"
+  },
+  "why": "Asigură ingestia ultimelor extrageri înainte de următoarea selecție, ca forward testul să acumuleze eșantionul necesar de 30+.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T13:52:42",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T13:52:42",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1790420044833_ce2238",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "min_forward_draws": 30,
+   "frozen_params": {
+    "metric": "iw40_best",
+    "tf": 3.27,
+    "hc": 1.179,
+    "bal": 4.597,
+    "sb": 1.57,
+    "delay": 1.0,
+    "momentum": 1.0,
+    "iw": 40,
+    "rw": 350
+   }
+  },
+  "why": "Forward testul actual are doar 4 extrageri (z=-1.00); sunt necesare minim 30 pentru a valida sau respinge avantajul de +1.71% din backtest.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T13:54:04",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T13:54:05",
+  "result": "WF score=0.596752, gap=0.008687, stabilitate=0.9433",
+  "elapsed_s": 1.0
+ },
+ {
+  "id": "act_1790420046422_1b11af",
+  "type": "update_history",
+  "params": {
+   "lottery": "mini_lotto_pl"
+  },
+  "why": "Asigură că întârzierile (n=6 la 36 extrageri) și statisticile din ferestrele recente sunt calculate pe ultima extragere înainte de generarea biletelor.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T13:54:06",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T13:54:06",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1790420124388_b47a33",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "kaskada_pl",
+   "frozen_from": "2026-09-21",
+   "min_draws": 30
+  },
+  "why": "Forward testul are doar 8 extrageri (z=+1.13); sunt necesare ≥30 pentru o concluzie validă asupra metricii 6.03.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T13:55:24",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T13:55:25",
+  "result": "WF score=6.007419, gap=0.023014, stabilitate=0.9914",
+  "elapsed_s": 1.1
+ },
+ {
+  "id": "act_1790420247677_e24408",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_6_49_ro",
+   "min_forward_draws": 30,
+   "frozen_params": true
+  },
+  "why": "Edge-ul din backtest nu supraviețuiește corecției multiple (p_ajustat=1.000); sunt necesare cel puțin 30 de extrageri forward cu parametri înghețați pentru o validare reală.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T13:57:27",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T13:57:28",
+  "result": "WF score=0.826652, gap=-0.040155, stabilitate=0.9293",
+  "elapsed_s": 0.4
+ },
+ {
+  "id": "act_1790420328049_d6b97b",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_5_40_ro",
+   "min_forward_draws": 30
+  },
+  "why": "Forward testul are doar 1 extragere după înghețarea parametrilor; sunt necesare ≥30 pentru a valida sau respinge edge-ul aparent de +3.66%.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T13:58:48",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T13:58:48",
+  "result": "WF score=0.777533, gap=-0.000111, stabilitate=0.9471",
+  "elapsed_s": 0.4
+ },
+ {
+  "id": "act_1790420384279_8eac84",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "joker_ro",
+   "freeze_current_params": true,
+   "min_forward_draws": 30
+  },
+  "why": "Forward testul are doar 1 extragere după înghețare; sunt necesare ≥30 pentru a valida sau respinge parametrii tf3.0/hc1.99/bal4.07 înainte de a-i considera reali.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T13:59:44",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T13:59:44",
+  "result": "WF score=0.617021, gap=-0.029337, stabilitate=0.8598",
+  "elapsed_s": 0.5
+ },
+ {
+  "id": "act_1790420385299_5b12ef",
+  "type": "update_history",
+  "params": {
+   "lottery": "joker_ro"
+  },
+  "why": "Sincronizează istoricul la ultima extragere înainte de walkforward, astfel încât ferestrele iw=80/rw=300 să reflecte starea actuală a jocului.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T13:59:45",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T13:59:45",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1790420464447_f01f7a",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "superenalotto_it",
+   "strategy": "iw40_best",
+   "min_forward_draws": 30
+  },
+  "why": "Forward testul actual are doar 3 extrageri (z=-0.20, neconcludent); sunt necesare ≥30 pentru a valida sau respinge metrica 0.4173.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T14:01:04",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T14:01:05",
+  "result": "WF score=0.414620, gap=0.002638, stabilitate=0.9143",
+  "elapsed_s": 1.3
+ },
+ {
+  "id": "act_1790441607211_c0e337",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "multi_multi_pl",
+   "frozen_params": "iw40_best",
+   "min_forward_draws": 30
+  },
+  "why": "p_ajustat=0.416 și doar 9 extrageri după înghețare — e nevoie de ≥30 pentru a valida sau respinge edge-ul de +1.58%.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T19:53:27",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T19:53:33",
+  "result": "WF score=2.513712, gap=0.025859, stabilitate=0.9857",
+  "elapsed_s": 6.5
+ },
+ {
+  "id": "act_1790441614453_347645",
+  "type": "update_history",
+  "params": {
+   "lottery": "multi_multi_pl",
+   "up_to": "2026-09-26"
+  },
+  "why": "Acumulează extragerile noi pentru forward test fără refit, menținând parametrii înghețați.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T19:53:34",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T19:53:34",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1790441979514_3efc42",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "lotto_pl",
+   "min_draws": 30,
+   "freeze_params": true
+  },
+  "why": "Forward testul are doar 2 extrageri după înghețare; e nevoie de ≥30 pentru a valida sau respinge rw250_best înainte de orice retunare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T19:59:39",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T19:59:41",
+  "result": "WF score=0.745614, gap=-0.002563, stabilitate=0.9663",
+  "elapsed_s": 1.5
+ },
+ {
+  "id": "act_1790441981532_ba53bc",
+  "type": "update_history",
+  "params": {
+   "lottery": "lotto_pl"
+  },
+  "why": "Istoricul se oprește la 2026-09-24, iar verificarea biletelor AI are doar 3 extrageri; actualizarea crește eșantionul forward spre pragul de 30.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T19:59:41",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T19:59:41",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1790442094207_5700db",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "min_forward_draws": 30,
+   "freeze_params": true
+  },
+  "why": "Forward testul are doar 4 extrageri; sunt necesare ≥30 pentru a valida sau respinge avantajul de +1.71% înainte de orice re-ajustare de parametri.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T20:01:34",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T20:01:35",
+  "result": "WF score=0.596752, gap=0.008687, stabilitate=0.9433",
+  "elapsed_s": 1.6
+ },
+ {
+  "id": "act_1790442180271_d19a7f",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "kaskada_pl",
+   "frozen_params": "tf2.999_hc1.966_b3.996_sb1.0_jc0.14_bf0.1_dd3.0_ps20.0_el0.02",
+   "min_forward_draws": 30
+  },
+  "why": "Forward testul are doar 9 extrageri după înghețare; sunt necesare ≥30 pentru a valida sau respinge metrica 6.0304 înainte de orice re-ajustare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T20:03:00",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T20:03:01",
+  "result": "WF score=6.007682, gap=0.022751, stabilitate=0.9922",
+  "elapsed_s": 1.5
+ },
+ {
+  "id": "act_1790442260476_dae5b1",
+  "type": "update_history",
+  "params": {
+   "lottery": "loto_6_49_ro",
+   "source": "live_feed",
+   "fill_missing": true
+  },
+  "why": "Forward testul are doar 1 extragere de la înghețarea parametrilor; actualizarea istoricului accelerează acumularea celor ≥30 extrageri necesare pentru o concluzie validă.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T20:04:20",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T20:04:20",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1790442408573_808eb4",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_5_40_ro",
+   "folds": 5,
+   "min_forward_draws": 30
+  },
+  "why": "Edge-ul de +3.66% e explicat de selecție (p_ajustat=1.0) iar forward test are doar 1 extragere; e nevoie de validare out-of-sample pe ≥30 extrageri.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T20:06:48",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T20:06:49",
+  "result": "WF score=0.777533, gap=-0.000111, stabilitate=0.9471",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1790442472470_3d4497",
+  "type": "update_history",
+  "params": {
+   "lottery": "joker_ro"
+  },
+  "why": "asigură că cele mai noi extrageri de după 2026-09-24 sunt incluse înaintea selecției",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T20:07:52",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T20:07:52",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1790442473066_fe37a5",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "joker_ro",
+   "min_forward_draws": 30
+  },
+  "why": "forward testul are doar 1 extragere după înghețare; sunt necesare minim 30 pentru a valida sau respinge avantajul de +5.78%",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T20:07:53",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T20:07:53",
+  "result": "WF score=0.617021, gap=-0.029337, stabilitate=0.8598",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1790442556766_c7cc17",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "superenalotto_it",
+   "min_forward_draws": 30,
+   "frozen_params": {
+    "iw": 40,
+    "rw": 200
+   }
+  },
+  "why": "Forward testul are doar 3 extrageri (z=-0.20) — sunt necesare minimum 30 pentru a valida sau infirma metrica 0.4173 înainte de orice re-optimizare a ponderilor.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T20:09:16",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T20:09:17",
+  "result": "WF score=0.414620, gap=0.002638, stabilitate=0.9143",
+  "elapsed_s": 0.8
+ },
+ {
+  "id": "act_1790442558098_e44b5d",
+  "type": "update_history",
+  "params": {
+   "lottery": "superenalotto_it"
+  },
+  "why": "Istoricul se oprește la 2026-09-25; actualizarea asigură că întârzierile, fereastra recentă (iw=40) și perechile reflectă ultimele extrageri înaintea generării biletelor.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T20:09:18",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-09-26T20:09:18",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1794466865187_198c21",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "multi_multi_pl",
+   "folds": 5,
+   "test_window": 150
+  },
+  "why": "Forward testul actual acoperă doar 60 extrageri (z=0.80, subdimensionat); o validare walk-forward multi-fold decide dacă parametrii iw40_best merită păstrăți.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-11-12T09:01:05",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-12T09:01:09",
+  "result": "WF score=2.513273, gap=0.026298, stabilitate=0.9852",
+  "elapsed_s": 4.5
+ },
+ {
+  "id": "act_1794466870133_bbc2f5",
+  "type": "update_history",
+  "params": {
+   "lottery": "multi_multi_pl"
+  },
+  "why": "Istoricia se oprește la 2026-10-21; actualizarea înainte de următoarea extragere menține frecvențele, gap-urile și forward testul la zi.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-11-12T09:01:10",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-12T09:01:10",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1794466938515_5dbc00",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "lotto_pl",
+   "min_forward_draws": 30,
+   "rw": 250,
+   "iw": 120,
+   "frozen_params": {
+    "tf": 2.879,
+    "hc": 1.784,
+    "bal": 3.795,
+    "sb": 1.224,
+    "delay": 1.0,
+    "momentum": 1.0
+   }
+  },
+  "why": "Forward testul are doar 22 extrageri după înghețare; sunt necesare ≥30 pentru o decizie validă asupra parametrilor — între timp nu se modifică nimic.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-11-12T09:02:18",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-12T09:02:19",
+  "result": "WF score=0.746635, gap=-0.003585, stabilitate=0.9688",
+  "elapsed_s": 1.0
+ },
+ {
+  "id": "act_1794466999083_6a1573",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "folds": 6,
+   "train_draws": 3000,
+   "embargo": 50
+  },
+  "why": "Validează dacă parametrii recalibrați generalizează mai bine decât iw40_best, al cărui +1.71% provine din best-of-17432 experimente (suspect de overfitting).",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-11-12T09:03:19",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-12T09:03:20",
+  "result": "WF score=0.596303, gap=0.009137, stabilitate=0.9404",
+  "elapsed_s": 1.1
+ },
+ {
+  "id": "act_1794467171142_2ec583",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "kaskada_pl",
+   "min_forward_draws": 30,
+   "frozen_params": "tf2.999_hc1.966_b3.996_sb1.0_jc0.14_bf0.1_dd3.0_ps20.0_el0.02",
+   "metrics": [
+    "hits_per_ticket",
+    "z_vs_random"
+   ]
+  },
+  "why": "Biletele AI reale au doar 12 extrageri verificate; sunt necesare ≥30 pentru o concluzie validă asupra edge-ului.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-11-12T09:06:11",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-12T09:06:12",
+  "result": "WF score=6.014166, gap=0.016268, stabilitate=0.9923",
+  "elapsed_s": 1.0
+ },
+ {
+  "id": "act_1794467238965_78f4a7",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_6_49_ro",
+   "min_forward_draws": 30,
+   "seed_params": {
+    "tf": 2.149,
+    "hc": 2.645,
+    "bal": 3.878,
+    "sb": 1.017,
+    "delay": 1.3,
+    "momentum": 0.5,
+    "bf": 0.65,
+    "iw": 20,
+    "rw": 150
+   }
+  },
+  "why": "Doar 14 extrageri de la înghețare; minimum 30 sunt necesare pentru a accepta sau respinge metric=0.7865 față de bază 0.7347.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-11-12T09:07:18",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-12T09:07:19",
+  "result": "WF score=0.818966, gap=-0.032468, stabilitate=0.9245",
+  "elapsed_s": 0.2
+ },
+ {
+  "id": "act_1794474220391_ffc40d",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_5_40_ro",
+   "window": 250,
+   "step": 30,
+   "metrics": [
+    "hits_per_ticket"
+   ]
+  },
+  "why": "validare robustă pe seturi noi de date înainte de implementare",
+  "proposed_by": "strategist:gpt-oss:120b-cloud",
+  "created_at": "2026-11-12T11:03:40",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-12T11:03:40",
+  "result": "WF score=0.773275, gap=0.004147, stabilitate=0.9383",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1794474244356_201dae",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "joker_ro",
+   "min_forward_draws": 30
+  },
+  "why": "Forward testul are doar 14 extrageri după înghețarea parametrilor; sunt necesare ≥30 pentru o concluzie validă.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-11-12T11:04:04",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-12T11:04:04",
+  "result": "WF score=0.616197, gap=-0.028512, stabilitate=0.8940",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1794474292017_7fe137",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "superenalotto_it",
+   "min_forward_draws": 30,
+   "iw": 40,
+   "rw": 200
+  },
+  "why": "Forward test-ul cu parametri înghețați are 29 extrageri; la 30 se obține prima concluzie validă despre edge-ul de +4.31% (confirmare sau infirmare).",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-11-12T11:04:52",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-12T11:04:52",
+  "result": "WF score=0.410465, gap=0.006793, stabilitate=0.9311",
+  "elapsed_s": 0.8
+ },
+ {
+  "id": "act_1795372711739_5426f6",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "multi_multi_pl",
+   "frozen_params": {
+    "metric": "iw40_best",
+    "tf": 3.52,
+    "hc": 2.037,
+    "bal": 4.57,
+    "sb": 1.45,
+    "delay": 1.5,
+    "momentum": 1.0,
+    "iw": 60,
+    "rw": 300
+   },
+   "min_new_draws": 200
+  },
+  "why": "forward-testul actual (z=+0.61 pe 102 extrageri) e prea scurt; extinderea out-of-sample verifică dacă +1.58% brut supraviețuiește sau rămâne zgomot de selecție",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-11-22T20:38:31",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-22T20:38:37",
+  "result": "WF score=2.512454, gap=0.027116, stabilitate=0.9853",
+  "elapsed_s": 5.3
+ },
+ {
+  "id": "act_1795372786457_777b22",
+  "type": "update_history",
+  "params": {
+   "lottery": "lotto_pl"
+  },
+  "why": "Forward testul e la 27/30 extrageri după înghețarea parametrilor — actualizarea istoricului îl duce peste pragul minim pentru o concluzie.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-11-22T20:39:46",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-22T20:39:46",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1795372786869_f03b10",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "lotto_pl",
+   "iw": 120,
+   "rw": 250,
+   "freeze_params": true,
+   "min_forward_draws": 60
+  },
+  "why": "Avantajul de +1.14% (z=0.94, p_ajustat=1.0) nu e confirmat; un walk-forward cu parametri inghețați și eșantion forward mai lung decide dacă merită menținut sau substituit cu aleator.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-11-22T20:39:46",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-22T20:39:48",
+  "result": "WF score=0.747142, gap=-0.004091, stabilitate=0.9689",
+  "elapsed_s": 1.2
+ },
+ {
+  "id": "act_1795372865512_462602",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "iw": 40,
+   "rw": 350,
+   "weights": {
+    "tf": 3.27,
+    "hc": 1.179,
+    "bal": 4.597,
+    "sb": 1.57,
+    "delay": 1.0,
+    "momentum": 1.0
+   },
+   "validate_from": "2026-09-21"
+  },
+  "why": "Forward test z=-0,99 pe 61 extrageri cu parametri înghețați — revalidăm pe istoricul actualizat înainte de orice modificare de ponderi.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-11-22T20:41:05",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-22T20:41:06",
+  "result": "WF score=0.596509, gap=0.008930, stabilitate=0.9350",
+  "elapsed_s": 1.2
+ },
+ {
+  "id": "act_1795372945392_61c917",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "folds": 5,
+   "reoptimize": false,
+   "freeze_current": true
+  },
+  "why": "Forward testul actual (z=-0,99 pe doar 61 extrageri) e prea scurt; un walk-forward pe 5 ferestre confirmă sau invalidează metric 0,6054 înainte de orice re-optimizare.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-11-22T20:42:25",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-22T20:42:26",
+  "result": "WF score=0.596509, gap=0.008930, stabilitate=0.9350",
+  "elapsed_s": 1.2
+ },
+ {
+  "id": "act_1795372882169_ddd21e",
+  "type": "run_ai_analysis",
+  "params": {
+   "lottery": "mini_lotto_pl",
+   "focus": "acoperire_bilete",
+   "n_tickets": 10,
+   "goals": [
+    "suprapunere_intre_bilete_max_1_2_numere",
+    "evita_combinatii_populare",
+    "acoperire_egala_pe_1_42"
+   ]
+  },
+  "why": "Unicul câștig real disponibil: optimizarea acoperirii biletelor și evitarea combinațiilor populare, nu predicția numerelor (toate testele: p_ajustat=1,000).",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-11-22T20:41:22",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-22T20:42:27",
+  "result": "Analiză mini_lotto_pl gata (glm-5.3-flash:cloud): top [36, 28, 8, 7, 21, 37]",
+  "elapsed_s": 64.9
+ },
+ {
+  "id": "act_1795373107690_f2a6e8",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "kaskada_pl",
+   "iw": 45,
+   "dd": 2.0
+  },
+  "why": "Validare a noilor parametri pe datele recente.",
+  "proposed_by": "strategist:gpt-oss:120b-cloud",
+  "created_at": "2026-11-22T20:45:07",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-22T20:45:08",
+  "result": "WF score=6.016492, gap=0.013941, stabilitate=0.9913",
+  "elapsed_s": 1.2
+ },
+ {
+  "id": "act_1795373217397_b4c6d8",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "loto_5_40_ro",
+   "min_forward_draws": 30
+  },
+  "why": "Forward-testul are doar 18 extragere după înghețarea parametrilor; minim 30 sunt necesare pentru a confirma sau infirma avantajul de +3.66% din backtest.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-11-22T20:46:57",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-22T20:46:57",
+  "result": "WF score=0.776805, gap=0.000617, stabilitate=0.9453",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1795373274254_5f80b9",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "joker_ro",
+   "min_forward_draws": 30,
+   "note": "continuă forward test cu parametri înghețați până la ≥30 extrageri pentru z valid"
+  },
+  "why": "Forward testul actual (18 extrageri, z=+0.35) este insuficient; fără ≥30 extrageri nu putem confirma sau infirma edge-ul de +5.78% din backtest.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-11-22T20:47:54",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-22T20:47:54",
+  "result": "WF score=0.615475, gap=-0.027790, stabilitate=0.9103",
+  "elapsed_s": 0.3
+ },
+ {
+  "id": "act_1795373275005_26d2d6",
+  "type": "update_history",
+  "params": {
+   "lottery": "joker_ro"
+  },
+  "why": "Asigură includerea ultimelor extrageri după 2026-11-22 înainte de generarea biletelor, ca semnalele de momentum și întârziere să fie actuale.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-11-22T20:47:55",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-22T20:47:55",
+  "result": "Actualizarea istoricului a fost programată (pornește în ~60s, fundal).",
+  "elapsed_s": 0.0
+ },
+ {
+  "id": "act_1795373360193_0ace2a",
+  "type": "run_walkforward",
+  "params": {
+   "lottery": "superenalotto_it",
+   "test_draws": 250,
+   "step": 50,
+   "n_windows": 6
+  },
+  "why": "Forward testul actual are doar 36 extrageri (z=-0.39) — un walk-forward pe blocuri mai mari decide obiectiv dacă parametrii iw=40 generalizează sau sunt overfit.",
+  "proposed_by": "strategist:glm-5.3-flash:cloud",
+  "created_at": "2026-11-22T20:49:20",
+  "status": "executed",
+  "approved_by": "auto (risc scăzut)",
+  "closed_at": "2026-11-22T20:49:21",
+  "result": "WF score=0.411492, gap=0.005766, stabilitate=0.9418",
+  "elapsed_s": 0.9
+ }
+]

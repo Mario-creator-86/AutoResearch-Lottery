@@ -1,0 +1,65 @@
+{
+  "lottery_id": "loto_5_40_ro",
+  "strategy": "tf2.95_hc2.0_b4.0_sb1.022_jc0.1_bf0.0_dd2.506_ps20.0_el0.01",
+  "backtest_score": 0.777422,
+  "wf_score": 0.776805,
+  "gap": 0.000617,
+  "stability": 0.9453,
+  "baseline_avg": 0.75,
+  "baseline_edge": 0.026805,
+  "folds": [
+    {
+      "fold": 1,
+      "train_size": 1371,
+      "test_size": 182,
+      "score": 0.82967,
+      "baseline": 0.75,
+      "hit_rate_2plus": 0.1813,
+      "hit_rate_3plus": 0.0385,
+      "portfolio_avg": 1.489011
+    },
+    {
+      "fold": 2,
+      "train_size": 1553,
+      "test_size": 182,
+      "score": 0.791209,
+      "baseline": 0.75,
+      "hit_rate_2plus": 0.1593,
+      "hit_rate_3plus": 0.0385,
+      "portfolio_avg": 1.5
+    },
+    {
+      "fold": 3,
+      "train_size": 1735,
+      "test_size": 182,
+      "score": 0.741758,
+      "baseline": 0.75,
+      "hit_rate_2plus": 0.1429,
+      "hit_rate_3plus": 0.0165,
+      "portfolio_avg": 1.395604
+    },
+    {
+      "fold": 4,
+      "train_size": 1917,
+      "test_size": 182,
+      "score": 0.796703,
+      "baseline": 0.75,
+      "hit_rate_2plus": 0.1758,
+      "hit_rate_3plus": 0.0385,
+      "portfolio_avg": 1.401099
+    },
+    {
+      "fold": 5,
+      "train_size": 2099,
+      "test_size": 186,
+      "score": 0.725806,
+      "baseline": 0.75,
+      "hit_rate_2plus": 0.1613,
+      "hit_rate_3plus": 0.0054,
+      "portfolio_avg": 1.435484
+    }
+  ],
+  "timestamp": "2026-11-22T20:46:57",
+  "elapsed_seconds": 0.27,
+  "num_folds": 5
+}

@@ -1,0 +1,500 @@
+      chart.data.datasets[3].label = `Lottery Baseline (${Number(currentLotteryMeta.baseline || 0).toFixed(3)})`;
+      chart.options.scales.y.min = yMin;
+      chart.options.scales.y.max = yMax;
+      chart.options.scales.y.ticks.callback = v => Number(v).toFixed(tickDecimals);
+      chart.update('none'); // 'none' skips animations for faster updates
+    }
+}
+
+// --- SSE for live progress ---
+function connectSSE(lotteryId = currentLottery, viewToken = currentLotteryViewToken) {
+  if (evtSource) evtSource.close();
+  evtSource = new EventSource(apiPathFor(lotteryId, '/progress/stream'));
+  const source = evtSource;
+
+  evtSource.onopen = () => {
+    if (!isActiveLotteryView(lotteryId, viewToken) || evtSource !== source) return;
+    document.getElementById('connection-status').textContent = 'Connected';
+    document.getElementById('connection-status').style.color = 'var(--green)';
+  };
+
+  evtSource.onmessage = (event) => {
+    try {
+      const data = JSON.parse(event.data);
+      lotterySnapshots[lotteryId] = data;
+      const summary = lotteries.find(item => item.id === lotteryId);
+      if (summary && data?.status) summary.status = data.status;
+      renderLotteryRail();
+      if (!isActiveLotteryView(lotteryId, viewToken) || evtSource !== source) return;
+      updateStatus(data);
+    } catch (e) {
+      if (isActiveLotteryView(lotteryId, viewToken) && evtSource === source) {
+        console.error('SSE parse error:', e);
+      }
+    }
+  };
+
+  evtSource.onerror = () => {
+    if (!isActiveLotteryView(lotteryId, viewToken) || evtSource !== source) return;
+    document.getElementById('connection-status').textContent = 'Reconnecting...';
+    document.getElementById('connection-status').style.color = 'var(--yellow)';
+  };
+}
+
+function updateStatus(data) {
+  const badge = document.getElementById('status-badge');
+  const idleMsg = document.getElementById('status-idle-msg');
+  const runningDiv = document.getElementById('status-running');
+  const finishedDiv = document.getElementById('status-finished');
+  const btnStart = document.getElementById('btn-start');
+  const btnStop = document.getElementById('btn-stop');
+  const btnLoop = document.getElementById('btn-loop');
+
+  // Reset visibility
+  idleMsg.style.display = 'none';
+  runningDiv.style.display = 'none';
+  finishedDiv.style.display = 'none';
+
+  if (data.status === 'running') {
+    badge.className = 'status-badge badge-running';
+    const loopInfo = data.loop_info;
+    if (data.waiting_for_next_iteration && data.source === 'auto_loop' && loopInfo) {
+      badge.textContent = `AUTO LOOP iter${loopInfo.iteration} (waiting for next iteration)`;
+    } else if (data.source === 'auto_loop' && loopInfo) {
+      badge.textContent = `AUTO LOOP iter${loopInfo.iteration} (r=${loopInfo.radius.toFixed(2)}, streak=${loopInfo.no_improve_streak})`;
+    } else if (data.source === 'external') {
+      badge.textContent = `RUNNING (External PID ${data.pid || '?'})`;
+    } else {
+      badge.textContent = `RUNNING (${data.experiment_id || '?'})`;
+    }
+    runningDiv.style.display = 'block';
+    btnStart.disabled = true;
+    btnLoop.disabled = data.source !== 'auto_loop';
+    btnStop.disabled = false;
+    _startLiveRefresh();
+
+    // Progress bar
+    const pct = data.percent || 0;
+    const fill = document.getElementById('progress-fill');
+    fill.style.width = pct + '%';
+    fill.textContent = data.waiting_for_next_iteration ? 'waiting' : (Math.round(pct) + '%');
+
+    // Stats
+    document.getElementById('stat-tested').textContent = data.waiting_for_next_iteration
+      ? '-- / --'
+      : `${data.tested || 0} / ${data.total || '?'}`;
+    document.getElementById('stat-eta').textContent = data.waiting_for_next_iteration
+      ? 'starting soon'
+      : fmtETA(data.eta_seconds);
+    document.getElementById('stat-elapsed').textContent = fmtDuration(data.elapsed_seconds);
+
+    if (data.best_so_far && data.best_so_far.average_hits) {
+      document.getElementById('stat-best').textContent = data.best_so_far.average_hits.toFixed(6);
+      document.getElementById('stat-best-config').textContent = data.best_so_far.config || '';
+    } else {
+      document.getElementById('stat-best').textContent = '--';
+      document.getElementById('stat-best-config').textContent = '';
+    }
+
+    // Recent configs
+    const recentEl = document.getElementById('recent-list');
+    if (data.recent && data.recent.length > 0) {
+      const items = [...data.recent].reverse();
+      recentEl.innerHTML = items.map(r =>
+        `<div class="recent-item">
+          <span>${r.config}</span>
+          <span class="recent-metric">${r.average_hits.toFixed(6)}</span>
+        </div>`
+      ).join('');
+    } else if (data.waiting_for_next_iteration) {
+      recentEl.innerHTML = '<div class="recent-item"><span>Loop active. Waiting for next iteration...</span><span class="recent-metric">--</span></div>';
+    }
+
+  } else if (data.status === 'finished') {
+    badge.className = 'status-badge badge-finished';
+    badge.textContent = 'FINISHED';
+    finishedDiv.style.display = 'block';
+    btnStart.disabled = false;
+    btnStop.disabled = true;
+    btnLoop.disabled = false;
+    _stopLiveRefresh();
+
+    if (data.result) {
+      document.getElementById('finished-metric').textContent =
+        data.result.metric ? data.result.metric.toFixed(6) : '--';
+      document.getElementById('finished-config').textContent =
+        data.result.best_config || data.result.strategy || '--';
+      document.getElementById('finished-total').textContent =
+        data.result.total_tested || '--';
+    }
+    // Refresh experiment table
+    loadExperiments();
+
+  } else if (data.status === 'crashed') {
+    badge.className = 'status-badge badge-crashed';
+    badge.textContent = 'CRASHED';
+    idleMsg.style.display = 'block';
+    idleMsg.innerHTML = `<span style="color:var(--red)">Experiment crashed. ${data.error || ''}</span>`;
+    btnStart.disabled = false;
+    btnStop.disabled = true;
+    btnLoop.disabled = false;
+    _stopLiveRefresh();
+
+  } else if (data.status === 'stopped') {
+    badge.className = 'status-badge badge-stopped';
+    badge.textContent = 'STOPPED';
+    idleMsg.style.display = 'block';
+    idleMsg.innerHTML = 'Experiment stopped. Click <b>Start</b> or <b>Auto Loop</b> to resume.';
+    btnStart.disabled = false;
+    btnStop.disabled = true;
+    btnLoop.disabled = false;
+    _stopLiveRefresh();
+
+  } else if (data.status === 'stalled') {
+    badge.className = 'status-badge badge-stalled';
+    badge.textContent = 'STALLED';
+    idleMsg.style.display = 'block';
+    idleMsg.innerHTML = `<span style="color:var(--yellow)">Experiment is stalled. ${data.error || ''}</span>`;
+    btnStart.disabled = true;
+    btnStop.disabled = false;
+    btnLoop.disabled = true;
+    _stopLiveRefresh();
+
+  } else {
+    // idle
+    badge.className = 'status-badge badge-idle';
+    badge.textContent = 'IDLE';
+    idleMsg.style.display = 'block';
+    idleMsg.innerHTML = 'No experiment running. Click <b>Start</b> to begin.';
+    btnStart.disabled = false;
+    btnStop.disabled = true;
+    btnLoop.disabled = false;
+    _stopLiveRefresh();
+  }
+}
+
+// --- Generate Numbers ---
+async function generateNumbers() {
+  const ticketCount = parseInt(document.getElementById('ticket-slider').value);
+  const numsPerTicket = parseInt(document.getElementById('nums-per-ticket').value);
+  const bonusControl = document.getElementById('bonus-control');
+  const bonusPerTicket = bonusControl.style.display === 'none'
+    ? 0
+    : parseInt(document.getElementById('bonus-per-ticket').value);
+  const btn = document.querySelector('.status-card .btn-start');
+  btn.disabled = true;
+  btn.textContent = 'Generez...';
+  try {
+    const params = new URLSearchParams({
+      ticket_count: String(ticketCount),
+      nums_per_ticket: String(numsPerTicket),
+    });
+    if (bonusPerTicket > 0) params.set('bonus_per_ticket', String(bonusPerTicket));
+    const { resp, data } = await fetchJsonWithRetry(`${apiPath('/generate')}?${params.toString()}`);
+    if (!resp.ok) {
+      alert(data.error || 'Error generating numbers');
+      return;
+    }
+    // Update strategy badge and last draw info
+    const modeLabel = data.mode === 'system' ? ' [system]' : '';
+    document.getElementById('strategy-badge').textContent = 'Strategy: ' + (data.strategy || 'unknown') + modeLabel;
+    document.getElementById('last-draw-date').textContent = data.last_draw_date || '--';
+    const lastMain = (data.last_draw_numbers || []).join(', ');
+    const lastBonus = (data.last_draw_bonus || []).length ? ` + ${(data.last_draw_bonus || []).join(', ')}` : '';
+    document.getElementById('last-draw-nums').textContent = `${lastMain}${lastBonus}`;
+    lastGeneratedPayload = data;
+    lastGeneratedLotteryId = currentLottery;
+    renderGeneratedTickets(data);
+  } catch (e) {
+    const statusText = document.getElementById('connection-status')?.textContent || 'Disconnected';
+    alert(`Error: ${e.message}. Status conexiune: ${statusText}`);
+  }
+  btn.disabled = false;
+  btn.textContent = 'Generează';
+}
+
+// --- Auto Loop ---
+let _loopRunning = false;
+
+async function toggleLoop() {
+  const btn = document.getElementById('btn-loop');
+  if (_loopRunning) {
+    // Stop loop
+    btn.disabled = true;
+    btn.textContent = 'Stopping...';
+    try {
+      const resp = await fetch(apiPath('/loop/stop'), { method: 'POST' });
+      if (resp.ok) {
+        _loopRunning = false;
+        btn.textContent = 'Auto Loop';
+        btn.style.background = 'var(--blue)';
+      } else {
+        // Loop not running on server — reset button state
+        _loopRunning = false;
+        btn.textContent = 'Auto Loop';
+        btn.style.background = 'var(--blue)';
+      }
+    } catch (e) {
+      _loopRunning = false;
+      btn.textContent = 'Auto Loop';
+      btn.style.background = 'var(--blue)';
+    }
+    btn.disabled = false;
+  } else {
+    // Start loop
+    btn.disabled = true;
+    btn.textContent = 'Starting...';
+    try {
+      const resp = await fetch(apiPath('/loop/start'), { method: 'POST' });
+      const data = await resp.json();
+      if (resp.ok) {
+        _loopRunning = true;
+        btn.textContent = 'Stop Loop';
+        btn.style.background = 'var(--red)';
+      } else {
+        alert(data.error || 'Failed to start loop');
+      }
+    } catch (e) {
+      alert('Error: ' + e.message);
+    }
+    btn.disabled = false;
+  }
+}
+
+// Check loop status on load
+async function checkLoopStatus(lotteryId = currentLottery, viewToken = currentLotteryViewToken) {
+  const btn = document.getElementById('btn-loop');
+  try {
+    const { data } = await fetchJsonWithRetry(apiPathFor(lotteryId, '/loop/status'), {}, 3, 500);
+    if (!isActiveLotteryView(lotteryId, viewToken)) return;
+    if (data.running) {
+      _loopRunning = true;
+      btn.textContent = 'Stop Loop';
+      btn.style.background = 'var(--red)';
+    } else {
+      _loopRunning = false;
+      btn.textContent = 'Auto Loop';
+      btn.style.background = 'var(--blue)';
+    }
+  } catch (e) {
+    if (!isActiveLotteryView(lotteryId, viewToken)) return;
+    _loopRunning = false;
+    btn.textContent = 'Auto Loop';
+    btn.style.background = 'var(--blue)';
+  }
+}
+
+// --- Actions ---
+let _startPending = false;
+async function startExperiment() {
+  if (_startPending) return;
+  _startPending = true;
+  const btn = document.getElementById('btn-start');
+  const btnLoop = document.getElementById('btn-loop');
+  btn.disabled = true;
+  btnLoop.disabled = true;
+  btn.textContent = 'Starting...';
+  try {
+    const resp = await fetch(apiPath('/run'), { method: 'POST' });
+    const data = await resp.json();
+    if (!resp.ok) {
+      alert(data.error || 'Failed to start');
+      btn.disabled = false;
+      btnLoop.disabled = false;
+    }
+  } catch (e) {
+    alert('Error: ' + e.message);
+    btn.disabled = false;
+    btnLoop.disabled = false;
+  }
+  btn.textContent = 'Start';
+  _startPending = false;
+}
+
+async function stopExperiment() {
+  const btn = document.getElementById('btn-stop');
+  btn.disabled = true;
+  btn.textContent = 'Stopping...';
+  try {
+    const resp = await fetch(apiPath('/stop'), { method: 'POST' });
+    const data = await resp.json();
+    if (!resp.ok) {
+      // Experiment already stopped — refresh UI to reflect current state
+      await refreshProgress();
+    }
+  } catch (e) {
+    alert('Error: ' + e.message);
+  }
+  btn.textContent = 'Stop';
+  btn.disabled = false;
+}
+
+// --- Init ---
+let _refreshInterval = null;
+
+function _startLiveRefresh() {
+  if (_refreshInterval) return;
+  _refreshInterval = setInterval(() => {
+    loadExperiments(currentLottery, currentLotteryViewToken);
+  }, 5000); // refresh table every 5s for LIVE updates
+}
+
+function _stopLiveRefresh() {
+  if (_refreshInterval) {
+    clearInterval(_refreshInterval);
+    _refreshInterval = null;
+  }
+}
+
+window.addEventListener('hashchange', () => {
+  const lotteryId = location.hash ? location.hash.slice(1) : currentLottery;
+  if (lotteryId && lotteryId !== currentLottery && lotteries.some(l => l.id === lotteryId)) {
+    onLotteryChange(lotteryId, false);
+  }
+});
+
+// Debounce flag to prevent rapid successive calls
+let isHistoryLoading = false;
+
+// Variables for history change detection
+let lastHistoryHash = null;
+let lastHistoryFetchTime = 0;
+const MIN_HISTORY_REFRESH_INTERVAL = 15000; // 15 seconds minimum between refreshes
+
+setInterval(() => {
+  refreshLotterySnapshots().catch(() => {});
+  refreshProgress(currentLottery, currentLotteryViewToken).catch(() => {});
+  // Auto-refresh experiments table for LIVE updates
+  loadExperiments(currentLottery, currentLotteryViewToken).catch(() => {});
+  // Refresh walkforward results every 60s
+  loadWalkforwardResults().catch(() => {});
+  // Refresh strategy badge every 30s
+  loadBestStrategy(currentLottery).catch(() => {});
+
+  // Only load history if not already loading and we're on the history tab
+  if (currentMainTab === 'history' && !isHistoryLoading) {
+    const now = Date.now();
+
+    // Check if enough time has passed since last refresh
+    if (now - lastHistoryFetchTime >= MIN_HISTORY_REFRESH_INTERVAL) {
+      isHistoryLoading = true;
+      loadHistory(currentLottery, currentLotteryViewToken)
+        .then(() => {
+          // Update last fetch time after successful fetch
+          lastHistoryFetchTime = now;
+
+          // Create hash of current history data to detect changes
+          if (historyState && historyState.groups) {
+            try {
+              const newHash = JSON.stringify(historyState.groups.map(g => ({
+                date: g.target_draw_date || g.saved_date,
+                count: g.total_tickets,
+                available: g.draw_available
+              })));
+
+              // Only update hash if data actually changed
+              if (newHash !== lastHistoryHash) {
+                lastHistoryHash = newHash;
+              }
+            } catch (e) {
+              // Ignore hash generation errors
+            }
+          }
+        })
+        .catch(() => {})
+        .finally(() => {
+          isHistoryLoading = false;
+        });
+    }
+  }
+}, 5000); // Keep 5s interval for other updates, but history has its own throttling
+
+// Start live refresh immediately
+_startLiveRefresh();
+
+loadLotteries();
+
+// --- Multi-Agent System Functions ---
+async function fetchAgentsStatus() {
+  try {
+    const resp = await fetch('/api/agents/status');
+    if (!resp.ok) throw new Error('Failed to fetch agent status');
+    const data = await resp.json();
+    updateAgentsUI(data.agents);
+  } catch (e) {
+    console.error('Error fetching agent status:', e);
+    // Mark all as unknown
+    const agents = ['strategy_researcher', 'lottery_manager', 'ticket_generator', 'system_monitor'];
+    agents.forEach(id => updateAgentItem(id, { running: false, status: 'unknown' }));
+  }
+}
+
+function updateAgentsUI(agents) {
+  if (!agents) return;
+  Object.entries(agents).forEach(([id, data]) => updateAgentItem(id, data));
+}
+
+function updateAgentItem(id, data) {
+  const dot = document.getElementById('dot-' + id);
+  const status = document.getElementById('status-' + id);
+  if (!dot || !status) return;
+
+  if (data.running) {
+    dot.style.background = '#3fb950';
+    dot.style.boxShadow = '0 0 8px rgba(63,185,80,0.5)';
+    status.textContent = data.current_task || 'running';
+    status.style.color = '#3fb950';
+  } else {
+    dot.style.background = '#f85149';
+    dot.style.boxShadow = 'none';
+    status.textContent = data.status === 'stopped' ? 'stopped' : 'offline';
+    status.style.color = '#f85149';
+  }
+}
+
+async function startAllAgents() {
+  const btn = document.getElementById('btn-start-agents');
+  btn.textContent = 'Starting...';
+  btn.disabled = true;
+  try {
+    const resp = await fetch('/api/agents/system_monitor/start', { method: 'POST' });
+    await fetch('/api/agents/lottery_manager/start', { method: 'POST' });
+    await fetch('/api/agents/strategy_researcher/start', { method: 'POST' });
+    await fetch('/api/agents/ticket_generator/start', { method: 'POST' });
+    setTimeout(fetchAgentsStatus, 2000);
+  } catch (e) {
+    console.error('Error starting agents:', e);
+  }
+  btn.textContent = 'Start All';
+  btn.disabled = false;
+}
+
+async function stopAllAgents() {
+  const btn = document.getElementById('btn-stop-agents');
+  btn.textContent = 'Stopping...';
+  btn.disabled = true;
+  try {
+    await fetch('/api/agents/system_monitor/stop', { method: 'POST' });
+    await fetch('/api/agents/lottery_manager/stop', { method: 'POST' });
+    await fetch('/api/agents/strategy_researcher/stop', { method: 'POST' });
+    await fetch('/api/agents/ticket_generator/stop', { method: 'POST' });
+    setTimeout(fetchAgentsStatus, 2000);
+  } catch (e) {
+    console.error('Error stopping agents:', e);
+  }
+  btn.textContent = 'Stop All';
+  btn.disabled = false;
+}
+
+function refreshAgents() {
+  fetchAgentsStatus();
+}
+
+// Fetch agent status every 10 seconds
+setInterval(fetchAgentsStatus, 10000);
+
+// Initial fetch
+fetchAgentsStatus();
+</script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "draw_date": "2026-09-08",
+   "next_draw_times": [
+    "23:00"
+   ],
+   "model": "glm-5.3-flash:cloud",
+   "created_at": "2026-09-08T08:14:09",
+   "reasoning": "Metricul 0.403 e dominat de greutatea b=4.0 și hc=2.911, deci ancorez primele 5 bilete pe topul strategiei deterministe. Straturile 2-3 aplic concentrația recomandată: 2 întârziați (11, 28, 69) + 2 momentum (51, 48, 47) + 1 hot stabil (17, 10, 42), cu 51 ponderat sus (z local +3.0). Fiecare bilet păstrează 2-3 numere mici, sumă 110-190, mix par/impar; perechea 22-42 apare o singură dată ca tie-breaker. Ultimele 5 bilete explorează perechi (47-51, 43-52, 48-67) și coada clasamentului. Niciun bilet duplicat; niciun număr nu depășește 4 apariții.",
+   "strategy_metric": 0.403283,
+   "tickets": [
+    {
+     "main": [
+      11,
+      24,
+      31,
+      40,
+      58
+     ],
+     "bonus": [
+      7
+     ],
+     "why": "Top 5 strategie pură, sumă 164, echilibru par-impar."
+    },
+    {
+     "main": [
+      10,
+      17,
+      31,
+      42,
+      64
+     ],
+     "bonus": [
+      13
+     ],
+     "why": "Ranks 3,6-9 din strategie, hot 10,17; sumă 164."
+    },
+    {
+     "main": [
+      11,
+      24,
+      28,
+      43,
+      66
+     ],
+     "bonus": [
+      3
+     ],
+     "why": "Strategie cu 28 întârziat, 66 rank-10; sumă 172."
+    },
+    {
+     "main": [
+      10,
+      14,
+      31,
+      40,
+      69
+     ],
+     "bonus": [
+      9
+     ],
+     "why": "Strategie ranks 3-17, 69 întârziat; sumă 164."
+    },
+    {
+     "main": [
+      13,
+      15,
+      16,
+      52,
+      62
+     ],
+     "bonus": [
+      16
+     ],
+     "why": "Coada strategiei cu 15, 13; sumă 158."
+    },
+    {
+     "main": [
+      11,
+      17,
+      50,
+      51,
+      58
+     ],
+     "bonus": [
+      5
+     ],
+     "why": "Top ambelor clasamente cu 51,50 momentum-AI; 187."
+    },
+    {
+     "main": [
+      10,
+      22,
+      28,
+      43,
+      69
+     ],
+     "bonus": [
+      21
+     ],
+     "why": "Întârziați 28,69 cu suport 43,10,22; 172."
+    },
+    {
+     "main": [
+      5,
+      17,
+      42,
+      51,
+      64
+     ],
+     "bonus": [
+      2
+     ],
+     "why": "Hot 17,42 cu momentum 51 și 5; 179."
+    },
+    {
+     "main": [
+      13,
+      16,
+      34,
+      47,
+      50
+     ],
+     "bonus": [
+      24
+     ],
+     "why": "AI mijlociu 34,50,47 cu 13,16; 160."
+    },
+    {
+     "main": [
+      15,
+      24,
+      33,
+      38,
+      52
+     ],
+     "bonus": [
+      12
+     ],
+     "why": "Strategie 33-52 cu 15 AI; sumă 162."
+    },
+    {
+     "main": [
+      10,
+      11,
+      28,
+      48,
+      51
+     ],
+     "bonus": [
+      6
+     ],
+     "why": "2 întârziați, 2 momentum, 1 hot — rețeta recomandată."
+    },
+    {
+     "main": [
+      14,
+      17,
+      22,
+      48,
+      69
+     ],
+     "bonus": [
+      19
+     ],
+     "why": "69 întârziat, 48 momentum, 17 hot; 170."
+    },
+    {
+     "main": [
+      5,
+      15,
+      47,
+      56,
+      58
+     ],
+     "bonus": [
+      8
+     ],
+     "why": "Momentum 47 cu 58,56,15,5; sumă 181."
+    },
+    {
+     "main": [
+      3,
+      14,
+      33,
+      42,
+      48
+     ],
+     "bonus": [
+      4
+     ],
+     "why": "Hot 42, momentum 48, explorare 14,33,3; 140."
+    },
+    {
+     "main": [
+      5,
+      18,
+      31,
+      43,
+      47
+     ],
+     "bonus": [
+      23
+     ],
+     "why": "Momentum 47,43 cu 18,31,5; sumă 144."
+    },
+    {
+     "main": [
+      3,
+      22,
+      34,
+      42,
+      67
+     ],
+     "bonus": [
+      14
+     ],
+     "why": "Tie-breaker unic 22-42 cu 34,3,67; 168."
+    },
+    {
+     "main": [
+      13,
+      16,
+      34,
+      47,
+      51
+     ],
+     "bonus": [
+      15
+     ],
+     "why": "Explorare pereche momentum 47-51; 34,13,16; 161."
+    },
+    {
+     "main": [
+      13,
+      14,
+      43,
+      52,
+      67
+     ],
+     "bonus": [
+      20
+     ],
+     "why": "Pereche 43-52 cu 67 AI, 13,14; 189."
+    },
+    {
+     "main": [
+      3,
+      15,
+      24,
+      48,
+      67
+     ],
+     "bonus": [
+      1
+     ],
+     "why": "Momentum 48 cu 67,24,15,3; sumă 157."
+    },
+    {
+     "main": [
+      5,
+      33,
+      38,
+      40,
+      62
+     ],
+     "bonus": [
+      22
+     ],
+     "why": "Sector coadă 33-62 cu 40,5; sumă 178."
+    }
+   ],
+   "status": "cancelled",
+   "cancel_note": "loterie retrasă din exploatare (2026-09-08)"
+  }
+ ]
+}

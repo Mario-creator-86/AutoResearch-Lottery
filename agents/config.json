@@ -1,0 +1,83 @@
+{
+  "system": {
+    "name": "Multi-Agent Lottery System",
+    "version": "1.0.0",
+    "max_simultaneous_lotteries": 2,
+    "heartbeat_interval_seconds": 30,
+    "message_poll_interval_seconds": 10,
+    "stale_heartbeat_threshold_seconds": 120
+  },
+  "agents": {
+    "strategy_researcher": {
+      "enabled": true,
+      "schedule": "0 */6 * * *",
+      "sources": [
+        "lotterypost.com",
+        "reddit.com/r/lottery",
+        "arxiv.org"
+      ],
+      "research_duration_minutes": 30
+    },
+    "lottery_manager": {
+      "enabled": true,
+      "mode": "continuous",
+      "check_interval_seconds": 60,
+      "max_cpu_percent": 80,
+      "max_memory_percent": 90,
+      "loop_rotation_hours": 6
+    },
+    "ticket_generator": {
+      "enabled": true,
+      "schedule": "0 8 * * *",
+      "check_results_after_draws": true,
+      "tickets_per_lottery": 5,
+      "consecutive_losses_threshold": 7
+    },
+    "system_monitor": {
+      "enabled": true,
+      "mode": "continuous",
+      "check_interval_seconds": 30,
+      "proactive_checks": true,
+      "reactive_monitoring": true,
+      "auto_restart_agents": true
+    },
+    "ollama_strategist": {
+      "enabled": true,
+      "interval_minutes": 360,
+      "model": "",
+      "lotteries": []
+    },
+    "ai_strategy_coder": {
+      "enabled": true,
+      "interval_minutes": 180,
+      "max_generation_attempts": 2,
+      "lotteries": []
+    },
+    "ai_ticket_agent": {
+      "enabled": true,
+      "tickets_per_day": 20,
+      "lotteries": []
+    },
+    "telegram_agent": {
+      "enabled": true,
+      "poll_timeout": 25
+    }
+  },
+  "notifications": {
+    "telegram_enabled": true,
+    "alert_on_incident": true,
+    "daily_report_time": "22:00"
+  },
+  "directories": {
+    "status": "agents/status",
+    "messages": "agents/messages",
+    "tasks": "agents/tasks",
+    "strategies": "agents/strategies",
+    "tickets": "agents/tickets",
+    "incidents": "agents/incidents",
+    "logs": "agents/logs"
+  },
+  "ai_actions": {
+    "autonomous_mode": true
+  }
+}

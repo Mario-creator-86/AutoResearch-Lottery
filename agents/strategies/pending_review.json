@@ -1,0 +1,2128 @@
+[
+ {
+  "id": "ai_joker_ro_2026-09-08T17:50:06",
+  "source": "ollama_strategist",
+  "lottery": "joker_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T14:50:42.098216",
+  "suggestions": [
+   {
+    "param": "delay",
+    "suggested": 1.2,
+    "reason": "Gap-uri multiple mari simultan (14: 39, 8: 18, 9/36: 16) — o pondere ușor mărită pe overdue capturează mean-reversion fără a supra-corespunde zgomotului"
+   },
+   {
+    "param": "iw",
+    "suggested": 100,
+    "reason": "Fereastră de frecvență mai lungă stabilizează estimările și reduce sensibilitatea la fluctuațiile locale; cu 2110 extrageri, costul de latență e neglijabil"
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_multi_multi_pl_2026-09-08T17:53:20",
+  "source": "ollama_strategist",
+  "lottery": "multi_multi_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T14:53:25.480930",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 1.15,
+    "reason": "Clusterul 58/66/51 din ultimele 50 are z 2.1-2.8; un tilt recențiu moderat e justificat, dar sub 1.2 ca să nu amplifice zgomotul."
+   },
+   {
+    "param": "delay",
+    "suggested": 2.6,
+    "reason": "Gap-urile overdue (max 14) sunt în norma geometrică p=0.25; ponderea mare de delay riscă fit pe mean-reversion inexistent în extrageri i.i.d."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_superenalotto_it_2026-09-08T20:13:32",
+  "source": "ollama_strategist",
+  "lottery": "superenalotto_it",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T17:14:23.788544",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 1.2,
+    "reason": "clusterizare ușoară în ultimele 50 (2:8, 1/12/76:7 apariții); creștere mică, adoptabilă doar dacă walk-forward o confirmă"
+   },
+   {
+    "param": "delay",
+    "suggested": 1.2,
+    "reason": "3 numere cu gap>45 (48:70, 5:61, 41:59) — pondere ușor sporită pe întârzieri e testabilă, fără a trata 'due' ca certitudine"
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_mini_lotto_pl_2026-09-08T23:31:50",
+  "source": "ollama_strategist",
+  "lottery": "mini_lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T20:31:51.992609",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.8,
+    "reason": "Hot-count pe fereastra scurtă (max z≈1.77 pentru 16) este la nivel de zgomot; reducem expunerea la fluctuații de window."
+   },
+   {
+    "param": "rw",
+    "suggested": 500,
+    "reason": "Fereastră recentă mai lungă stabilizează estimările de perechi/frecvență și scade varianța semnalelor spurioase."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_lotto_pl_2026-09-08T23:39:22",
+  "source": "ollama_strategist",
+  "lottery": "lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T20:39:23.700483",
+  "suggestions": [
+   {
+    "param": "sb",
+    "suggested": 1.55,
+    "reason": "Hub-uri de perechi recente puternice (17-20:14, 9-31:10, 36-37/36-39:10) se suprapun cu liderii de momentum; o creștere moderată valorifică synergia fără a supraîncărca zgomotul."
+   },
+   {
+    "param": "momentum",
+    "suggested": 1.3,
+    "reason": "31 (12/50), 20 (11/50), 18/28 (10/50) arată clustering recent consistent; bump mic al momentului, cu acceptul că semnalul e slab."
+   },
+   {
+    "param": "rw",
+    "suggested": 220,
+    "reason": "Fereastră ușor mai scurtă crește reactivitatea la regimul recent (perechi/momentum) păstrând eșantion suficient (~1320 hits); de validat prin walk-forward."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_kaskada_pl_2026-09-08T23:45:06",
+  "source": "ollama_strategist",
+  "lottery": "kaskada_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T20:45:07.214321",
+  "suggestions": [
+   {
+    "param": "delay",
+    "suggested": 1.25,
+    "reason": "Numerele 2 și 8 au gap 4 (p≈6.25% per număr); o pondere moderată de mean-reversion echilibrează tf=2.999 fără a urmi zgomotul."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.85,
+    "reason": "Z-scores pe fereastra de 50 extrageri (max ~2.4) nu trec corecția Bonferroni; reduc riscul de urmărire a zgomotului pe termen scurt."
+   },
+   {
+    "param": "rw",
+    "suggested": 120,
+    "reason": "Fereastră de recență mai scurtă reduce lag-ul momentum-ului și expunerea la regresia spre medie."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_6_49_ro_2026-09-08T23:50:43",
+  "source": "ollama_strategist",
+  "lottery": "loto_6_49_ro",
+  "model": "gpt-oss:120b-cloud",
+  "created_at": "2026-09-08T20:50:43.765511",
+  "suggestions": [
+   {
+    "param": "delay",
+    "suggested": 2.0,
+    "reason": "Creșterea întârzierii permite includerea numerelor cu mari overdue (ex. 38, 29)."
+   },
+   {
+    "param": "rw",
+    "suggested": 200,
+    "reason": "Fereastra de reamintire extinsă captează mai bine tendințele pe termen mediu și cele de revenire."
+   },
+   {
+    "param": "sb",
+    "suggested": 0.9,
+    "reason": "Reducerea ușoară pentru a preveni supra‑ajustarea la temperaturi curente."
+   },
+   {
+    "param": "jc",
+    "suggested": 0.2,
+    "reason": "Introducerea unui jitter modest poate adăuga diversitate și reduce dependența de pattern‑uri marginale."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_5_40_ro_2026-09-08T23:51:12",
+  "source": "ollama_strategist",
+  "lottery": "loto_5_40_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T20:51:12.604429",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 1.25,
+    "reason": "Clusterul recent-50 (2:15, 40:14, 37:13) și 3 apariții/5 extrageri pentru 19 justifică o pondere ușor mai mare a formei pe termen scurt; validare obligatorie prin walk-forward."
+   },
+   {
+    "param": "delay",
+    "suggested": 1.1,
+    "reason": "Coada overdue (23:24, 39:21, 32:16) oferă acoperire ieftină a estramelor; creștere minimă ca să nu perturbe dominanța bal=4.0."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_multi_multi_pl_2026-09-08T23:55:52",
+  "source": "ollama_strategist",
+  "lottery": "multi_multi_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T20:56:16.046501",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 1.4,
+    "reason": "Liderii recent-50 (58: 21, 66: 20, 51: 19 vs 12.5) au z≈2.4-2.8; momentum=1.0 subfolosește singurul semnal pe termen scurt structurat — de validat prin walk-forward înainte de adoptare finală."
+   },
+   {
+    "param": "delay",
+    "suggested": 2.5,
+    "reason": "Gapurile overdue (32: 14, 53: 13) sunt consistente cu zgomot geometric (~1.4 numere așteptate la gap≥14 din 80); redus ușor expunerea și compensează prin momentum validat."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_joker_ro_2026-09-08T23:56:48",
+  "source": "ollama_strategist",
+  "lottery": "joker_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-08T20:57:09.349459",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 1.25,
+    "reason": "Liderii pe fereastra scurtă (1: 11/50, 10: 10/50, 40/37/43: 9/50) justifică o pondere ușor crescută; creștere modestă pentru că ferestrele scurte sunt zgomotoase."
+   },
+   {
+    "param": "delay",
+    "suggested": 1.15,
+    "reason": "14 lipsesc de 39 extrageri (~1% prob.) și 8 de 18; dacă supradispersia e reală, un tilt de revenire la medie e ieftin și directionat corect (8 e cald+întârziat)."
+   },
+   {
+    "param": "rw",
+    "suggested": 240,
+    "reason": "Hub-ul de perechi (37 în 5/8 perechi, 10–28) e concentrat în ultimele ~100 extrageri; o fereastră mai scurtă captează mai rapid deplasarea structurii recente."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_multi_multi_pl_2026-09-15T20:44:36",
+  "source": "ollama_strategist",
+  "lottery": "multi_multi_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-15T17:44:42.451614",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 1.2,
+    "reason": "Momentum-ul recent (20/50 apariții vs 12.5 așteptate la 58, 51) e semnal ortogonal față de frecvența lungă, dar e subponderat față de tf=3.52."
+   },
+   {
+    "param": "delay",
+    "suggested": 3.4,
+    "reason": "Suprapunerea hot+overdue (20, 35, 68, 78) arată că întârzierea adaugă informație independentă; creștere mică, de validat prin walk-forward."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_lotto_pl_2026-09-15T20:48:31",
+  "source": "ollama_strategist",
+  "lottery": "lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-15T17:48:52.468405",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 1.3,
+    "reason": "Clusterele recente (31: 12/50, 28: 10/50) justifică un test moderat, doar dacă walk-forward confirmă creșterea."
+   },
+   {
+    "param": "rw",
+    "suggested": 300,
+    "reason": "Metrica doar +1.1% peste baseline indică varianță ridicată a estimărilor; o fereastră mai mare reduce riscul de overfitting."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_mini_lotto_pl_2026-09-15T20:49:48",
+  "source": "ollama_strategist",
+  "lottery": "mini_lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-15T17:49:49.013053",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 1.2,
+    "reason": "Clusterul recent (36:11, 14:10, 26:9, 9:9 din 50) arată persistență short-term; o înclinare mică valorifică momentum-ul fără a supra-pondera zgomotul."
+   },
+   {
+    "param": "rw",
+    "suggested": 300,
+    "reason": "Semnalele actionabile (perechi, momentum) trăiesc în ultimele ~50-300 extrageri; rw=350 diluează ușor clusterul curent — de validat prin walk-forward."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_kaskada_pl_2026-09-15T20:51:06",
+  "source": "ollama_strategist",
+  "lottery": "kaskada_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-15T17:51:07.983096",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 1.25,
+    "reason": "Momentum-ul pe 50 extrageri (13: 31/50; 6/12/19: 29/50) este singurul semnal coerent al datelor; o upweightare moderată rămâne conservatoare."
+   },
+   {
+    "param": "rw",
+    "suggested": 120,
+    "reason": "Frecvența de termen lung este plată (fără |z|>2.05 relevant); o fereastră recentă mai scurtă captează mai repede cluster-urile temporale fără a supra-pondera zgomotul istoric."
+   },
+   {
+    "param": "delay",
+    "suggested": 1.2,
+    "reason": "Gap-urile actuale (7:6, 12:3, 20:3) oferă un mic semnal de mean-reversion; upweightare ușoară, ținând cont că gap-urile sunt în mod normal scurte (medie 2)."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_6_49_ro_2026-09-15T20:52:15",
+  "source": "ollama_strategist",
+  "lottery": "loto_6_49_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-15T17:52:36.381619",
+  "suggestions": [
+   {
+    "param": "sb",
+    "suggested": 1.15,
+    "reason": "Perechile 6-16, 11-16, 4-26 recurente (10–11 co-ocurențe) justifică o boostare mică a sinergiei, fără a supraîncărca semnalele de multiple-testing."
+   },
+   {
+    "param": "rw",
+    "suggested": 120,
+    "reason": "Forma recentă (18/21/16 la 10/50, 34 la 3/5) e ușor peste medie; o fereastră recentă mai scurtă crește reactivitatea, în timp ce bal=3.878 păstrează stabilitatea pe termen lung."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_5_40_ro_2026-09-15T20:53:28",
+  "source": "ollama_strategist",
+  "lottery": "loto_5_40_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-15T17:53:28.898834",
+  "suggestions": [
+   {
+    "param": "iw",
+    "suggested": 50,
+    "reason": "Fereastra scurtă de 30 amplifică zgomotul de eșantion; 50 aliniază semnalul de momentum cu fereastra recent_50 folosită în statistici și reduce varianța rank-urilor."
+   },
+   {
+    "param": "delay",
+    "suggested": 1.4,
+    "reason": "Boost moderat pentru întârziere (23: 26, 39: 23, 32: 18) — semnal slab, dar cost mic; nu depăși ~1.5 ca să nu alunecăm în gambler's fallacy sistematică."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_joker_ro_2026-09-15T20:54:33",
+  "source": "ollama_strategist",
+  "lottery": "joker_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-15T17:54:34.437607",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 1.2,
+    "reason": "Recenta arată coerență (38: 4/5, 18: 3/5, 1: 11/50); o creștere mică captează persistența pe termen scurt fără să supra-ponderăm zgomotul."
+   },
+   {
+    "param": "delay",
+    "suggested": 1.2,
+    "reason": "Întârzierile moderate (8:20, 9:18, 36:18) justifică o pondere ușor mai mare, dar balansul (4.07) rămâne dominant conform backtestului."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_superenalotto_it_2026-09-15T20:55:34",
+  "source": "ollama_strategist",
+  "lottery": "superenalotto_it",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-15T17:55:35.163487",
+  "suggestions": [
+   {
+    "param": "rw",
+    "suggested": 300,
+    "reason": "Fereastră recentă mai lungă reduce varianța semnalelor de momentum; extremele din ultimele 50 extrageri sunt la limita zgomotului și pot destabiliza estimările."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.9,
+    "reason": "Scorurile pe termen scurt (max z≈3.2 pe 90 numere) nu supraviețuiesc corecției pentru comparații multiple; o subpondere ușoară reduce riscul de urmărire a zgomotului."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_lotto_pl_2026-09-16T20:42:04",
+  "source": "ollama_strategist",
+  "lottery": "lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-16T17:42:06.317156",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.8,
+    "reason": "Forma recentă (31: 12/50, z≈+2.5) nu supraviețuiește corecției pentru 49 de teste; redu parțial ponderea semnalelor pe termen scurt pentru a limita overfitting-ul."
+   },
+   {
+    "param": "iw",
+    "suggested": 200,
+    "reason": "O fereastră mai lungă pe 7404 extrageri stabilizează estimările de frecvență și scade varianța z-score-urilor folosite la rankare."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_mini_lotto_pl_2026-09-16T20:42:50",
+  "source": "ollama_strategist",
+  "lottery": "mini_lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-16T17:43:11.742857",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.9,
+    "reason": "Forma recentă (top recent_50) e zgomot la 42 numere; o reducere ușoară limitează supra-ajustarea pe fereastră scurtă."
+   },
+   {
+    "param": "delay",
+    "suggested": 1.1,
+    "reason": "Boost mic pentru acoperirea întârzierilor reale (27: 39, 6: 26) fără a depăși nivelul de zgomot; nu schimbă semnificativ edge-ul (inexistent statistic)."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_kaskada_pl_2026-09-16T20:44:26",
+  "source": "ollama_strategist",
+  "lottery": "kaskada_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-16T17:44:48.538042",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 1.15,
+    "reason": "Clusterul recent (6/13/3/19 la 30/50, z≈+1.4) justifică un tilt ușor, testabil — nu o convingere."
+   },
+   {
+    "param": "iw",
+    "suggested": 50,
+    "reason": "La p=0.5/număr, fereastra de 35 dă ~17 apariții/număr — estimări de frecvență foarte zgomotoase; 50 le stabilizează fără cost real."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_6_49_ro_2026-09-16T20:45:58",
+  "source": "ollama_strategist",
+  "lottery": "loto_6_49_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-16T17:45:59.244619",
+  "suggestions": [
+   {
+    "param": "delay",
+    "suggested": 0.5,
+    "reason": "Gap-urile observate (max 37) sunt consistente cu un proces memoryless; nicio componentă 'overdue' nu a demonstrat edge — reducem jumătate din greutate"
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.7,
+    "reason": "Fereastra recentă arată maxim +1.7σ (18, 21: 10/50), semnal sub prag; momentum-ul pe ferestre scurte e dominat de zgomot"
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_5_40_ro_2026-09-16T20:47:40",
+  "source": "ollama_strategist",
+  "lottery": "loto_5_40_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-16T17:47:41.032947",
+  "suggestions": [
+   {
+    "param": "delay",
+    "suggested": 1.15,
+    "reason": "Gap-urile 26/23 (n=23, 39) și 18 (n=32) sunt semnalele cu cea mai clară direcție în date; ajustare mică care nu amplifică zgomotul."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.85,
+    "reason": "Streak-urile din ultimele 50 (2: 15/50, z≈3.0 doar ca maxim-of-40) sunt zgomot; reducerea momentului limitează chasing-ul variației pe termen scurt."
+   },
+   {
+    "param": "rw",
+    "suggested": 250,
+    "reason": "Fereastră mai lungă → sd al estimărilor locale cu ~11% mai mic, mai multă stabilitate fără schimbarea regimului."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_joker_ro_2026-09-16T20:49:20",
+  "source": "ollama_strategist",
+  "lottery": "joker_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-16T17:49:20.996588",
+  "suggestions": [
+   {
+    "param": "rw",
+    "suggested": 250,
+    "reason": "Schimbarea de regim a lui 38 (cel mai rece istoric → 9/50 recent, 4 din ultimele 5) arată că fereastra de 300 reține informație învechită; 250 crește ușor reactivitatea fără o majorare semnificativă a varianței."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_superenalotto_it_2026-09-16T20:50:29",
+  "source": "ollama_strategist",
+  "lottery": "superenalotto_it",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-16T17:50:30.236645",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.7,
+    "reason": "Forma recentă (n=2: 9/50, z≈3.2) e în rândul maximului așteptat pentru 90 numere; redu ponderea pentru a limita overfitting-ul pe zgomot."
+   },
+   {
+    "param": "iw",
+    "suggested": 60,
+    "reason": "Fereastra de 40 dă doar ~2.7 apariții/număr (σ≈1.6) — clasamentul pe ea e dominant variație; 60 reduce varianța fără a pierde adaptarea locală."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_multi_multi_pl_2026-09-17T17:38:13",
+  "source": "ollama_strategist",
+  "lottery": "multi_multi_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T14:38:17.227932",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.5,
+    "reason": "Streak-urile pe 50 extrageri (z≈2.4, necorectat) sunt zgomot cu regresie la medie; jumătate din greutate reduce urmărirea zgomotului."
+   },
+   {
+    "param": "delay",
+    "suggested": 2.0,
+    "reason": "Lacunele de apariție sunt geometrice, fără memorie — greutate mare pe 'overdue' exploatează doar falacia jucătorului; reducere moderată."
+   },
+   {
+    "param": "iw",
+    "suggested": 60,
+    "reason": "Fereastră in-window mai lungă reduce varianța estimării frecvenței și riscul de overfitting pe micro-tendințe."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_lotto_pl_2026-09-17T17:39:01",
+  "source": "ollama_strategist",
+  "lottery": "lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T14:40:55.259311",
+  "suggestions": [
+   {
+    "param": "delay",
+    "suggested": 1.15,
+    "reason": "Creștere mică pentru acoperirea grupului întârziat (2, 15, 37, 39: gap≥20); schimb de amploare redusă, risc de overfit minim — e ajustare de robustețe, nu de edge."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.8,
+    "reason": "Forma recentă (50 extrageri) e predispusă regresiei către medie (31: 12/50 vs expectat 6.1); amortizare ușoară reduce varianța scorului."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_mini_lotto_pl_2026-09-17T17:41:53",
+  "source": "ollama_strategist",
+  "lottery": "mini_lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T14:41:54.307195",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.8,
+    "reason": "Forma recentă pe 50 extrageri (max z≈2.2) e consistentă cu zgomotul; reducând exploatarea ei scade varianța selecției."
+   },
+   {
+    "param": "iw",
+    "suggested": 60,
+    "reason": "Fereastră de frecvență mai lungă → estimări mai stabile, mai puține semi-alegeri false din fluctuații scurte."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_kaskada_pl_2026-09-17T17:43:33",
+  "source": "ollama_strategist",
+  "lottery": "kaskada_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T14:43:34.929692",
+  "suggestions": [
+   {
+    "param": "rw",
+    "suggested": 200,
+    "reason": "Fereastra de 150 amplifică fluctuațiile de eșantion mic; 200 stabilizează estimările fără pierderi majore de adaptabilitate."
+   },
+   {
+    "param": "delay",
+    "suggested": 0.8,
+    "reason": "Semnalul de întârziere este slab (max gap 7, banal la nivel de lot); redu ponderarea ca să nu imiți gambler's fallacy."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_6_49_ro_2026-09-17T17:44:38",
+  "source": "ollama_strategist",
+  "lottery": "loto_6_49_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T14:44:54.409259",
+  "suggestions": [
+   {
+    "param": "rw",
+    "suggested": 200,
+    "reason": "Fereastră mai lungă = estimări de frecvență recentă mai stabile (std per număr scade ~13%), fără a introduce ipoteze noi."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.85,
+    "reason": "Liderii recent_50 au z≈1.6-1.7 (zgomot tipic pentru 49 numere); redu ponderea recenței ca să scad riscul de overfit."
+   },
+   {
+    "param": "sb",
+    "suggested": 0.9,
+    "reason": "Semnalul de întârziere e la limită (P(≥2 cazuri)≈9%); micșorez ușor ponderea, păstrând expunerea pe 38/29."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_5_40_ro_2026-09-17T17:45:44",
+  "source": "ollama_strategist",
+  "lottery": "loto_5_40_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T14:46:00.325655",
+  "suggestions": [
+   {
+    "param": "delay",
+    "suggested": 0.5,
+    "reason": "Gap-urile sunt fără memorie; ponderea delay=1.0 supraexpune numere 'overdue' fără beneficiu statistic."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.8,
+    "reason": "Forma recentă (fereastra scurtă) este dominată de zgomot; reducerea limitează追 pursuit-ul de serii false."
+   },
+   {
+    "param": "iw",
+    "suggested": 45,
+    "reason": "Cu iw=30, frecvența așteptată per număr e doar 4.5 hit-uri — estimarea e foarte zgomotoasă; 45 oferă ~6.75 și varianță mai mică."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_superenalotto_it_2026-09-17T17:48:40",
+  "source": "ollama_strategist",
+  "lottery": "superenalotto_it",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T14:49:01.703243",
+  "suggestions": [
+   {
+    "param": "iw",
+    "suggested": 60,
+    "reason": "Ferestra de 40 extrageri dă doar ~2.7 apariții medii/număr — zgomot relativ ridicat în estimarea hc; 60 de extrageri (medie 4.0/număr) reduce zgomotul cu ~20%; de validat prin walk-forward, nu de aplicat orbește."
+   },
+   {
+    "param": "rw",
+    "suggested": 300,
+    "reason": "Mai multe extrageri pentru statisticile de perechi și întârziere stabilizează estimările (~-13% deviație standard), reducând riscul ca optimul backtestului să fie artifax al ferestrei."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_multi_multi_pl_2026-09-17T23:40:31",
+  "source": "ollama_strategist",
+  "lottery": "multi_multi_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T20:40:36.646445",
+  "suggestions": [
+   {
+    "param": "iw",
+    "suggested": 60,
+    "reason": "Contorul per număr pe 40 extrageri (medie 10, σ≈2.74, CV 27%) e foarte zgomotos; 60 de extrageri coboară CV-ul la ~22% și stabilizează termenii tf/hc."
+   },
+   {
+    "param": "delay",
+    "suggested": 2.5,
+    "reason": "Într-o loterie corectă întârzierea nu are putere predictivă; p_adj=0.419 indică un weight fitted pe zgomot — shrinkage reduce varianța. Aplică doar dacă walkforward confirmă."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_lotto_pl_2026-09-17T23:45:16",
+  "source": "ollama_strategist",
+  "lottery": "lotto_pl",
+  "model": "gpt-oss:120b-cloud",
+  "created_at": "2026-09-17T20:45:16.314718",
+  "suggestions": [
+   {
+    "param": "rw",
+    "suggested": 200,
+    "reason": "fereastra mai scurtă reduce overfit‑ul la date vechi"
+   },
+   {
+    "param": "iw",
+    "suggested": 90,
+    "reason": "fereastra de intrare mai mică permite reacție rapidă la numerele overdue"
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_kaskada_pl_2026-09-17T23:47:33",
+  "source": "ollama_strategist",
+  "lottery": "kaskada_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T20:47:35.133045",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.5,
+    "reason": "Fereastra recent-50 arată maxim +1.7σ (19: 31/50) — sub prag; ponderea actuală de momentum amplifică zgomot, nu semnal."
+   },
+   {
+    "param": "delay",
+    "suggested": 0.6,
+    "reason": "Gap-urile sunt geometrice/memoryless (întârzierea nu schimbă p=0.5); reducem ponderea și o păstrăm doar pentru diversificarea acoperirii."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_6_49_ro_2026-09-17T23:51:08",
+  "source": "ollama_strategist",
+  "lottery": "loto_6_49_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T20:51:08.995654",
+  "suggestions": [
+   {
+    "param": "dd",
+    "suggested": 0.4,
+    "reason": "Penalizarea suprapunerii între bilete crește acoperirea efectivă — singura îmbunătățire demonstrabilă, indiferent dacă edge-ul e zgomot."
+   },
+   {
+    "param": "jc",
+    "suggested": 0.25,
+    "reason": "Evită combinatiile populare (1-31, pattern-uri geometrice) pentru a reduce împărțirea premiilor la hit."
+   },
+   {
+    "param": "delay",
+    "suggested": 1.15,
+    "reason": "Boost ușor pentru întârzieri (38, 29, 47) ca ipoteză testabilă de mean-reversion — mic pentru a evita overfit."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.9,
+    "reason": "Forma recentă 50 extrageri e slabă statistic (z≈1.67 necorectat); amortizare ușoară a urmăririi zgomotului pe termen scurt."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_5_40_ro_2026-09-17T23:51:48",
+  "source": "ollama_strategist",
+  "lottery": "loto_5_40_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T20:51:49.567498",
+  "suggestions": [
+   {
+    "param": "rw",
+    "suggested": 150,
+    "reason": "test de robustețe, nu optimizare: metricul 0.7774 are p_ajustat=1.000, deci orice re-ajustare riscă overfit; verifică doar dacă scorul e stabil la ferestre apropiate"
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_joker_ro_2026-09-17T23:52:37",
+  "source": "ollama_strategist",
+  "lottery": "joker_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T20:52:58.373016",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.7,
+    "reason": "Clusterul lui 38 (4 din ultimele 5 extrageri) este zgomot pe termen scurt, iar 38 e istoric cel mai rece (z=-2.4); momentumul plin chase-uieste un artefact tranzitoriu."
+   },
+   {
+    "param": "delay",
+    "suggested": 1.25,
+    "reason": "Blocul overdue e acum dens (8:21, 9/36:19, 20:18 extrageri vs gap mediu așteptat ~9); o creștere mică exploatează revenirea la medie fără suprasupunere."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_superenalotto_it_2026-09-17T23:53:24",
+  "source": "ollama_strategist",
+  "lottery": "superenalotto_it",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-17T20:53:25.669995",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.6,
+    "reason": "Semnalele recent_50 (ex. 2 cu 9/50) sunt maxime așteptate peste 90 de contoare; reducerea greutății limitează urmărirea zgomotului pe termen scurt."
+   },
+   {
+    "param": "delay",
+    "suggested": 1.4,
+    "reason": "Creștere moderată pentru diversificarea acoperirii cu întârziatele 48/5/87 — efect de portofoliu, nu predictiv, întrucât procesul e fără memorie."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_multi_multi_pl_2026-09-18T05:42:20",
+  "source": "ollama_strategist",
+  "lottery": "multi_multi_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-18T02:42:24.938038",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.85,
+    "reason": "Semnalele recent_50 (26, 51, 29) nu sunt semnificative statistic; amortizarea momentum-ului reduce riscul de a urmări zgomot pe fereastra scurtă."
+   },
+   {
+    "param": "rw",
+    "suggested": 300,
+    "reason": "Fereastra recentă de 200 produce estimări zgomotoase pentru perechi (hub-ul 67 domină artificial); 300 stabilizează scorul fără a schimba structura strategiei."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_lotto_pl_2026-09-18T05:47:53",
+  "source": "ollama_strategist",
+  "lottery": "lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-18T02:48:15.239154",
+  "suggestions": [
+   {
+    "param": "rw",
+    "suggested": 300,
+    "reason": "Fereastră rulantă mai lungă scade varianța estimărilor de frecvență (SE∝1/√rw); ipoteză de validat prin walk-forward, nu certitudine."
+   },
+   {
+    "param": "delay",
+    "suggested": 0.7,
+    "reason": "Gap-urile overdue sunt conforme cu un proces fără memorie (max 22 ≈ valoarea așteptată), deci ponderea delay probabil nu aduce semnal; de testat în walk-forward."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_mini_lotto_pl_2026-09-18T05:48:44",
+  "source": "ollama_strategist",
+  "lottery": "mini_lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-18T02:49:01.460017",
+  "suggestions": [
+   {
+    "param": "sb",
+    "suggested": 1.0,
+    "reason": "Bonusul de perechi se bazează pe maximul a 861 de perechi testate — nu trece corecția multiple-testing; reducem la neutru."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.8,
+    "reason": "Forma recentă (50 extrageri) deviază max ~1.8σ per număr — zgomot; o mică penalizare reduce varianța fără a pierde acoperire."
+   },
+   {
+    "param": "delay",
+    "suggested": 1.0,
+    "reason": "Păstrăm: gap-urile sunt fără memorie, dar weight-ul mic actual nu distorsionează semnificativ."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_kaskada_pl_2026-09-18T05:53:50",
+  "source": "ollama_strategist",
+  "lottery": "kaskada_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-18T02:53:52.140710",
+  "suggestions": [
+   {
+    "param": "delay",
+    "suggested": 0.5,
+    "reason": "Intarzierile la p=0.5 sunt geometrice (medie 2 extrageri) si memorie-less; gap-ul de 8 al numarului 12 nu are putere predictiva — redu ponderarea semnalului overdue."
+   },
+   {
+    "param": "bf",
+    "suggested": 0.2,
+    "reason": "Factor de echilibrare mai mare => acoperire mai uniforma a celor 24 numere si mai putine combinatii populare (data nasterii, secvente) — singura imbunatatire demonstrabila."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_6_49_ro_2026-09-18T05:54:22",
+  "source": "ollama_strategist",
+  "lottery": "loto_6_49_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-18T02:54:23.250037",
+  "suggestions": [
+   {
+    "param": "bf",
+    "suggested": 0.8,
+    "reason": "Crește penalizarea combinatiilor populare (1-31, secvențe, coloane) — singura imbunătățire cu efect real: payout-ul așteptat mai mare prin evitarea co-câștigătorilor, fără a modifica probabilitatea de hit."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_5_40_ro_2026-09-18T05:55:09",
+  "source": "ollama_strategist",
+  "lottery": "loto_5_40_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-18T02:55:10.760199",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.8,
+    "reason": "Forma recentă (2: 15/50) este cel mai probabil zgomot; reducem chase-ul de momentum ca să limităm fittingul pe variație locală."
+   },
+   {
+    "param": "rw",
+    "suggested": 260,
+    "reason": "Fereastră recentă mai largă scade eroarea standard a estimărilor de frecvență per număr (~17% → ~14%) și stabilizează termenii de trend."
+   },
+   {
+    "param": "dd",
+    "suggested": 2.0,
+    "reason": "Valoarea cu multe zecimale din 121k experimente indică fit pe zgomot; rotunjirea spre 2.0 crește robustețea out-of-sample."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_joker_ro_2026-09-18T05:55:26",
+  "source": "ollama_strategist",
+  "lottery": "joker_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-18T02:55:30.933321",
+  "suggestions": [
+   {
+    "param": "delay",
+    "suggested": 1.8,
+    "reason": "Cluster de 10 numere cu intarziere >=13 extrageri (max 21 la nr. 8); o pondere mai mare diversifica acoperirea fara a trage concluzii cauzale."
+   },
+   {
+    "param": "rw",
+    "suggested": 200,
+    "reason": "Semnalele viabile (momentum 38/37/1, hub-ul de perechi 37) sunt pe orizonturi de 5-50 extrageri; fereastra mai scurta creste raportul semnal/zgomot al ponderilor."
+   },
+   {
+    "param": "momentum",
+    "suggested": 1.3,
+    "reason": "Ultimile 50 arata momentum real (1: 11 aparitii, 10: 10, 38: 9); crestere mica valorifica seria recenta fara supraajustare."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_superenalotto_it_2026-09-18T05:58:56",
+  "source": "ollama_strategist",
+  "lottery": "superenalotto_it",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-18T02:58:57.454904",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 1.2,
+    "reason": "Semnalul recent-50 e coerent (2, 12, 7 domină); creștere mică, testabilă în walk-forward, nu edge presupus."
+   },
+   {
+    "param": "delay",
+    "suggested": 1.1,
+    "reason": "Blocul întârziat 48/5/87 oferă un test curat al ipotezei de revenire la medie; pondere doar marginală."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_multi_multi_pl_2026-09-20T19:43:22",
+  "source": "ollama_strategist",
+  "lottery": "multi_multi_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T16:43:48.495563",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.7,
+    "reason": "Streak-urile recente (26: 21/50, z≈+2.8) sunt în envelopa de zgomot pentru 80 numere; deponderarea recenței reduce riscul de overfit pe variații aleatorii, fără să atingă tf/delay care domină scorul."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_lotto_pl_2026-09-20T19:44:51",
+  "source": "ollama_strategist",
+  "lottery": "lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T16:44:53.392419",
+  "suggestions": [
+   {
+    "param": "rw",
+    "suggested": 400,
+    "reason": "Fereastra de backtest mai mare reduce riscul ca rw250_best sa fie un castig prin selectie (p_ajustat=1.000 la 31290 experimente indica exact acest risc)."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.8,
+    "reason": "Clustering-ul pe 50 extrageri (31: 12/50, z aprox 2.5) nu supravietuieste corectiei pentru teste multiple; nu merită urmarirea agresiva a streak-urilor scurte."
+   },
+   {
+    "param": "sb",
+    "suggested": 1.0,
+    "reason": "Boost-ul aditional nu are suport statistic (edge global nedistinct de zero); neutralizarea simplifica modelul fara pierdere dovedita."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_mini_lotto_pl_2026-09-20T19:46:16",
+  "source": "ollama_strategist",
+  "lottery": "mini_lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T16:46:17.965860",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.6,
+    "reason": "Fereastra scurta (40 extrageri) produce deviatii cu z max ~1.8, nesemnificative dupa 42 teste; redu ponderarea unui semnal nedistinguishibil de zgomot."
+   },
+   {
+    "param": "delay",
+    "suggested": 0.7,
+    "reason": "Gap-urile sunt geometrice fara memorie (p=5/42); intarzierea nu creste probabilitatea viitoare, deci ponderea ei aduce doar varienta, nu EV."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_kaskada_pl_2026-09-20T19:47:52",
+  "source": "ollama_strategist",
+  "lottery": "kaskada_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T16:47:54.523580",
+  "suggestions": [
+   {
+    "param": "delay",
+    "suggested": 0.6,
+    "reason": "Gap maxim observat 4 vs medie așteptată 2 la p=0.5 — semnalul de întârziere e structural aproape mort în 12/24; redirecționează ponderea."
+   },
+   {
+    "param": "momentum",
+    "suggested": 1.2,
+    "reason": "Forma recentă (31/50 pentru 3 și 19, z≈1.7) e singura deviație peste 1.5σ din date; o pondere ușor crescută e coerentă cu reducerea delay-ului."
+   },
+   {
+    "param": "rw",
+    "suggested": 100,
+    "reason": "Deviile slabe actuale trăiesc în ultimele ~50 extrageri; fereastra mai scurtă crește reactivitatea păstrând eșantionul >30 extrageri."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_6_49_ro_2026-09-20T19:48:45",
+  "source": "ollama_strategist",
+  "lottery": "loto_6_49_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T16:50:12.311409",
+  "suggestions": [
+   {
+    "param": "delay",
+    "suggested": 0.5,
+    "reason": "Întârzierile maxime (38 la 38 extrageri, P≈0.7%/număr) sunt consistente cu zgomotul; reducerea ponderii evită urmărirea falaciului jucătorului."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.7,
+    "reason": "Maximul din fereastra de 50 (10/50, z≈1.67) este normal pentru 49 de numere; momentum-ul actual urmărește topuri care apar aleator la fiecare fereastră."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_5_40_ro_2026-09-20T19:51:12",
+  "source": "ollama_strategist",
+  "lottery": "loto_5_40_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T16:51:13.068181",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.6,
+    "reason": "Forma recentă (50 extrageri) e cel mai zgomotos semnal; cu p_ajustat=1.000, reducerea momentum-ului scade varianța fără a sacrifica vreun edge demonstrat."
+   },
+   {
+    "param": "sb",
+    "suggested": 1.0,
+    "reason": "Abaterea de 2.2% de la neutru e sub orice prag de semnificație la acest eșantion; neutralizarea evită overfitting-ul rezidual."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_joker_ro_2026-09-20T19:51:43",
+  "source": "ollama_strategist",
+  "lottery": "joker_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T16:51:44.590732",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 1.15,
+    "reason": "Streakuri recente reale (38 în 4/5 extrageri, 18 și 45 în 3/5) — o mică creștere captează momentul short-term; ipoteză de testat prin walk-forward, nu certitudine."
+   },
+   {
+    "param": "delay",
+    "suggested": 1.15,
+    "reason": "Cluster de întârzieri moderate (8@21, 9@19, 36@19) — boost ușor pentru diversificarea acoperirii, fără a trata gap-ul ca semnal cauzal."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_superenalotto_it_2026-09-20T19:52:59",
+  "source": "ollama_strategist",
+  "lottery": "superenalotto_it",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-20T16:53:01.161227",
+  "suggestions": [
+   {
+    "param": "rw",
+    "suggested": 300,
+    "reason": "SE-ul estimărilor de frecvență pe fereastră scade ~1/√rw (SE≈3.5 la rw=200); o fereastră mai lungă reduce urmărirea zgomotului recent, consecvent cu verdictul p_ajustat=1.000."
+   },
+   {
+    "param": "iw",
+    "suggested": 60,
+    "reason": "iw=40 a fost ales ca maxim printre multe ferestre din 30454 experimente (winner's curse); lărgirea la 60 stabilizează estimarea in-window cu pierdere minimă de semnal."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_multi_multi_pl_2026-09-21T21:32:03",
+  "source": "ollama_strategist",
+  "lottery": "multi_multi_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T18:32:09.978243",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.7,
+    "reason": "Liderii recent-50 (26: 22/50, z≈+3.1 ca maxim din 80) sunt în intervalul extremelor multiplelor comparații; reduc greutateii scade varianța fără a afecta edge-ul testat."
+   },
+   {
+    "param": "rw",
+    "suggested": 300,
+    "reason": "Contorul de perechi (30-34 apariții) indică o fereastră efectivă mai lungă; rw=300 stabilizează estimările de co-occurrență și reduce zgomotul de eșantionare."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_lotto_pl_2026-09-21T21:33:26",
+  "source": "ollama_strategist",
+  "lottery": "lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T18:34:02.998527",
+  "suggestions": [
+   {
+    "param": "rw",
+    "suggested": 300,
+    "reason": "Fereastră rolling mai lungă = estimări de formă recentă cu varianță mai mică; nu urmărește semnal inexistent, doar stabilitate. Atenție: după schimbare, greutățile tf/hc/bal/sb trebuie re-backtestate (vezi walk-forward propus)."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_mini_lotto_pl_2026-09-21T21:35:03",
+  "source": "ollama_strategist",
+  "lottery": "mini_lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T18:35:05.403836",
+  "suggestions": [
+   {
+    "param": "iw",
+    "suggested": 100,
+    "reason": "La iw=40 frecventa per numar este ~4.8 aparitii (sd relativ ~45%) - estimare foarte zgomotoasa; 100 reduce zgomotul estimarilor tf si riscul de overfit."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.8,
+    "reason": "Streak-urile din ultimele 50 extrageri sunt maxime de selectie printre 42 numere; reducerea momentumului limiteaza urmarirea zgomotului."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_kaskada_pl_2026-09-21T21:36:56",
+  "source": "ollama_strategist",
+  "lottery": "kaskada_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T18:37:18.180325",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.8,
+    "reason": "Deviatiile recente (max z≈2.0 pe 50 extrageri, 24 numere) sunt compatibile cu zgomotul; redu urmărirea momentum-ului ca să nu amplifici zgomotul."
+   },
+   {
+    "param": "rw",
+    "suggested": 120,
+    "reason": "Fereastră ușor mai scurtă pentru adaptare la clusterul curent fără a supra-pondera fluctuații de ~50 extrageri; validare obligatorie walk-forward."
+   },
+   {
+    "param": "jc",
+    "suggested": 0.1,
+    "reason": "Diferențele dintre perechile recente sunt sub 1 SD; redu ponderea cuplajului ca să scad riscul de overfit pe zgomot."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_6_49_ro_2026-09-21T21:38:48",
+  "source": "ollama_strategist",
+  "lottery": "loto_6_49_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T18:39:09.293022",
+  "suggestions": [
+   {
+    "param": "rw",
+    "suggested": 100,
+    "reason": "Forma recentă (50 ext) se decoadrează de frecvența globală (ex: 42 e rece pe termen lung dar 9/50 recent); fereastră mai scurtă = adaptare mai rapidă — doar dacă walk-forward o confirmă."
+   },
+   {
+    "param": "delay",
+    "suggested": 0.5,
+    "reason": "Gap-urile lungi (38: 39, 29: 38) nu predictizează apariții (p≈4.6% sub H0); ponder mai mica reduce contribuția de zgomot."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_5_40_ro_2026-09-21T21:40:04",
+  "source": "ollama_strategist",
+  "lottery": "loto_5_40_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T18:40:25.817622",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.8,
+    "reason": "recent_50 hot e zgomot post-selectie (max din 40); redu urmarirea streak-urilor scurte"
+   },
+   {
+    "param": "bf",
+    "suggested": 0.5,
+    "reason": "penalizeaza combinatii populare (date, secvente, densitate 1-31) — nu schimba sansele, dar reduce co-castigurile"
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_joker_ro_2026-09-21T21:41:29",
+  "source": "ollama_strategist",
+  "lottery": "joker_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T18:41:30.091726",
+  "suggestions": [
+   {
+    "param": "delay",
+    "suggested": 1.4,
+    "reason": "Cluster de întârzieri 17-22 (8, 9, 36, 20, 7) — o pondere ușor crescută diversifică acoperirea fără a supraîncărca scorul; risc de overfit minim."
+   },
+   {
+    "param": "momentum",
+    "suggested": 1.2,
+    "reason": "38 trece de la cel mai rece (z=-2.41) la 9/50 și 3 apariții în ultimele 3 extrageri; forma pe termen scurt merită o pondere marginal mai mare decât tf."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_superenalotto_it_2026-09-21T21:42:15",
+  "source": "ollama_strategist",
+  "lottery": "superenalotto_it",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-21T18:42:16.799354",
+  "suggestions": [
+   {
+    "param": "delay",
+    "suggested": 0.5,
+    "reason": "Întârzierile maxime (69/54/43 lipsuri) sunt în zgomot; redu dependența de gambler's fallacy fără a distruge backtest-ul (edge-ul total e oricum 0)."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.7,
+    "reason": "Semnalele din ultimele 50 extrageri (max 9/50) sunt maxime așteptate pe 90 de numere; o pondere redusă minimizează varianta overfit din configurația iw40_best."
+   },
+   {
+    "param": "rw",
+    "suggested": 300,
+    "reason": "Fereastră mai lungă stabilizează scorurile tf/hc și reduce sensibilitatea la fluctuații pe termen scurt, deși nu creează edge — doar robustețe."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "timestamp": "2026-09-23T17:28:01.221625",
+  "source": "simulated_research",
+  "status": "pending_review",
+  "reviewed_by": null,
+  "review_notes": null,
+  "strategy": {
+   "type": "gap_analysis",
+   "name": "Long Absent Numbers Strategy",
+   "description": "Focus on numbers not drawn in 25+ consecutive games",
+   "parameters": {
+    "min_gap": 25,
+    "max_gap": 60,
+    "weight": 1.2
+   },
+   "confidence": "medium",
+   "complexity": "medium"
+  }
+ },
+ {
+  "timestamp": "2026-09-23T17:28:01.249040",
+  "source": "simulated_research",
+  "status": "pending_review",
+  "reviewed_by": null,
+  "review_notes": null,
+  "strategy": {
+   "type": "frequency_weighted",
+   "name": "Recent Frequency Boost",
+   "description": "Weight recent draws more heavily in frequency calculation",
+   "parameters": {
+    "hot_window": 15,
+    "recency_decay": 0.9,
+    "boost_factor": 1.5
+   },
+   "confidence": "high",
+   "complexity": "low"
+  }
+ },
+ {
+  "timestamp": "2026-09-23T17:28:01.275946",
+  "source": "simulated_research",
+  "status": "pending_review",
+  "reviewed_by": null,
+  "review_notes": null,
+  "strategy": {
+   "type": "clustering",
+   "name": "Number Cluster Detection",
+   "description": "Identify clusters of frequently co-occurring numbers",
+   "parameters": {
+    "min_cluster_size": 3,
+    "min_cooccurrence": 5,
+    "lookback": 100
+   },
+   "confidence": "medium",
+   "complexity": "high"
+  }
+ },
+ {
+  "timestamp": "2026-09-23T17:28:01.302293",
+  "source": "simulated_research",
+  "status": "pending_review",
+  "reviewed_by": null,
+  "review_notes": null,
+  "strategy": {
+   "type": "sum_analysis",
+   "name": "Optimal Sum Range",
+   "description": "Target combinations with sum in 180-220 range",
+   "parameters": {
+    "min_sum": 180,
+    "max_sum": 220,
+    "target": 200
+   },
+   "confidence": "low",
+   "complexity": "low"
+  }
+ },
+ {
+  "id": "ai_multi_multi_pl_2026-09-23T20:30:09",
+  "source": "ollama_strategist",
+  "lottery": "multi_multi_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T17:30:35.214895",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 1.15,
+    "reason": "Singurul semnal marginal pe termen scurt (26: 22/50, z≈3.1); înclinare mică fără reoptimizare completă, pentru a nu agrava overfitting-ul sugerat de p_ajustat=0.418."
+   },
+   {
+    "param": "rw",
+    "suggested": 300,
+    "reason": "Contorul așteptat al unei perechi în 200 extrageri e doar ~12 (CV ~28%); o fereastră mai mare stabilizează statisticile de perechi, cu prețul unei adaptări mai lente — de validat prin walk-forward."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_lotto_pl_2026-09-23T20:31:40",
+  "source": "ollama_strategist",
+  "lottery": "lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T17:32:02.212510",
+  "suggestions": [
+   {
+    "param": "rw",
+    "suggested": 400,
+    "reason": "Avantajul măsurat este în interiorul zgomotului (z=0.94, p_ajustat=1.0); o fereastră rolling mai mare reduce varianța selecției și riscul de overfitting pe zgomotul istoric."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_mini_lotto_pl_2026-09-23T20:33:00",
+  "source": "ollama_strategist",
+  "lottery": "mini_lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T17:33:22.552193",
+  "suggestions": [
+   {
+    "param": "rw",
+    "suggested": 200,
+    "reason": "Fereastra de recență lungă diluează semnalele recente; cum edge-ul backtestului este statistic nul (p_ajustat=1.0), o fereastră mai scurtă crește adaptabilitatea fără cost dovedit."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.7,
+    "reason": "Streak-urile din ultimele 50 extrageri (10/50 pentru 12 și 36) sunt la z≈+1.8, în zona de zgomot; reducerea ponderii de momentum scade varianța fără să piardă un avantaj real."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_kaskada_pl_2026-09-23T20:34:25",
+  "source": "ollama_strategist",
+  "lottery": "kaskada_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T17:34:46.975326",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.7,
+    "reason": "Semnalele pe termen scurt (3: 33/50, 6 în 5/5 extrageri) nu trec corecția pentru teste multiple; reducerea greutății momentum scade varianța introdusă de zgomot."
+   },
+   {
+    "param": "rw",
+    "suggested": 200,
+    "reason": "Fereastră recentă mai lungă → estimări de frecvență mai stabile (std mai mică), aliniată cu natura aleatoare a procesului."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_6_49_ro_2026-09-23T20:35:43",
+  "source": "ollama_strategist",
+  "lottery": "loto_6_49_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T17:35:59.028892",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.6,
+    "reason": "Streakurile recent_50_hot (max z≈2.1 printre 49 numere) sunt zgomot; redu urmarirea recenței care a contribuit la overfit."
+   },
+   {
+    "param": "delay",
+    "suggested": 1.4,
+    "reason": "Clusterul actual de întârzieri (38:39, 29:38, 47:24) merită o pondere ușor crescută pentru diversificare, fără pretenție de predictibilitate."
+   },
+   {
+    "param": "rw",
+    "suggested": 120,
+    "reason": "Fereastră recentă mai scurtă reduce ancorarea la clustere tranzitorii de perechi detectate ca zgomot."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_5_40_ro_2026-09-23T20:37:57",
+  "source": "ollama_strategist",
+  "lottery": "loto_5_40_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T17:38:13.882397",
+  "suggestions": [
+   {
+    "param": "delay",
+    "suggested": 1.3,
+    "reason": "23/39/32 au gap-uri extreme (28/25/20 vs medie 6.67); o creștere moderată diversifică acoperirea overdue, cu efect așteptat în interiorul zgomotului"
+   },
+   {
+    "param": "rw",
+    "suggested": 300,
+    "reason": "fereastră mai lungă pentru momentum reduce varianța estimărilor hc; lista pe 50 extrageri e prea zgomotoasă pentru ponderare stabilă"
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_joker_ro_2026-09-23T20:39:05",
+  "source": "ollama_strategist",
+  "lottery": "joker_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T17:39:21.467480",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 1.3,
+    "reason": "Forma recentă (1:11, 10:10, 38:9 în 50 extrageri) e singurul semnal cu consistență locală; creștere mică, fără reoptimizare completă."
+   },
+   {
+    "param": "delay",
+    "suggested": 1.4,
+    "reason": "10 numere cu gap ≥13 (vs ~5 așteptate) — ușoară supra-reprezentare a întârzierilor; ajustare prudentă, verificată prin walk-forward."
+   },
+   {
+    "param": "rw",
+    "suggested": 500,
+    "reason": "Fereastră mai lungă reduce varianța estimărilor de perechi/frecvență și riscul de a urmări zgomot pe termen scurt."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_superenalotto_it_2026-09-23T20:40:32",
+  "source": "ollama_strategist",
+  "lottery": "superenalotto_it",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-23T17:40:54.307810",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.6,
+    "reason": "Forma pe 50 extrageri nu depășește maximul așteptat pentru 90 numere (z aproximativ 3.2); reducerea momentumului scade varianța fără a pierde un avantaj real (care nu este demonstrat)."
+   },
+   {
+    "param": "rw",
+    "suggested": 300,
+    "reason": "O fereastră recentă mai mare stabilizează estimările de perechi/trend și reduce riscul de overfitting pe zgomot, dat fiind p_ajustat=1.000."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_multi_multi_pl_2026-09-26T13:51:42",
+  "source": "ollama_strategist",
+  "lottery": "multi_multi_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T10:51:47.458125",
+  "suggestions": [
+   {
+    "param": "iw",
+    "suggested": 120,
+    "reason": "tf=3.52 e cea mai grea pondere, dar la iw=40 fiecare număr are doar ~10 apariții așteptate (CV≈27%); la iw=120 CV≈16% — semnalul dominant e estimat cu mai puțin zgomot."
+   },
+   {
+    "param": "delay",
+    "suggested": 2.0,
+    "reason": "Gap-ul de 26 al lui 35 e sub maximul așteptat per număr (~29) — semnalul overdue nu a demonstrat putere predictivă; pondere redusă limitează gambler's fallacy."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.5,
+    "reason": "Liderii recent-50 (26: 21/50) sunt efect de maxim pe fereastră scurtă; jumătate din pondere reduce urmărirea zgomotului de formă recentă."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_mini_lotto_pl_2026-09-26T13:54:04",
+  "source": "ollama_strategist",
+  "lottery": "mini_lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T10:54:26.643574",
+  "suggestions": [
+   {
+    "param": "iw",
+    "suggested": 80,
+    "reason": "Fereastra scurtă iw=40 care câștigă backtestul este semnătură tipică de overfitting (p_ajustat=1.0); o fereastră mai lată stabilizează estimările tf și reduce varianța."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.8,
+    "reason": "Streak-urile din ultimele 50 extrageri (max 11/50, z≈2.2) sunt sub pragul de semnificație; amortizarea ușoară reduce urmărirea zgomotului."
+   },
+   {
+    "param": "delay",
+    "suggested": 1.25,
+    "reason": "Goluri curente mari (n=6: 36, n=38: 27, n=11: 26) — o pondere ușor crescută îmbunătățește acoperirea fără să pretindă mean-reversion real."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_kaskada_pl_2026-09-26T13:55:24",
+  "source": "ollama_strategist",
+  "lottery": "kaskada_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T10:55:25.913071",
+  "suggestions": [
+   {
+    "param": "delay",
+    "suggested": 0.8,
+    "reason": "Gap-urile de întârziere (max 6 la p=0.5) sunt în range geometric aleator; reducerea ponderii scade expunerea la un semnal de tip zgomot."
+   },
+   {
+    "param": "jc",
+    "suggested": 0.1,
+    "reason": "Co-occur perechi ≈ nivelul de independență; cuplajul puternic pe perechi adaugă varianță de fit, nu putere predictivă."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_6_49_ro_2026-09-26T13:57:27",
+  "source": "ollama_strategist",
+  "lottery": "loto_6_49_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T10:57:43.728003",
+  "suggestions": [
+   {
+    "param": "delay",
+    "suggested": 0.5,
+    "reason": "Gap-urile extreme (40/39 extrageri) apar cu p≈0.2 în regim aleator; ponderea redusă a delay limitează fit-ul pe zgomot, fără a pierde semnalul real dacă există."
+   },
+   {
+    "param": "rw",
+    "suggested": 300,
+    "reason": "La rw=150, numărul așteptat de co-ocurențe per pereche e doar ~1.9, deci top-perechile au variație relativă uriașă (12 vs 1.9 e p~0.001 ajustat); fereastra dublă stabilizează estimările de perechi și reduce overfitting."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_5_40_ro_2026-09-26T13:58:47",
+  "source": "ollama_strategist",
+  "lottery": "loto_5_40_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T10:58:49.127865",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.6,
+    "reason": "Recența pe 30-50 extrageri (~4.5-7.5 apariții/număr) este dominant zgomot; reducând ponderea scade varianța și sensibilitatea la overfit."
+   },
+   {
+    "param": "dd",
+    "suggested": 2.0,
+    "reason": "Valoarea 2.506 arată ca artefact al căutării pe 144k experimente; o valoare rotundă, mai puțin tune-uită, generalizează mai bine out-of-sample."
+   },
+   {
+    "param": "iw",
+    "suggested": 50,
+    "reason": "30 extrageri dau ~4.5 apariții/număr — estimări de trend foarte instabile; 50 oferă estimări mai puțin zgomotoase fără a pierde reactivitatea."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_joker_ro_2026-09-26T13:59:44",
+  "source": "ollama_strategist",
+  "lottery": "joker_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T11:00:05.519442",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.6,
+    "reason": "Streakurile recente sunt în intervalul zgomotului (ex. 38: rece istoric, 9/50 recente) — redu urmărirea formei pe termen scurt care a contribuit la overfit."
+   },
+   {
+    "param": "rw",
+    "suggested": 450,
+    "reason": "La rw=300 fiecare număr are ~33 apariții așteptate (std ~5.7); la 450 crește la ~50 (CV mai mic) — estimări de formă mai stabile, mai puțină varianță de zgomot."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_superenalotto_it_2026-09-26T14:01:04",
+  "source": "ollama_strategist",
+  "lottery": "superenalotto_it",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T11:01:06.485133",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.5,
+    "reason": "Forma pe termen scurt (ex. 9/50 pentru 2) deviază sub 2σ și e zgomot de eșantion mic; reducerea momentum-ului scade varianța fără a sacrifica un edge real (p_ajustat=1.0)."
+   },
+   {
+    "param": "iw",
+    "suggested": 60,
+    "reason": "Cu iw=40, frecvența așteptată per număr e doar ~2.67 apariții — scorul de interval e dominat de zgomot; iw=60 (~4 apariții așteptate) stabilizează estimarea."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_multi_multi_pl_2026-09-26T19:53:27",
+  "source": "ollama_strategist",
+  "lottery": "multi_multi_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T16:53:54.652512",
+  "suggestions": [
+   {
+    "param": "delay",
+    "suggested": 2.0,
+    "reason": "Gap-urile întârziate (max 13) sunt normale geometric (0.75^13≈2.4%); o pondere mai mică a delay reduce sensibilitatea la zgomot și riscul de overfit."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.6,
+    "reason": "recent_50 max z≈1.8 — nu există momentum durabil în extrageri aproape iid; ponderea redusă limitează dependența de fluctuații pe termen scurt."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_lotto_pl_2026-09-26T19:59:39",
+  "source": "ollama_strategist",
+  "lottery": "lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T17:00:01.770930",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.5,
+    "reason": "Semnalele din fereastra scurtă (max z≈2.5 pe 49 numere, nesemnificativ după corecția multiplă) nu justifică urmărirea agresivă a tendinței; amortizarea reduce urmarirea zgomotului fără să piardă un avantaj demonstrat."
+   },
+   {
+    "param": "rw",
+    "suggested": 350,
+    "reason": "Fereastră recentă mai largă => estimări de frecvență cu varianță mai mică (std count scade relativ), estimările regresează spre medie și strategia devine mai robustă la overfitting, în context p_ajustat=1.0."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_mini_lotto_pl_2026-09-26T20:01:34",
+  "source": "ollama_strategist",
+  "lottery": "mini_lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T17:01:51.648405",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.9,
+    "reason": "Forma recentă (fereastra 50) este la nivel de zgomot după corecția multiplă; amortizarea ușoară reduce riscul de overfit moștenit din seleția pe 17432 experimente."
+   },
+   {
+    "param": "delay",
+    "suggested": 1.1,
+    "reason": "Clusterul de întârziați (6:36, 38:27, 11:26) e ușor peste medie; o creștere mică acoperă regresia la medie fără a distorsiona mixul dominat de bal=4.597."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_kaskada_pl_2026-09-26T20:03:00",
+  "source": "ollama_strategist",
+  "lottery": "kaskada_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T17:03:02.379832",
+  "suggestions": [
+   {
+    "param": "rw",
+    "suggested": 220,
+    "reason": "Fereastra momentum mai lungă reduce varianța estimatorului; cum câștigul actual nu e semnificativ statistic, stabilitatea batjoforcește sensibilitatea la zgomot."
+   },
+   {
+    "param": "iw",
+    "suggested": 50,
+    "reason": "Mai multe extrageri în fereastra de ponderare scad riscul de overfitting pe fluctuații pe termen scurt, în condițiile în care p_ajustat=1.000 indică lipsă de semnal real."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_6_49_ro_2026-09-26T20:04:20",
+  "source": "ollama_strategist",
+  "lottery": "loto_6_49_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T17:04:21.154236",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.5,
+    "reason": "Efectul recent-window nu persistă (42 e simultan cel mai rece istoric și top recent-50); reducerea la 0.5 scade dependența clasamentului de zgomot pe fereastră scurtă."
+   },
+   {
+    "param": "delay",
+    "suggested": 0.5,
+    "reason": "Gap-urile de 40/39 extrageri pentru 38/29 sunt în range-ul așteptat pentru ~13.800 gap-uri istorice; efectul „due” nu are putere predictivă demonstrată, deci ponderarea lui dublă amplifică zgomotul."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_5_40_ro_2026-09-26T20:06:48",
+  "source": "ollama_strategist",
+  "lottery": "loto_5_40_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T17:07:04.546111",
+  "suggestions": [
+   {
+    "param": "rw",
+    "suggested": 260,
+    "reason": "Fereastră recentă mai lungă reduce varianța semnalului de momentum, care la p_ajustat=1.0 e probabil zgomot."
+   },
+   {
+    "param": "dd",
+    "suggested": 2.0,
+    "reason": "Atenuarea ponderii due/decay limitează supra-ajustarea selectată din 152208 experimente; nu există dovadă că 'due' aduce edge real."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_joker_ro_2026-09-26T20:07:52",
+  "source": "ollama_strategist",
+  "lottery": "joker_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-09-26T17:08:13.230745",
+  "suggestions": [
+   {
+    "param": "rw",
+    "suggested": 500,
+    "reason": "fereastra recentă mai lungă reduce varianța estimărilor de perechi/momentum și scade riscul de overfitting evidențiat de p_ajustat=1.000"
+   },
+   {
+    "param": "delay",
+    "suggested": 0.8,
+    "reason": "având în vedere că întârzierile observate sunt zgomot geometric, ponderul de mean-reversion nu merită ponderat peste momentum"
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_multi_multi_pl_2026-11-12T09:01:05",
+  "source": "ollama_strategist",
+  "lottery": "multi_multi_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-11-12T07:01:30.354816",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.6,
+    "reason": "Streak-urile recente (ex. 31: 20/50, z≈2.45) nu supraviețuiesc corecției pentru 80 de teste; reducerea greutății limitează overfitting-ul evidențiat de forward test (z=0.80)."
+   },
+   {
+    "param": "delay",
+    "suggested": 2.0,
+    "reason": "Procesul e fără memorie — gap-ul de 17 al lui 35 e la nivelul așteptat (80×0.75^17≈0.6); păstrează doar un tilt mic pentru diversificare, nu pentru expectație."
+   },
+   {
+    "param": "iw",
+    "suggested": 60,
+    "reason": "La iw=40, eroarea standard a frecvenței per număr este ≈2.7 lovituri; o fereastră mai lungă stabilizează estimările tf/hc și reduce selectarea zgomotului în căutarea best-of."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_mini_lotto_pl_2026-11-12T09:03:18",
+  "source": "ollama_strategist",
+  "lottery": "mini_lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-11-12T07:03:20.601840",
+  "suggestions": [
+   {
+    "param": "iw",
+    "suggested": 120,
+    "reason": "În 40 extrageri un număr are doar ~4.8 apariții așteptate (std ≈ 2.05, CV ≈ 43%); frecvența pe fereastră scurtă e zgomot dominant. Fereastra mai lungă reduce chase-ul de zgomot."
+   },
+   {
+    "param": "delay",
+    "suggested": 0.5,
+    "reason": "Extragerile sunt independente; logica 'due' e fallacia jucătorului — golurile lungi sunt normale statistic, deci pondera se înjumătățește."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.5,
+    "reason": "Forward test z=-0.89 arată că urmărirea recenței nu generalizează; păstrează o pondere mică."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_kaskada_pl_2026-11-12T09:06:11",
+  "source": "ollama_strategist",
+  "lottery": "kaskada_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-11-12T07:06:12.647001",
+  "suggestions": [
+   {
+    "param": "dd",
+    "suggested": 4.0,
+    "reason": "Cu edge≈0 (p_ajustat=1.0), reducerea suprapunerii dintre bilete maximizează acoperirea spațiului de combinații; dd mai mare = bilete mai diversificate."
+   },
+   {
+    "param": "bf",
+    "suggested": 0.25,
+    "reason": "Penalizarea combinațiilor populare (date, șiruri, blocuri) e singurul pârzie care afectează EV-ul condiționat prin reducerea împărțirii premiilor."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.6,
+    "reason": "Max z recent-50 ≈1.98 necorectat pentru 24 de numere → zgomot; reducem greutatea ca să tăiem varianța fără pierdere de edge."
+   },
+   {
+    "param": "delay",
+    "suggested": 0.7,
+    "reason": "Gap maxim 4 e exact sub distribuția geometrică la p=0.5; urmărirea întârzierilor adaugă zgomot, nu semnal."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_6_49_ro_2026-11-12T09:07:18",
+  "source": "ollama_strategist",
+  "lottery": "loto_6_49_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-11-12T07:07:19.582907",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.5,
+    "reason": "Forward test 0.500 vs 0.735 (z=-1.16) arată că go-after-hot nu s-a generalizat; cu p_ajustat=1.000 reducem sensibilitatea la zgomotul din fereastra scurtă iw=20."
+   },
+   {
+    "param": "delay",
+    "suggested": 1.3,
+    "reason": "Clusterul de întârzieri 47/26/35/37 permite diversificarea acoperirii la cost zero; e hedging de portofoliu, nu pretindem revenire garantată."
+   },
+   {
+    "param": "bf",
+    "suggested": 0.65,
+    "reason": "Regularizare mai puternică spre combinatii echilibrate: evitarea combinatiilor populare (cluster 1-31, secvente) e singurul strat cu imbunatatire reală — reduce riscul de split-prize."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_5_40_ro_2026-11-12T11:03:40",
+  "source": "ollama_strategist",
+  "lottery": "loto_5_40_ro",
+  "model": "gpt-oss:120b-cloud",
+  "created_at": "2026-11-12T09:03:41.120564",
+  "suggestions": [
+   {
+    "param": "sb",
+    "suggested": 0.9,
+    "reason": "reducerea greutății hot reduce supra‑optimarea pe numerele ușor supra‑reprezentate"
+   },
+   {
+    "param": "iw",
+    "suggested": 45,
+    "reason": "extinderea ferestrei de intrare capturează trenduri pe termen mediu"
+   },
+   {
+    "param": "rw",
+    "suggested": 250,
+    "reason": "ferestrele de rolling mai mari netezesc zgomotul pe care îl introduc perioadele scurte"
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_joker_ro_2026-11-12T11:04:04",
+  "source": "ollama_strategist",
+  "lottery": "joker_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-11-12T09:04:05.065669",
+  "suggestions": [
+   {
+    "param": "delay",
+    "suggested": 1.25,
+    "reason": "Cluster de întârziați consistent (36:34, 23:25, 41:21, 35:20) — ușoară întărire a componentei delay, fără supracorecție."
+   },
+   {
+    "param": "momentum",
+    "suggested": 0.85,
+    "reason": "Numărul 3, cel mai fierbinte pe termen lung, are 13 extrageri fără apariție — momentum agresiv pe forme care se răcesc reduce acoperirea."
+   },
+   {
+    "param": "rw",
+    "suggested": 200,
+    "reason": "Semnalele de perechi (10-28, hub-ul 37) sunt relevante pe termen scurt; fereastra mai strânsă le ponderizează mai corect."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_multi_multi_pl_2026-11-22T20:38:31",
+  "source": "ollama_strategist",
+  "lottery": "multi_multi_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-11-22T18:38:37.506596",
+  "suggestions": [
+   {
+    "param": "iw",
+    "suggested": 60,
+    "reason": "40 extrageri înseamnă ~10 apariții/număr (CV ~27%): fereastra scurtă forțează fitting pe zgomot; 60 stabilizează scorul tf fără a pierde semnalul local"
+   },
+   {
+    "param": "delay",
+    "suggested": 1.5,
+    "reason": "gap-urile sunt geometrice (fără memorie); ponderea mare pe delay recompensează întârzieri care apar natural (ex. 52 cu gap 19)"
+   },
+   {
+    "param": "rw",
+    "suggested": 300,
+    "reason": "lățește fereastra pentru tf/perechi: contoarele 30-33 sugerează varianță ridicată la 200, iar fereastra mai lungă reduce fitting-ul pe fluctuații"
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_mini_lotto_pl_2026-11-22T20:41:05",
+  "source": "ollama_strategist",
+  "lottery": "mini_lotto_pl",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-11-22T18:43:02.280263",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 1.1,
+    "reason": "Creștere foarte mică a ponderii semnalelor din fereastra scurtă (50): e o ipoteză de testat în walk-forward, nu un ajustament dovedit — toate abaterile scurte sunt la limita normală."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_kaskada_pl_2026-11-22T20:45:07",
+  "source": "ollama_strategist",
+  "lottery": "kaskada_pl",
+  "model": "gpt-oss:120b-cloud",
+  "created_at": "2026-11-22T18:45:09.472452",
+  "suggestions": [
+   {
+    "param": "iw",
+    "suggested": 45,
+    "reason": "Fereastra de intrare puțin extinsă poate capta mai bine tendințele recente (ex: 20,10,6)."
+   },
+   {
+    "param": "dd",
+    "suggested": 2.0,
+    "reason": "Reducerea întârzierii poate diminua efectul unor numere doar puțin \"overdue\"."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_loto_5_40_ro_2026-11-22T20:46:57",
+  "source": "ollama_strategist",
+  "lottery": "loto_5_40_ro",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-11-22T18:46:58.192369",
+  "suggestions": [
+   {
+    "param": "momentum",
+    "suggested": 0.5,
+    "reason": "Deviațiile pe ultimele 50 extrageri sunt în intervalul maximului așteptat pentru 40 numere; redu urmărirea recenței care hrănește overfitting-ul."
+   },
+   {
+    "param": "sb",
+    "suggested": 1.0,
+    "reason": "Micro-bias-ul de 2.2% este un artefact tipic al căutării pe 152648 experimente; neutralizarea îmbunătățește robustețea, nu creează edge."
+   },
+   {
+    "param": "rw",
+    "suggested": 300,
+    "reason": "Fereastră mai lungă pentru ponderile de frecvență scade varianța estimărilor fără a schimba semnalul (care oricum e zgomot)."
+   }
+  ],
+  "status": "pending"
+ },
+ {
+  "id": "ai_superenalotto_it_2026-11-22T20:49:20",
+  "source": "ollama_strategist",
+  "lottery": "superenalotto_it",
+  "model": "glm-5.3-flash:cloud",
+  "created_at": "2026-11-22T18:49:21.576641",
+  "suggestions": [
+   {
+    "param": "iw",
+    "suggested": 120,
+    "reason": "Fereastra scurtă de 40 maximizează overfit-ul (edge-ul din backtest nu trece corecția multi-testă, forward z=-0.39); o fereastră de ~3 luni reduce varianța estimatorului de frecvență cu ~65% fără a pierde totally semnalele stabile."
+   },
+   {
+    "param": "delay",
+    "suggested": 0.6,
+    "reason": "Întârzierile (gambler's fallacy) nu au putere predictivă în proces iid — gap-ul maxim ~82 apare natural la p=6/90; reduc pondera eliberează buget de acoperire pentru combinații mai diverse."
+   }
+  ],
+  "status": "pending"
+ }
+]

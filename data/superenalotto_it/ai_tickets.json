@@ -1,0 +1,3007 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "draw_date": "2026-09-08",
+   "next_draw_times": [
+    "20:00"
+   ],
+   "model": "glm-5.3-flash:cloud",
+   "created_at": "2026-09-08T08:51:33",
+   "reasoning": "Biletele 1-4 ancorează topul strategiei backtestate (81, 80, 6, 41, 52, 48, 87, 85), deoarece metric=0.41639 cu pondere mare pe backtest (b=4.0) o face favorita. Biletele 5-12 echilibrează strategia cu pool-ul AI, respectând concentrarea: 40% hot (85, 6, 79, 86, 55), 35% overdue (48, 5, 41, 35, 87), 25% formă recentă (2, 12, 76, 8), cu perechile 44-85, 61-79, 8-60 doar ca legături secundare. Biletele 13-17 orientate pe AI/overdue exploatează supradispersia marginală a frecvențelor. Biletele 18-20 explorează perechi și sectoare cu overlap minim. Ordinea reflectă probabilitatea modelată descrescător.",
+   "strategy_metric": 0.41639,
+   "tickets": [
+    {
+     "main": [
+      6,
+      41,
+      48,
+      52,
+      81,
+      85
+     ],
+     "bonus": [
+      87
+     ],
+     "why": "Ancoră top strategie: 6, 41, 48, 52, 81 plus 85 fierbinte.",
+     "score": 21
+    },
+    {
+     "main": [
+      1,
+      6,
+      40,
+      48,
+      80,
+      87
+     ],
+     "bonus": [
+      52
+     ],
+     "why": "Top-8 strategie pur, echilibru paritate și decenii.",
+     "score": 31
+    },
+    {
+     "main": [
+      6,
+      41,
+      52,
+      63,
+      83,
+      85
+     ],
+     "bonus": [
+      48
+     ],
+     "why": "Strategie medie cu 63, 83; 85 ancora frecvență.",
+     "score": 39
+    },
+    {
+     "main": [
+      5,
+      41,
+      43,
+      48,
+      80,
+      85
+     ],
+     "bonus": [
+      55
+     ],
+     "why": "Overdue 5, 43 combinat cu ancore strategie solide.",
+     "score": 46
+    },
+    {
+     "main": [
+      5,
+      35,
+      41,
+      48,
+      85,
+      87
+     ],
+     "bonus": [
+      6
+     ],
+     "why": "Pool overdue complet 5, 35, 41, 48, 87.",
+     "score": 52
+    },
+    {
+     "main": [
+      5,
+      41,
+      48,
+      61,
+      79,
+      87
+     ],
+     "bonus": [
+      6
+     ],
+     "why": "Overdue 5, 41, 48, 87; legătură secundară 61-79.",
+     "score": 83
+    },
+    {
+     "main": [
+      5,
+      24,
+      41,
+      55,
+      83,
+      87
+     ],
+     "bonus": [
+      35
+     ],
+     "why": "Overdue 5, 41, 87 plus 55, 24 AI.",
+     "score": 128
+    },
+    {
+     "main": [
+      6,
+      18,
+      40,
+      49,
+      61,
+      79
+     ],
+     "bonus": [
+      85
+     ],
+     "why": "Fierbinte 6, 79, 85 bonus; pereche 61-79.",
+     "score": 139
+    },
+    {
+     "main": [
+      6,
+      35,
+      44,
+      55,
+      79,
+      85
+     ],
+     "bonus": [
+      48
+     ],
+     "why": "Nucleu fierbinte 6, 55, 79, 85; pereche 44-85.",
+     "score": 141
+    },
+    {
+     "main": [
+      31,
+      35,
+      61,
+      79,
+      85,
+      87
+     ],
+     "bonus": [
+      48
+     ],
+     "why": "Overdue 35, 87; fierbinte 85; pereche 61-79.",
+     "score": 150
+    },
+    {
+     "main": [
+      12,
+      30,
+      43,
+      65,
+      68,
+      79
+     ],
+     "bonus": [
+      61
+     ],
+     "why": "Explorare sectoare medii 30-68; 61 bonus pereche.",
+     "score": 177
+    },
+    {
+     "main": [
+      6,
+      44,
+      55,
+      60,
+      83,
+      85
+     ],
+     "bonus": [
+      8
+     ],
+     "why": "Explorare perechi 44-85, 8 bonus; hot 6, 55.",
+     "score": 199
+    },
+    {
+     "main": [
+      1,
+      8,
+      60,
+      68,
+      79,
+      90
+     ],
+     "bonus": [
+      6
+     ],
+     "why": "Pereche 8-60; ancore 1, 68, 79, 90.",
+     "score": 204
+    },
+    {
+     "main": [
+      19,
+      31,
+      49,
+      63,
+      76,
+      90
+     ],
+     "bonus": [
+      24
+     ],
+     "why": "Coada strategie 19-90; explorație dispersată, overlap minim.",
+     "score": 208
+    },
+    {
+     "main": [
+      2,
+      12,
+      35,
+      55,
+      86,
+      88
+     ],
+     "bonus": [
+      48
+     ],
+     "why": "Formă recentă 2, 12; frecvență 55, 86; 88 backtest.",
+     "score": 218
+    },
+    {
+     "main": [
+      12,
+      31,
+      43,
+      56,
+      86,
+      87
+     ],
+     "bonus": [
+      5
+     ],
+     "why": "Strategie 31, 43, 56, 88; AI 12; 86 fierbinte.",
+     "score": 222
+    },
+    {
+     "main": [
+      8,
+      19,
+      44,
+      52,
+      76,
+      85
+     ],
+     "bonus": [
+      61
+     ],
+     "why": "Recent 8, 76; pereche 44-85; sprijin strategie 19, 52.",
+     "score": 230
+    },
+    {
+     "main": [
+      2,
+      5,
+      24,
+      41,
+      76,
+      87
+     ],
+     "bonus": [
+      12
+     ],
+     "why": "Mix formă recentă și overdue; 41, 87 ancora.",
+     "score": 240
+    },
+    {
+     "main": [
+      2,
+      5,
+      12,
+      31,
+      76,
+      86
+     ],
+     "bonus": [
+      55
+     ],
+     "why": "Sector AI pur: 2, 5, 12, 31, 76, 86.",
+     "score": 333
+    },
+    {
+     "main": [
+      8,
+      18,
+      44,
+      60,
+      76,
+      85
+     ],
+     "bonus": [
+      61
+     ],
+     "why": "Perechi 8-60 și 44-85; AI dominant, explorare.",
+     "score": 355
+    }
+   ],
+   "status": "checked",
+   "checked_at": "2026-09-08T21:21:21",
+   "draw_numbers": [
+    23,
+    26,
+    41,
+    52,
+    59,
+    85
+   ],
+   "draw_bonus": [
+    49
+   ],
+   "results": [
+    {
+     "main": [
+      6,
+      41,
+      48,
+      52,
+      81,
+      85
+     ],
+     "played_bonus": [
+      87
+     ],
+     "hits": [
+      41,
+      52,
+      85
+     ],
+     "hit_count": 3,
+     "bonus_hits": [],
+     "prize": {
+      "category": "3 punti",
+      "amount": 30,
+      "currency": "EUR"
+     },
+     "why": "Ancoră top strategie: 6, 41, 48, 52, 81 plus 85 fierbinte."
+    },
+    {
+     "main": [
+      1,
+      6,
+      40,
+      48,
+      80,
+      87
+     ],
+     "played_bonus": [
+      52
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Top-8 strategie pur, echilibru paritate și decenii."
+    },
+    {
+     "main": [
+      6,
+      41,
+      52,
+      63,
+      83,
+      85
+     ],
+     "played_bonus": [
+      48
+     ],
+     "hits": [
+      41,
+      52,
+      85
+     ],
+     "hit_count": 3,
+     "bonus_hits": [],
+     "prize": {
+      "category": "3 punti",
+      "amount": 30,
+      "currency": "EUR"
+     },
+     "why": "Strategie medie cu 63, 83; 85 ancora frecvență."
+    },
+    {
+     "main": [
+      5,
+      41,
+      43,
+      48,
+      80,
+      85
+     ],
+     "played_bonus": [
+      55
+     ],
+     "hits": [
+      41,
+      85
+     ],
+     "hit_count": 2,
+     "bonus_hits": [],
+     "prize": {
+      "category": "2 punti",
+      "amount": 5,
+      "currency": "EUR"
+     },
+     "why": "Overdue 5, 43 combinat cu ancore strategie solide."
+    },
+    {
+     "main": [
+      5,
+      35,
+      41,
+      48,
+      85,
+      87
+     ],
+     "played_bonus": [
+      6
+     ],
+     "hits": [
+      41,
+      85
+     ],
+     "hit_count": 2,
+     "bonus_hits": [],
+     "prize": {
+      "category": "2 punti",
+      "amount": 5,
+      "currency": "EUR"
+     },
+     "why": "Pool overdue complet 5, 35, 41, 48, 87."
+    },
+    {
+     "main": [
+      5,
+      41,
+      48,
+      61,
+      79,
+      87
+     ],
+     "played_bonus": [
+      6
+     ],
+     "hits": [
+      41
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Overdue 5, 41, 48, 87; legătură secundară 61-79."
+    },
+    {
+     "main": [
+      5,
+      24,
+      41,
+      55,
+      83,
+      87
+     ],
+     "played_bonus": [
+      35
+     ],
+     "hits": [
+      41
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Overdue 5, 41, 87 plus 55, 24 AI."
+    },
+    {
+     "main": [
+      6,
+      18,
+      40,
+      49,
+      61,
+      79
+     ],
+     "played_bonus": [
+      85
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Fierbinte 6, 79, 85 bonus; pereche 61-79."
+    },
+    {
+     "main": [
+      6,
+      35,
+      44,
+      55,
+      79,
+      85
+     ],
+     "played_bonus": [
+      48
+     ],
+     "hits": [
+      85
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Nucleu fierbinte 6, 55, 79, 85; pereche 44-85."
+    },
+    {
+     "main": [
+      31,
+      35,
+      61,
+      79,
+      85,
+      87
+     ],
+     "played_bonus": [
+      48
+     ],
+     "hits": [
+      85
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Overdue 35, 87; fierbinte 85; pereche 61-79."
+    },
+    {
+     "main": [
+      12,
+      30,
+      43,
+      65,
+      68,
+      79
+     ],
+     "played_bonus": [
+      61
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Explorare sectoare medii 30-68; 61 bonus pereche."
+    },
+    {
+     "main": [
+      6,
+      44,
+      55,
+      60,
+      83,
+      85
+     ],
+     "played_bonus": [
+      8
+     ],
+     "hits": [
+      85
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Explorare perechi 44-85, 8 bonus; hot 6, 55."
+    },
+    {
+     "main": [
+      1,
+      8,
+      60,
+      68,
+      79,
+      90
+     ],
+     "played_bonus": [
+      6
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Pereche 8-60; ancore 1, 68, 79, 90."
+    },
+    {
+     "main": [
+      19,
+      31,
+      49,
+      63,
+      76,
+      90
+     ],
+     "played_bonus": [
+      24
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Coada strategie 19-90; explorație dispersată, overlap minim."
+    },
+    {
+     "main": [
+      2,
+      12,
+      35,
+      55,
+      86,
+      88
+     ],
+     "played_bonus": [
+      48
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Formă recentă 2, 12; frecvență 55, 86; 88 backtest."
+    },
+    {
+     "main": [
+      12,
+      31,
+      43,
+      56,
+      86,
+      87
+     ],
+     "played_bonus": [
+      5
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Strategie 31, 43, 56, 88; AI 12; 86 fierbinte."
+    },
+    {
+     "main": [
+      8,
+      19,
+      44,
+      52,
+      76,
+      85
+     ],
+     "played_bonus": [
+      61
+     ],
+     "hits": [
+      52,
+      85
+     ],
+     "hit_count": 2,
+     "bonus_hits": [],
+     "prize": {
+      "category": "2 punti",
+      "amount": 5,
+      "currency": "EUR"
+     },
+     "why": "Recent 8, 76; pereche 44-85; sprijin strategie 19, 52."
+    },
+    {
+     "main": [
+      2,
+      5,
+      24,
+      41,
+      76,
+      87
+     ],
+     "played_bonus": [
+      12
+     ],
+     "hits": [
+      41
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Mix formă recentă și overdue; 41, 87 ancora."
+    },
+    {
+     "main": [
+      2,
+      5,
+      12,
+      31,
+      76,
+      86
+     ],
+     "played_bonus": [
+      55
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Sector AI pur: 2, 5, 12, 31, 76, 86."
+    },
+    {
+     "main": [
+      8,
+      18,
+      44,
+      60,
+      76,
+      85
+     ],
+     "played_bonus": [
+      61
+     ],
+     "hits": [
+      85
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Perechi 8-60 și 44-85; AI dominant, explorare."
+    }
+   ],
+   "estimated_prize": {
+    "amount": 75,
+    "currency": "EUR"
+   }
+  },
+  {
+   "draw_date": "2026-09-17",
+   "draw_index": 1,
+   "draw_time": "20:00",
+   "next_draw_times": [
+    "20:00"
+   ],
+   "model": "glm-5.3-flash:cloud",
+   "created_at": "2026-09-17T00:28:50",
+   "reasoning": "Recordul cumulat (z≈0) arată că selecția noastră nu depășește aleatoriul, deci clasamentele sunt priorități slabe, nu predicții. Păstrez doar pârghiile controlabile: suprapunere ≤2 numere între oricare două bilete, evitarea combinațiilor populare (secvențe, doar numere <32, tipare simetrice) și acoperirea largă a uniunii celor două clasamente (34 numere) plus 17 numere de explorare. Ordinea reflectă încredere descrescătoare: top strategie, apoi mixt, apoi AI/întârziat, la final explorare pe perechi-sectoare. Bonusurile diversifică numerele clasate fără a dubla main-urile propriului bilet.",
+   "strategy_metric": 0.416765,
+   "tickets": [
+    {
+     "main": [
+      1,
+      6,
+      48,
+      55,
+      80,
+      87
+     ],
+     "bonus": [
+      85
+     ],
+     "why": "Ancoră: primele șase din clasamentul strategiei, favoritul nostru.",
+     "score": 15
+    },
+    {
+     "main": [
+      17,
+      34,
+      49,
+      65,
+      79,
+      88
+     ],
+     "bonus": [
+      48
+     ],
+     "why": "Pozițiile 13-18 strategie; 88-90 acoperă sectorul înalt frecvent. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 127
+    },
+    {
+     "main": [
+      41,
+      52,
+      63,
+      68,
+      79,
+      81
+     ],
+     "bonus": [
+      1
+     ],
+     "why": "Mix AI-strategie: 86,52,79,85; paritate mixtă, suprapunere ≤2. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 199
+    },
+    {
+     "main": [
+      5,
+      9,
+      48,
+      63,
+      66,
+      78
+     ],
+     "bonus": [
+      4
+     ],
+     "why": "Întârziat 48 (75 extrageri) plus AI 12,63; risc calculat. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 199
+    },
+    {
+     "main": [
+      1,
+      7,
+      22,
+      45,
+      57,
+      86
+     ],
+     "bonus": [
+      52
+     ],
+     "why": "AI 12,86 cu 49 strategie; acoperire nouă, suprapunere minimă. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 200
+    },
+    {
+     "main": [
+      54,
+      56,
+      61,
+      73,
+      75,
+      82
+     ],
+     "bonus": [
+      47
+     ],
+     "why": "Perechea AI 63 cu 6; restul frecvențe strategie, sector 60-90. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 223
+    },
+    {
+     "main": [
+      3,
+      22,
+      60,
+      66,
+      80,
+      90
+     ],
+     "bonus": [
+      7
+     ],
+     "why": "Sectorul 80-90 plus 47 întârziat; explorare înaltă. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 226
+    },
+    {
+     "main": [
+      28,
+      39,
+      51,
+      62,
+      74,
+      75
+     ],
+     "bonus": [
+      9
+     ],
+     "why": "Explorare pură, bandă 11-74; zero suprapunere, numere neexploatate. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 253
+    },
+    {
+     "main": [
+      5,
+      11,
+      37,
+      39,
+      59,
+      83
+     ],
+     "bonus": [
+      3
+     ],
+     "why": "Nucleu AI secundar: 47,59 cu 87,6,5 din strategie. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 260
+    },
+    {
+     "main": [
+      14,
+      20,
+      30,
+      53,
+      65,
+      84
+     ],
+     "bonus": [
+      90
+     ],
+     "why": "AI 47,76 cu 55,30 strategie; suprapunere minimă cu precedentele. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 260
+    },
+    {
+     "main": [
+      4,
+      19,
+      26,
+      32,
+      62,
+      85
+     ],
+     "bonus": [
+      10
+     ],
+     "why": "Pereche activă 44-85; explorare cu 2,19,26,71. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 261
+    },
+    {
+     "main": [
+      6,
+      12,
+      25,
+      31,
+      40,
+      46
+     ],
+     "bonus": [
+      8
+     ],
+     "why": "Pereche 6-31 cu AI 63; combinație rară, anti-populară. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 271
+    },
+    {
+     "main": [
+      38,
+      52,
+      57,
+      59,
+      88,
+      89
+     ],
+     "bonus": [
+      2
+     ],
+     "why": "Mix echilibrat strategie-AI; perechea frecventă 80-48 rămâne nucleu. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 274
+    },
+    {
+     "main": [
+      18,
+      30,
+      33,
+      42,
+      44,
+      46
+     ],
+     "bonus": [
+      87
+     ],
+     "why": "Pozițiile 19-24 strategie; echilibru impar-par, fără tipare evidente. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 281
+    },
+    {
+     "main": [
+      16,
+      36,
+      43,
+      69,
+      70,
+      83
+     ],
+     "bonus": [
+      6
+     ],
+     "why": "Pozițiile 7-12 strategie; paritate mixtă, fără secvențe populare. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 300
+    },
+    {
+     "main": [
+      21,
+      23,
+      24,
+      55,
+      67,
+      72
+     ],
+     "bonus": [
+      83
+     ],
+     "why": "Recombinare favoriți deja jucați; suprapunere maximă doi, ancoră dublă. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 311
+    },
+    {
+     "main": [
+      8,
+      27,
+      29,
+      35,
+      60,
+      71
+     ],
+     "bonus": [
+      5
+     ],
+     "why": "AI 8,76 plus 79,35 frecvente; distinct de toate precedentele. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 315
+    },
+    {
+     "main": [
+      15,
+      37,
+      41,
+      43,
+      47,
+      64
+     ],
+     "bonus": [
+      59
+     ],
+     "why": "AI 2,47 combinat cu strategie 87,55; joacă independentă. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 332
+    },
+    {
+     "main": [
+      2,
+      13,
+      72,
+      76,
+      78,
+      87
+     ],
+     "bonus": [
+      63
+     ],
+     "why": "Top AI: 85,2,59,87,35; cele mai bune recomandări combinate. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 332
+    },
+    {
+     "main": [
+      10,
+      44,
+      50,
+      58,
+      67,
+      77
+     ],
+     "bonus": [
+      55
+     ],
+     "why": "Explorare spread 10-77; nucleu 87,49 pentru acoperire. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 389
+    }
+   ],
+   "portfolio": {
+    "min_prize_hits": 2,
+    "p_any_prize_before": 0.5766,
+    "p_any_prize_after": 0.7124,
+    "mean_overlap_before": 0.647,
+    "mean_overlap_after": 0.158,
+    "popularity_before": 0.392,
+    "popularity_after": 0.396,
+    "simulated_draws": 20000
+   },
+   "status": "checked",
+   "checked_at": "2026-09-17T21:13:04",
+   "draw_numbers": [
+    6,
+    7,
+    16,
+    35,
+    46,
+    54
+   ],
+   "draw_bonus": [
+    21
+   ],
+   "results": [
+    {
+     "main": [
+      1,
+      6,
+      48,
+      55,
+      80,
+      87
+     ],
+     "played_bonus": [
+      85
+     ],
+     "hits": [
+      6
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Ancoră: primele șase din clasamentul strategiei, favoritul nostru."
+    },
+    {
+     "main": [
+      17,
+      34,
+      49,
+      65,
+      79,
+      88
+     ],
+     "played_bonus": [
+      48
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Pozițiile 13-18 strategie; 88-90 acoperă sectorul înalt frecvent. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      41,
+      52,
+      63,
+      68,
+      79,
+      81
+     ],
+     "played_bonus": [
+      1
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Mix AI-strategie: 86,52,79,85; paritate mixtă, suprapunere ≤2. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      5,
+      9,
+      48,
+      63,
+      66,
+      78
+     ],
+     "played_bonus": [
+      4
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Întârziat 48 (75 extrageri) plus AI 12,63; risc calculat. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      1,
+      7,
+      22,
+      45,
+      57,
+      86
+     ],
+     "played_bonus": [
+      52
+     ],
+     "hits": [
+      7
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "AI 12,86 cu 49 strategie; acoperire nouă, suprapunere minimă. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      54,
+      56,
+      61,
+      73,
+      75,
+      82
+     ],
+     "played_bonus": [
+      47
+     ],
+     "hits": [
+      54
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Perechea AI 63 cu 6; restul frecvențe strategie, sector 60-90. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      3,
+      22,
+      60,
+      66,
+      80,
+      90
+     ],
+     "played_bonus": [
+      7
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Sectorul 80-90 plus 47 întârziat; explorare înaltă. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      28,
+      39,
+      51,
+      62,
+      74,
+      75
+     ],
+     "played_bonus": [
+      9
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Explorare pură, bandă 11-74; zero suprapunere, numere neexploatate. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      5,
+      11,
+      37,
+      39,
+      59,
+      83
+     ],
+     "played_bonus": [
+      3
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Nucleu AI secundar: 47,59 cu 87,6,5 din strategie. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      14,
+      20,
+      30,
+      53,
+      65,
+      84
+     ],
+     "played_bonus": [
+      90
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "AI 47,76 cu 55,30 strategie; suprapunere minimă cu precedentele. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      4,
+      19,
+      26,
+      32,
+      62,
+      85
+     ],
+     "played_bonus": [
+      10
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Pereche activă 44-85; explorare cu 2,19,26,71. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      6,
+      12,
+      25,
+      31,
+      40,
+      46
+     ],
+     "played_bonus": [
+      8
+     ],
+     "hits": [
+      6,
+      46
+     ],
+     "hit_count": 2,
+     "bonus_hits": [],
+     "prize": {
+      "category": "2 punti",
+      "amount": 5,
+      "currency": "EUR"
+     },
+     "why": "Pereche 6-31 cu AI 63; combinație rară, anti-populară. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      38,
+      52,
+      57,
+      59,
+      88,
+      89
+     ],
+     "played_bonus": [
+      2
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Mix echilibrat strategie-AI; perechea frecventă 80-48 rămâne nucleu. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      18,
+      30,
+      33,
+      42,
+      44,
+      46
+     ],
+     "played_bonus": [
+      87
+     ],
+     "hits": [
+      46
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Pozițiile 19-24 strategie; echilibru impar-par, fără tipare evidente. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      16,
+      36,
+      43,
+      69,
+      70,
+      83
+     ],
+     "played_bonus": [
+      6
+     ],
+     "hits": [
+      16
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Pozițiile 7-12 strategie; paritate mixtă, fără secvențe populare. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      21,
+      23,
+      24,
+      55,
+      67,
+      72
+     ],
+     "played_bonus": [
+      83
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Recombinare favoriți deja jucați; suprapunere maximă doi, ancoră dublă. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      8,
+      27,
+      29,
+      35,
+      60,
+      71
+     ],
+     "played_bonus": [
+      5
+     ],
+     "hits": [
+      35
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "AI 8,76 plus 79,35 frecvente; distinct de toate precedentele. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      15,
+      37,
+      41,
+      43,
+      47,
+      64
+     ],
+     "played_bonus": [
+      59
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "AI 2,47 combinat cu strategie 87,55; joacă independentă. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      2,
+      13,
+      72,
+      76,
+      78,
+      87
+     ],
+     "played_bonus": [
+      63
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Top AI: 85,2,59,87,35; cele mai bune recomandări combinate. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      10,
+      44,
+      50,
+      58,
+      67,
+      77
+     ],
+     "played_bonus": [
+      55
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Explorare spread 10-77; nucleu 87,49 pentru acoperire. · ajustat: acoperire mai bună / numere mai puțin populare"
+    }
+   ],
+   "estimated_prize": {
+    "amount": 5,
+    "currency": "EUR"
+   }
+  },
+  {
+   "draw_date": "2026-09-18",
+   "draw_index": 1,
+   "draw_time": "20:00",
+   "next_draw_times": [
+    "20:00"
+   ],
+   "model": "glm-5.3-flash:cloud",
+   "created_at": "2026-09-18T00:11:23",
+   "reasoning": "Recordul cumulat (z≈0, 6.007 vs 6.0 lovituri/bilet) arată performanță indistinctă de întâmplare, deci nu pretind un avantaj real cald/rece — clasamentele funcționează doar ca proxy de încredere pentru ordonare. Aplic disciplină de portofoliu: numerele de consens (85, 80, 79, 6, 48, 55) apar max 3 ori, toate cele 4 perechi recomandate (80-85, 2-63, 61-79, 14-55) exact o dată, fără perechi duplicate între bilete, paritate mixtă, fără secvențe sau scări de multipli, bonusuri distincte pe 20 de numere diferite. Ordinea: ancore deterministe (1-5) → consens strategie+AI (6-10) → AI/întârziate/recente (11-15) → explorare pe perechi și sectoare (16-20), ca declinare de încredere, nu ca probabilitate reală.",
+   "strategy_metric": 0.416765,
+   "tickets": [
+    {
+     "main": [
+      1,
+      48,
+      55,
+      80,
+      85,
+      87
+     ],
+     "bonus": [
+      83
+     ],
+     "why": "Top 6 determinist complet; favoritul principal, mix par-impar.",
+     "score": 15
+    },
+    {
+     "main": [
+      22,
+      48,
+      50,
+      52,
+      63,
+      80
+     ],
+     "bonus": [
+      55
+     ],
+     "why": "Calde 80/6 + recente 12 + 63/49; bonus 55. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 182
+    },
+    {
+     "main": [
+      21,
+      57,
+      73,
+      81,
+      88,
+      90
+     ],
+     "bonus": [
+      56
+     ],
+     "why": "Ranguri 2-14 deterministe, fără top-6; bonus 56. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 196
+    },
+    {
+     "main": [
+      1,
+      5,
+      11,
+      47,
+      54,
+      61
+     ],
+     "bonus": [
+      90
+     ],
+     "why": "Punte consens: 1/61/63/68/82 + 47; bonus 90. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 196
+    },
+    {
+     "main": [
+      8,
+      19,
+      41,
+      73,
+      75,
+      79
+     ],
+     "bonus": [
+      41
+     ],
+     "why": "Pereche 61-79 + 76/19/30; bonus 41 explorare. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 216
+    },
+    {
+     "main": [
+      33,
+      50,
+      56,
+      70,
+      87,
+      90
+     ],
+     "bonus": [
+      50
+     ],
+     "why": "Ranguri 7-24 deterministe, echilibru par-impar; bonus 50. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 217
+    },
+    {
+     "main": [
+      23,
+      36,
+      45,
+      55,
+      65,
+      68
+     ],
+     "bonus": [
+      43
+     ],
+     "why": "55 reutilizat + ranguri 11-18; bonus 43 rece. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 221
+    },
+    {
+     "main": [
+      5,
+      43,
+      58,
+      65,
+      67,
+      89
+     ],
+     "bonus": [
+      82
+     ],
+     "why": "Trio întârziat 48-5-87 + reci 43/65/88; bonus 82. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 223
+    },
+    {
+     "main": [
+      22,
+      25,
+      41,
+      58,
+      72,
+      77
+     ],
+     "bonus": [
+      67
+     ],
+     "why": "Explorare: perechea 14-55 + sector 22-72; bonus 67. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 226
+    },
+    {
+     "main": [
+      6,
+      30,
+      42,
+      53,
+      78,
+      83
+     ],
+     "bonus": [
+      48
+     ],
+     "why": "Consenus maxim: 85,6,79,1,83; bonus 48 (76 întârzieri). · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 232
+    },
+    {
+     "main": [
+      8,
+      37,
+      38,
+      52,
+      71,
+      82
+     ],
+     "bonus": [
+      87
+     ],
+     "why": "Ranguri 12-25, sector 38-82; bonus 87 întârziat. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 239
+    },
+    {
+     "main": [
+      18,
+      38,
+      47,
+      59,
+      66,
+      85
+     ],
+     "bonus": [
+      61
+     ],
+     "why": "7/47 reci + 85/83 ancore; bonus 61 consens. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 241
+    },
+    {
+     "main": [
+      2,
+      40,
+      56,
+      67,
+      72,
+      82
+     ],
+     "bonus": [
+      10
+     ],
+     "why": "AI pur: 2/7/47/76/56/86; bonus 10. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 254
+    },
+    {
+     "main": [
+      33,
+      39,
+      69,
+      71,
+      76,
+      81
+     ],
+     "bonus": [
+      63
+     ],
+     "why": "Numere AI 2/7/12/19/33/76; bonus 63. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 269
+    },
+    {
+     "main": [
+      4,
+      9,
+      21,
+      26,
+      29,
+      83
+     ],
+     "bonus": [
+      53
+     ],
+     "why": "Sector 4-31 + 82 consens; bonus 53. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 272
+    },
+    {
+     "main": [
+      12,
+      24,
+      39,
+      44,
+      49,
+      86
+     ],
+     "bonus": [
+      79
+     ],
+     "why": "Pereche 2-63 + 48 întârziat + 86; bonus 79. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 307
+    },
+    {
+     "main": [
+      13,
+      15,
+      57,
+      62,
+      74,
+      84
+     ],
+     "bonus": [
+      89
+     ],
+     "why": "Sector mediu 51-74 + 86 AI; bonus 89. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 324
+    },
+    {
+     "main": [
+      13,
+      17,
+      34,
+      46,
+      64,
+      68
+     ],
+     "bonus": [
+      59
+     ],
+     "why": "Explorare finală 8-65, capete rămase; bonus 59. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 333
+    },
+    {
+     "main": [
+      3,
+      16,
+      28,
+      31,
+      35,
+      51
+     ],
+     "bonus": [
+      52
+     ],
+     "why": "Explorare sector inferior 3-43; bonus 52. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 353
+    },
+    {
+     "main": [
+      4,
+      20,
+      27,
+      32,
+      53,
+      60
+     ],
+     "bonus": [
+      49
+     ],
+     "why": "Calde 6/79/80 + 27/38/68 echilibru; bonus 49. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 378
+    }
+   ],
+   "portfolio": {
+    "min_prize_hits": 2,
+    "p_any_prize_before": 0.6156,
+    "p_any_prize_after": 0.709,
+    "mean_overlap_before": 0.484,
+    "mean_overlap_after": 0.174,
+    "popularity_before": 0.417,
+    "popularity_after": 0.367,
+    "simulated_draws": 20000
+   },
+   "status": "checked",
+   "checked_at": "2026-09-20T19:55:27",
+   "draw_numbers": [
+    29,
+    37,
+    41,
+    43,
+    74,
+    86
+   ],
+   "draw_bonus": [
+    25
+   ],
+   "results": [
+    {
+     "main": [
+      1,
+      48,
+      55,
+      80,
+      85,
+      87
+     ],
+     "played_bonus": [
+      83
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Top 6 determinist complet; favoritul principal, mix par-impar."
+    },
+    {
+     "main": [
+      22,
+      48,
+      50,
+      52,
+      63,
+      80
+     ],
+     "played_bonus": [
+      55
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Calde 80/6 + recente 12 + 63/49; bonus 55. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      21,
+      57,
+      73,
+      81,
+      88,
+      90
+     ],
+     "played_bonus": [
+      56
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Ranguri 2-14 deterministe, fără top-6; bonus 56. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      1,
+      5,
+      11,
+      47,
+      54,
+      61
+     ],
+     "played_bonus": [
+      90
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Punte consens: 1/61/63/68/82 + 47; bonus 90. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      8,
+      19,
+      41,
+      73,
+      75,
+      79
+     ],
+     "played_bonus": [
+      41
+     ],
+     "hits": [
+      41
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Pereche 61-79 + 76/19/30; bonus 41 explorare. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      33,
+      50,
+      56,
+      70,
+      87,
+      90
+     ],
+     "played_bonus": [
+      50
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Ranguri 7-24 deterministe, echilibru par-impar; bonus 50. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      23,
+      36,
+      45,
+      55,
+      65,
+      68
+     ],
+     "played_bonus": [
+      43
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "55 reutilizat + ranguri 11-18; bonus 43 rece. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      5,
+      43,
+      58,
+      65,
+      67,
+      89
+     ],
+     "played_bonus": [
+      82
+     ],
+     "hits": [
+      43
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Trio întârziat 48-5-87 + reci 43/65/88; bonus 82. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      22,
+      25,
+      41,
+      58,
+      72,
+      77
+     ],
+     "played_bonus": [
+      67
+     ],
+     "hits": [
+      41
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Explorare: perechea 14-55 + sector 22-72; bonus 67. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      6,
+      30,
+      42,
+      53,
+      78,
+      83
+     ],
+     "played_bonus": [
+      48
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Consenus maxim: 85,6,79,1,83; bonus 48 (76 întârzieri). · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      8,
+      37,
+      38,
+      52,
+      71,
+      82
+     ],
+     "played_bonus": [
+      87
+     ],
+     "hits": [
+      37
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Ranguri 12-25, sector 38-82; bonus 87 întârziat. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      18,
+      38,
+      47,
+      59,
+      66,
+      85
+     ],
+     "played_bonus": [
+      61
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "7/47 reci + 85/83 ancore; bonus 61 consens. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      2,
+      40,
+      56,
+      67,
+      72,
+      82
+     ],
+     "played_bonus": [
+      10
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "AI pur: 2/7/47/76/56/86; bonus 10. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      33,
+      39,
+      69,
+      71,
+      76,
+      81
+     ],
+     "played_bonus": [
+      63
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Numere AI 2/7/12/19/33/76; bonus 63. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      4,
+      9,
+      21,
+      26,
+      29,
+      83
+     ],
+     "played_bonus": [
+      53
+     ],
+     "hits": [
+      29
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Sector 4-31 + 82 consens; bonus 53. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      12,
+      24,
+      39,
+      44,
+      49,
+      86
+     ],
+     "played_bonus": [
+      79
+     ],
+     "hits": [
+      86
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Pereche 2-63 + 48 întârziat + 86; bonus 79. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      13,
+      15,
+      57,
+      62,
+      74,
+      84
+     ],
+     "played_bonus": [
+      89
+     ],
+     "hits": [
+      74
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Sector mediu 51-74 + 86 AI; bonus 89. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      13,
+      17,
+      34,
+      46,
+      64,
+      68
+     ],
+     "played_bonus": [
+      59
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Explorare finală 8-65, capete rămase; bonus 59. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      3,
+      16,
+      28,
+      31,
+      35,
+      51
+     ],
+     "played_bonus": [
+      52
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Explorare sector inferior 3-43; bonus 52. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      4,
+      20,
+      27,
+      32,
+      53,
+      60
+     ],
+     "played_bonus": [
+      49
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Calde 6/79/80 + 27/38/68 echilibru; bonus 49. · ajustat: acoperire mai bună / numere mai puțin populare"
+    }
+   ],
+   "estimated_prize": {
+    "amount": 0.0,
+    "currency": ""
+   }
+  },
+  {
+   "draw_date": "2026-09-26",
+   "draw_index": 1,
+   "draw_time": "20:00",
+   "next_draw_times": [
+    "20:00"
+   ],
+   "model": "gpt-oss:120b-cloud",
+   "created_at": "2026-09-26T14:07:56",
+   "reasoning": "Combine deterministic ranking and AI recommendations, prioritize hot/overdue numbers, ensure sector balance, avoid common patterns, and minimize overlap across 20 tickets.",
+   "strategy_metric": 0.417258,
+   "tickets": [
+    {
+     "main": [
+      6,
+      19,
+      49,
+      55,
+      80,
+      87
+     ],
+     "bonus": [
+      85
+     ],
+     "why": "Top deterministic, includes hot & overdue numbers.",
+     "score": 26
+    },
+    {
+     "main": [
+      1,
+      5,
+      42,
+      66,
+      79,
+      82
+     ],
+     "bonus": [
+      3
+     ],
+     "why": "Balanced deterministic, includes overdue 5. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 129
+    },
+    {
+     "main": [
+      4,
+      21,
+      43,
+      49,
+      51,
+      66
+     ],
+     "bonus": [
+      7
+     ],
+     "why": "Mid‑range deterministic, maintains low overlap. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 152
+    },
+    {
+     "main": [
+      35,
+      61,
+      72,
+      73,
+      79,
+      84
+     ],
+     "bonus": [
+      6
+     ],
+     "why": "Overdue + hot, spans zones. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 213
+    },
+    {
+     "main": [
+      11,
+      22,
+      28,
+      32,
+      71,
+      90
+     ],
+     "bonus": [
+      11
+     ],
+     "why": "Diverse mix, avoids repeats, spans zones. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 217
+    },
+    {
+     "main": [
+      30,
+      33,
+      60,
+      62,
+      76,
+      80
+     ],
+     "bonus": [
+      2
+     ],
+     "why": "Overdue plus hot, ensures zone coverage. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 226
+    },
+    {
+     "main": [
+      17,
+      36,
+      38,
+      50,
+      56,
+      83
+     ],
+     "bonus": [
+      1
+     ],
+     "why": "Balanced mix, covers all zones, hot 79. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 231
+    },
+    {
+     "main": [
+      3,
+      34,
+      45,
+      47,
+      76,
+      85
+     ],
+     "bonus": [
+      12
+     ],
+     "why": "Hot numbers with medium spread, sector balanced. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 233
+    },
+    {
+     "main": [
+      7,
+      22,
+      40,
+      59,
+      69,
+      81
+     ],
+     "bonus": [
+      30
+     ],
+     "why": "Sector balanced, diverse, avoids common patterns. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 242
+    },
+    {
+     "main": [
+      53,
+      58,
+      62,
+      65,
+      75,
+      84
+     ],
+     "bonus": [
+      5
+     ],
+     "why": "Mixed sources, good sector distribution. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 243
+    },
+    {
+     "main": [
+      41,
+      54,
+      69,
+      75,
+      77,
+      88
+     ],
+     "bonus": [
+      10
+     ],
+     "why": "Rare picks, broad range, avoids typical combos. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 245
+    },
+    {
+     "main": [
+      8,
+      23,
+      37,
+      55,
+      57,
+      90
+     ],
+     "bonus": [
+      8
+     ],
+     "why": "Recent AI picks, plus strong deterministic values. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 260
+    },
+    {
+     "main": [
+      2,
+      6,
+      12,
+      25,
+      31,
+      52
+     ],
+     "bonus": [
+      9
+     ],
+     "why": "Full AI hot set, balanced across sectors. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 281
+    },
+    {
+     "main": [
+      16,
+      27,
+      39,
+      44,
+      51,
+      71
+     ],
+     "bonus": [
+      13
+     ],
+     "why": "Even spread, avoids popular sequences. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 299
+    },
+    {
+     "main": [
+      33,
+      64,
+      72,
+      74,
+      78,
+      81
+     ],
+     "bonus": [
+      79
+     ],
+     "why": "Hot 85 with overdue 5, balanced sectors. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 300
+    },
+    {
+     "main": [
+      9,
+      37,
+      40,
+      50,
+      63,
+      74
+     ],
+     "bonus": [
+      15
+     ],
+     "why": "Sequentially spaced, covers all zones, uncommon. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 305
+    },
+    {
+     "main": [
+      20,
+      34,
+      46,
+      53,
+      64,
+      68
+     ],
+     "bonus": [
+      4
+     ],
+     "why": "Late deterministic, includes overdue small numbers. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 320
+    },
+    {
+     "main": [
+      13,
+      15,
+      58,
+      67,
+      73,
+      89
+     ],
+     "bonus": [
+      17
+     ],
+     "why": "All odd, spans zones, low commonality. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 351
+    },
+    {
+     "main": [
+      14,
+      18,
+      29,
+      43,
+      48,
+      86
+     ],
+     "bonus": [
+      14
+     ],
+     "why": "All even, wide zone coverage, includes hot 79. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 359
+    },
+    {
+     "main": [
+      4,
+      10,
+      57,
+      65,
+      70,
+      72
+     ],
+     "bonus": [
+      16
+     ],
+     "why": "Complementary pairs, broad sector coverage. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 390
+    }
+   ],
+   "portfolio": {
+    "min_prize_hits": 2,
+    "p_any_prize_before": 0.5808,
+    "p_any_prize_after": 0.7088,
+    "mean_overlap_before": 0.653,
+    "mean_overlap_after": 0.174,
+    "popularity_before": 0.454,
+    "popularity_after": 0.354,
+    "simulated_draws": 20000
+   },
+   "status": "checked",
+   "checked_at": "2026-11-22T20:48:29",
+   "draw_numbers": [
+    52,
+    54,
+    55,
+    64,
+    68,
+    78
+   ],
+   "draw_bonus": [
+    31
+   ],
+   "results": [
+    {
+     "main": [
+      6,
+      19,
+      49,
+      55,
+      80,
+      87
+     ],
+     "played_bonus": [
+      85
+     ],
+     "hits": [
+      55
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Top deterministic, includes hot & overdue numbers."
+    },
+    {
+     "main": [
+      1,
+      5,
+      42,
+      66,
+      79,
+      82
+     ],
+     "played_bonus": [
+      3
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Balanced deterministic, includes overdue 5. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      4,
+      21,
+      43,
+      49,
+      51,
+      66
+     ],
+     "played_bonus": [
+      7
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Mid‑range deterministic, maintains low overlap. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      35,
+      61,
+      72,
+      73,
+      79,
+      84
+     ],
+     "played_bonus": [
+      6
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Overdue + hot, spans zones. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      11,
+      22,
+      28,
+      32,
+      71,
+      90
+     ],
+     "played_bonus": [
+      11
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Diverse mix, avoids repeats, spans zones. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      30,
+      33,
+      60,
+      62,
+      76,
+      80
+     ],
+     "played_bonus": [
+      2
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Overdue plus hot, ensures zone coverage. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      17,
+      36,
+      38,
+      50,
+      56,
+      83
+     ],
+     "played_bonus": [
+      1
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Balanced mix, covers all zones, hot 79. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      3,
+      34,
+      45,
+      47,
+      76,
+      85
+     ],
+     "played_bonus": [
+      12
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Hot numbers with medium spread, sector balanced. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      7,
+      22,
+      40,
+      59,
+      69,
+      81
+     ],
+     "played_bonus": [
+      30
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Sector balanced, diverse, avoids common patterns. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      53,
+      58,
+      62,
+      65,
+      75,
+      84
+     ],
+     "played_bonus": [
+      5
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Mixed sources, good sector distribution. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      41,
+      54,
+      69,
+      75,
+      77,
+      88
+     ],
+     "played_bonus": [
+      10
+     ],
+     "hits": [
+      54
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Rare picks, broad range, avoids typical combos. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      8,
+      23,
+      37,
+      55,
+      57,
+      90
+     ],
+     "played_bonus": [
+      8
+     ],
+     "hits": [
+      55
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Recent AI picks, plus strong deterministic values. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      2,
+      6,
+      12,
+      25,
+      31,
+      52
+     ],
+     "played_bonus": [
+      9
+     ],
+     "hits": [
+      52
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Full AI hot set, balanced across sectors. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      16,
+      27,
+      39,
+      44,
+      51,
+      71
+     ],
+     "played_bonus": [
+      13
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Even spread, avoids popular sequences. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      33,
+      64,
+      72,
+      74,
+      78,
+      81
+     ],
+     "played_bonus": [
+      79
+     ],
+     "hits": [
+      64,
+      78
+     ],
+     "hit_count": 2,
+     "bonus_hits": [],
+     "prize": {
+      "category": "2 punti",
+      "amount": 5,
+      "currency": "EUR"
+     },
+     "why": "Hot 85 with overdue 5, balanced sectors. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      9,
+      37,
+      40,
+      50,
+      63,
+      74
+     ],
+     "played_bonus": [
+      15
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Sequentially spaced, covers all zones, uncommon. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      20,
+      34,
+      46,
+      53,
+      64,
+      68
+     ],
+     "played_bonus": [
+      4
+     ],
+     "hits": [
+      64,
+      68
+     ],
+     "hit_count": 2,
+     "bonus_hits": [],
+     "prize": {
+      "category": "2 punti",
+      "amount": 5,
+      "currency": "EUR"
+     },
+     "why": "Late deterministic, includes overdue small numbers. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      13,
+      15,
+      58,
+      67,
+      73,
+      89
+     ],
+     "played_bonus": [
+      17
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "All odd, spans zones, low commonality. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      14,
+      18,
+      29,
+      43,
+      48,
+      86
+     ],
+     "played_bonus": [
+      14
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "All even, wide zone coverage, includes hot 79. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      4,
+      10,
+      57,
+      65,
+      70,
+      72
+     ],
+     "played_bonus": [
+      16
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Complementary pairs, broad sector coverage. · ajustat: acoperire mai bună / numere mai puțin populare"
+    }
+   ],
+   "estimated_prize": {
+    "amount": 10,
+    "currency": "EUR"
+   }
+  }
+ ]
+}

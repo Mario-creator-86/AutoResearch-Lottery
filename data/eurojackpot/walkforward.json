@@ -1,0 +1,65 @@
+{
+  "lottery_id": "eurojackpot",
+  "strategy": "tf2.357_hc2.653_b0.484_sb0.638_jc1.5_bf0.0_dd0.1_ps20.0_el0.005_ac1_acr0.6",
+  "backtest_score": 0.526377,
+  "wf_score": 0.541772,
+  "gap": -0.015395,
+  "stability": 0.8022,
+  "baseline_avg": 0.5,
+  "baseline_edge": 0.041772,
+  "folds": [
+    {
+      "fold": 1,
+      "train_size": 591,
+      "test_size": 79,
+      "score": 0.455696,
+      "baseline": 0.5,
+      "hit_rate_2plus": 0.0759,
+      "hit_rate_3plus": 0.0,
+      "portfolio_avg": 1.088608
+    },
+    {
+      "fold": 2,
+      "train_size": 670,
+      "test_size": 79,
+      "score": 0.721519,
+      "baseline": 0.5,
+      "hit_rate_2plus": 0.1139,
+      "hit_rate_3plus": 0.0127,
+      "portfolio_avg": 1.139241
+    },
+    {
+      "fold": 3,
+      "train_size": 749,
+      "test_size": 79,
+      "score": 0.481013,
+      "baseline": 0.5,
+      "hit_rate_2plus": 0.0633,
+      "hit_rate_3plus": 0.0127,
+      "portfolio_avg": 1.012658
+    },
+    {
+      "fold": 4,
+      "train_size": 828,
+      "test_size": 79,
+      "score": 0.556962,
+      "baseline": 0.5,
+      "hit_rate_2plus": 0.1013,
+      "hit_rate_3plus": 0.0,
+      "portfolio_avg": 1.0
+    },
+    {
+      "fold": 5,
+      "train_size": 907,
+      "test_size": 79,
+      "score": 0.493671,
+      "baseline": 0.5,
+      "hit_rate_2plus": 0.0759,
+      "hit_rate_3plus": 0.0,
+      "portfolio_avg": 1.050633
+    }
+  ],
+  "timestamp": "2026-09-08T05:53:52",
+  "elapsed_seconds": 0.21,
+  "num_folds": 5
+}

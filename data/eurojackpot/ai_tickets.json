@@ -1,0 +1,299 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "draw_date": "2026-09-08",
+   "next_draw_times": [
+    "21:00"
+   ],
+   "model": "glm-5.3-flash:cloud",
+   "created_at": "2026-09-08T08:09:58",
+   "reasoning": "Am construit 20 de bilete pe patru niveluri: (1) ancoră pe top strategie deterministă; (2) mixuri echilibrate strategie+AI; (3) linii pe momentum-ul AI (17, 34, 35, 20, 43, 4) cu ancore overdue (32, 38, 18, 2); (4) explorare pe numere neacoperite și sectoare. Fiecare bilet conține 1-2 numere din perechile 17-30 sau 21-34, menține echilibrul jos/mare (2-3 din fiecare zonă), limitează clusterul de perechi la maximum 3 și folosește bonusuri 1-12 rotite uniform. Deoarece distribuția celor 986 extrageri e consistentă cu aleatoriu pur, avantajul principal vine din diversificare și controlul riscului pe clustere, nu din frecvențe individuale.",
+   "strategy_metric": 0.526377,
+   "tickets": [
+    {
+     "main": [
+      17,
+      18,
+      20,
+      21,
+      38
+     ],
+     "bonus": [
+      3,
+      8
+     ],
+     "why": "Ancoră pe top-5 strategia deterministă, nucleu 17-21 plus 38."
+    },
+    {
+     "main": [
+      17,
+      20,
+      29,
+      34,
+      41
+     ],
+     "bonus": [
+      6,
+      11
+     ],
+     "why": "Top strategie combinat cu perechea 17-30, echilibru jos/mare."
+    },
+    {
+     "main": [
+      18,
+      21,
+      23,
+      34,
+      38
+     ],
+     "bonus": [
+      2,
+      9
+     ],
+     "why": "Mix 18-21-34 cu overdue 38, pattern echilibrat."
+    },
+    {
+     "main": [
+      3,
+      17,
+      29,
+      38,
+      41
+     ],
+     "bonus": [
+      1,
+      7
+     ],
+     "why": "Ancore strategie 17-41, sector jos 3, spread larg."
+    },
+    {
+     "main": [
+      20,
+      23,
+      34,
+      35,
+      37
+     ],
+     "bonus": [
+      5,
+      10
+     ],
+     "why": "Hot 20-34-35 cu mid 23-37, balans decent."
+    },
+    {
+     "main": [
+      17,
+      22,
+      34,
+      38,
+      43
+     ],
+     "bonus": [
+      4,
+      12
+     ],
+     "why": "Nucleu hot 17-34-43, perechi acoperite, riscul controlat."
+    },
+    {
+     "main": [
+      2,
+      20,
+      30,
+      35,
+      43
+     ],
+     "bonus": [
+      6,
+      9
+     ],
+     "why": "Momentum 35-20-43 plus overdue 2, ancora 30."
+    },
+    {
+     "main": [
+      16,
+      21,
+      23,
+      32,
+      44
+     ],
+     "bonus": [
+      3,
+      11
+     ],
+     "why": "Overdue 32-16 cu 21-44, mix conservator."
+    },
+    {
+     "main": [
+      13,
+      19,
+      30,
+      34,
+      36
+     ],
+     "bonus": [
+      1,
+      8
+     ],
+     "why": "Strategie 13-19 cu AI 30-34-36."
+    },
+    {
+     "main": [
+      2,
+      13,
+      34,
+      43,
+      47
+     ],
+     "bonus": [
+      7,
+      12
+     ],
+     "why": "Extremele 13-47 cu hot 43, pereche 34."
+    },
+    {
+     "main": [
+      4,
+      17,
+      32,
+      43,
+      49
+     ],
+     "bonus": [
+      2,
+      10
+     ],
+     "why": "Momentum AI 43-4-49, overdue 32, pereche 17."
+    },
+    {
+     "main": [
+      18,
+      21,
+      34,
+      36,
+      44
+     ],
+     "bonus": [
+      4,
+      6
+     ],
+     "why": "AI 36-44 cu overdue 18, pereche 21-34."
+    },
+    {
+     "main": [
+      4,
+      20,
+      30,
+      35,
+      38
+     ],
+     "bonus": [
+      5,
+      11
+     ],
+     "why": "Hot 20-35, pereche 30, momentum 4."
+    },
+    {
+     "main": [
+      16,
+      17,
+      27,
+      30,
+      32
+     ],
+     "bonus": [
+      3,
+      9
+     ],
+     "why": "Pereche 17-30 cu overdue 32, sector mediu."
+    },
+    {
+     "main": [
+      2,
+      23,
+      34,
+      43,
+      49
+     ],
+     "bonus": [
+      1,
+      12
+     ],
+     "why": "Hot 34-43-49 cu overdue 2, spread sus."
+    },
+    {
+     "main": [
+      1,
+      13,
+      30,
+      37,
+      47
+     ],
+     "bonus": [
+      7,
+      10
+     ],
+     "why": "Explorare sectoare: extreme 1-47, pereche 30."
+    },
+    {
+     "main": [
+      5,
+      12,
+      26,
+      34,
+      39
+     ],
+     "bonus": [
+      2,
+      6
+     ],
+     "why": "Explorare numere neacoperite 5-26, pereche 34."
+    },
+    {
+     "main": [
+      7,
+      14,
+      17,
+      40,
+      44
+     ],
+     "bonus": [
+      8,
+      11
+     ],
+     "why": "Explorare sector 7-14, momentum 17, sus 40-44."
+    },
+    {
+     "main": [
+      9,
+      15,
+      25,
+      28,
+      34
+     ],
+     "bonus": [
+      4,
+      9
+     ],
+     "why": "Explorare 9-15-25 cu 28, pereche 34."
+    },
+    {
+     "main": [
+      10,
+      21,
+      22,
+      31,
+      42
+     ],
+     "bonus": [
+      5,
+      12
+     ],
+     "why": "Explorare 10-22-31-42, pereche 21, spread complet."
+    }
+   ],
+   "status": "cancelled",
+   "cancel_note": "loterie retrasă din exploatare (2026-09-08)"
+  }
+ ]
+}

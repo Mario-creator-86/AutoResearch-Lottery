@@ -1,0 +1,12 @@
+[
+ {
+  "file": "zzhepta7_20260908_131542.py",
+  "key": "zzhepta7",
+  "metric": 0.591346,
+  "baseline": 0.555556,
+  "description": "Model compozit cu 7 semnale standardizate (z-score aproximativ N(0,1)): frecvență lifetime autocalibrată, momentum pe fereastra recentă, echo-ul ultimei extrageri, msg2 = perechi co-apărute în fereastră legate de ultima extragere, due bazat pe hazard-ul gap-ului sub geometrica p=5/45, plus două nuclee de recență 1/(age+K)^GAMMA (propriu și social, pe co-occurrerență). Verifică automat orientarea deque-ului comparând last_seen cu ambele capete și corectează-o dacă e inversată.",
+  "model": "model + 2026-09-08",
+  "promoted_at": "2026-09-08T13:15:43",
+  "promoted": true
+ }
+]

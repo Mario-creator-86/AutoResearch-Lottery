@@ -1,0 +1,279 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "draw_date": "2026-09-09",
+   "next_draw_times": [
+    "23:00"
+   ],
+   "model": "glm-5.3-flash:cloud",
+   "created_at": "2026-09-08T08:10:29",
+   "reasoning": "Am structurat cele 20 bilete în patru straturi: (1) ancoră pe top strategia deterministă (tf=3.0); (2) intersecții strategie+AI folosind perechile suport 52-64 și 28-48, menținând bal=4.01 pe zonele 1-23/24-46/47-69; (3) nucleu AI/momentum plus cohorta întârziată (23 cu gap 77, 34/51/52/1 la 38-43 extrageri); (4) explorare pe coada clasamentului și sectoare neacoperite. Bonusurile 1-26 dispersate uniform, fără combo-uri duplicate.",
+   "strategy_metric": 0.405675,
+   "tickets": [
+    {
+     "main": [
+      21,
+      23,
+      28,
+      36,
+      64
+     ],
+     "bonus": [
+      7
+     ],
+     "why": "Ancoră top strategie deterministă, primele cinci clasate"
+    },
+    {
+     "main": [
+      3,
+      27,
+      52,
+      61,
+      63
+     ],
+     "bonus": [
+      11
+     ],
+     "why": "Tier doi strategie, spread echilibrat pe zone"
+    },
+    {
+     "main": [
+      32,
+      44,
+      53,
+      59,
+      69
+     ],
+     "bonus": [
+      5
+     ],
+     "why": "Mijlocul clasamentului strategie, acoperire sector superioar"
+    },
+    {
+     "main": [
+      23,
+      28,
+      36,
+      52,
+      64
+     ],
+     "bonus": [
+      19
+     ],
+     "why": "Top strategie plus perechea suport 52-64"
+    },
+    {
+     "main": [
+      21,
+      27,
+      44,
+      61,
+      63
+     ],
+     "bonus": [
+      23
+     ],
+     "why": "Momentum frecvență, trei zone echilibrate, bonus sincron"
+    },
+    {
+     "main": [
+      23,
+      28,
+      32,
+      48,
+      64
+     ],
+     "bonus": [
+      14
+     ],
+     "why": "Perechea suport 28-48 plus 23 întârziat"
+    },
+    {
+     "main": [
+      16,
+      21,
+      36,
+      52,
+      61
+     ],
+     "bonus": [
+      26
+     ],
+     "why": "Momentum plus perechea 52-64, spread bun"
+    },
+    {
+     "main": [
+      23,
+      27,
+      33,
+      50,
+      64
+     ],
+     "bonus": [
+      9
+     ],
+     "why": "Intersecție AI-strategie, 23 întârziat inclus"
+    },
+    {
+     "main": [
+      3,
+      34,
+      44,
+      48,
+      63
+     ],
+     "bonus": [
+      3
+     ],
+     "why": "Momentum strategie plus 34 întârziat, spread mare"
+    },
+    {
+     "main": [
+      6,
+      32,
+      47,
+      51,
+      59
+     ],
+     "bonus": [
+      21
+     ],
+     "why": "Strategie mijloc plus 51 întârziat, spread larg"
+    },
+    {
+     "main": [
+      21,
+      28,
+      48,
+      50,
+      61
+     ],
+     "bonus": [
+      17
+     ],
+     "why": "Intersecție ambele clasamente, momentum pur"
+    },
+    {
+     "main": [
+      1,
+      23,
+      34,
+      51,
+      52
+     ],
+     "bonus": [
+      8
+     ],
+     "why": "Cohorta întârziată completă, revenire la medie"
+    },
+    {
+     "main": [
+      21,
+      27,
+      61,
+      63,
+      64
+     ],
+     "bonus": [
+      12
+     ],
+     "why": "Nucleu frecvență AI, cinci topuri, bonus jos"
+    },
+    {
+     "main": [
+      1,
+      23,
+      34,
+      36,
+      48
+     ],
+     "bonus": [
+      24
+     ],
+     "why": "23 revenire medie plus întârziați 34, 1"
+    },
+    {
+     "main": [
+      28,
+      33,
+      48,
+      52,
+      64
+     ],
+     "bonus": [
+      2
+     ],
+     "why": "Perechile suport 52-64 și 28-48 combinate"
+    },
+    {
+     "main": [
+      23,
+      51,
+      59,
+      61,
+      63
+     ],
+     "bonus": [
+      6
+     ],
+     "why": "Momentum sector sus plus întârziați 51, 23"
+    },
+    {
+     "main": [
+      2,
+      6,
+      19,
+      37,
+      47
+     ],
+     "bonus": [
+      15
+     ],
+     "why": "Explorare coada clasament, sectoare joase acoperite"
+    },
+    {
+     "main": [
+      13,
+      29,
+      41,
+      58,
+      66
+     ],
+     "bonus": [
+      10
+     ],
+     "why": "Explorare sectoare neatinse, diversificare spread pur"
+    },
+    {
+     "main": [
+      1,
+      2,
+      33,
+      39,
+      62
+     ],
+     "bonus": [
+      25
+     ],
+     "why": "Coadă strategie plus 1 întârziat, bonus mare"
+    },
+    {
+     "main": [
+      7,
+      17,
+      24,
+      46,
+      69
+     ],
+     "bonus": [
+      1
+     ],
+     "why": "Explorare sectorială largă, bonus întârziat"
+    }
+   ],
+   "status": "cancelled",
+   "cancel_note": "loterie retrasă din exploatare (2026-09-08)"
+  }
+ ]
+}

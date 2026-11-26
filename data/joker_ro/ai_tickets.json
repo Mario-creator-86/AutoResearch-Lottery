@@ -1,0 +1,736 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "draw_date": "2026-09-17",
+   "draw_index": 1,
+   "draw_time": "18:00",
+   "next_draw_times": [
+    "18:00"
+   ],
+   "model": "gpt-oss:120b-cloud",
+   "created_at": "2026-09-17T00:26:19",
+   "reasoning": "Folosec combinaţia hot+recent (37,10,18,3,1,45) pentru primele bilete, adaugând treptat numere din hot‑delayed (8,6,17,28) şi diversificatori (9,33,20). Se includ ancorele 5‑37 şi 10‑28, apoi se explorează perechi şi sectoare AI, păstrând suprapunerea minimă şi evitând combinaţiile populare.",
+   "strategy_metric": 0.587685,
+   "tickets": [
+    {
+     "main": [
+      6,
+      8,
+      10,
+      18,
+      37
+     ],
+     "bonus": [
+      15
+     ],
+     "why": "Hot core with hot‑delayed boost.",
+     "score": 21
+    },
+    {
+     "main": [
+      3,
+      20,
+      30,
+      33,
+      36
+     ],
+     "bonus": [
+      9
+     ],
+     "why": "Hot plus delayed, diversified, moderate weight. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 72
+    },
+    {
+     "main": [
+      20,
+      24,
+      27,
+      29,
+      39
+     ],
+     "bonus": [
+      13
+     ],
+     "why": "Hot mix with delayed and sector variety. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 81
+    },
+    {
+     "main": [
+      24,
+      32,
+      33,
+      40,
+      42
+     ],
+     "bonus": [
+      14
+     ],
+     "why": "Hot core with diversified and extra frequency. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 85
+    },
+    {
+     "main": [
+      16,
+      18,
+      31,
+      33,
+      35
+     ],
+     "bonus": [
+      2
+     ],
+     "why": "Hot blend with secondary delayed, diversified. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 87
+    },
+    {
+     "main": [
+      3,
+      26,
+      28,
+      34,
+      45
+     ],
+     "bonus": [
+      4
+     ],
+     "why": "Balanced hot, delayed, and recent numbers. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 98
+    },
+    {
+     "main": [
+      7,
+      22,
+      31,
+      40,
+      45
+     ],
+     "bonus": [
+      20
+     ],
+     "why": "Late-stage exploration, retains hot anchors. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 98
+    },
+    {
+     "main": [
+      4,
+      17,
+      23,
+      25,
+      40
+     ],
+     "bonus": [
+      8
+     ],
+     "why": "Hot, delayed, diversified, plus secondary frequency. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 104
+    },
+    {
+     "main": [
+      9,
+      23,
+      30,
+      39,
+      44
+     ],
+     "bonus": [
+      17
+     ],
+     "why": "Diversified delayed with sector spread. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 105
+    },
+    {
+     "main": [
+      1,
+      14,
+      16,
+      34,
+      37
+     ],
+     "bonus": [
+      7
+     ],
+     "why": "Anchor pair plus core hot set. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 106
+    },
+    {
+     "main": [
+      2,
+      7,
+      9,
+      15,
+      20
+     ],
+     "bonus": [
+      19
+     ],
+     "why": "Hot majority with diversified delayed numbers. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 108
+    },
+    {
+     "main": [
+      12,
+      27,
+      28,
+      36,
+      41
+     ],
+     "bonus": [
+      10
+     ],
+     "why": "Hot‑delayed pair with diversifiers and mid‑range. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 117
+    },
+    {
+     "main": [
+      5,
+      12,
+      24,
+      25,
+      44
+     ],
+     "bonus": [
+      3
+     ],
+     "why": "Anchor delayed, extra frequent, balanced. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 121
+    },
+    {
+     "main": [
+      21,
+      32,
+      34,
+      37,
+      41
+     ],
+     "bonus": [
+      5
+     ],
+     "why": "Hot‑delayed, diversified, plus hot hot. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 124
+    },
+    {
+     "main": [
+      8,
+      11,
+      26,
+      36,
+      42
+     ],
+     "bonus": [
+      6
+     ],
+     "why": "Hot‑delayed with diversified, secondary hot. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 127
+    },
+    {
+     "main": [
+      5,
+      19,
+      35,
+      42,
+      43
+     ],
+     "bonus": [
+      1
+     ],
+     "why": "Exploratory pair, AI sector, moderate hot. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 127
+    },
+    {
+     "main": [
+      10,
+      13,
+      15,
+      41,
+      45
+     ],
+     "bonus": [
+      12
+     ],
+     "why": "Top anchor, maximum hot convergence. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 128
+    },
+    {
+     "main": [
+      2,
+      6,
+      21,
+      29,
+      38
+     ],
+     "bonus": [
+      18
+     ],
+     "why": "Hot‑delayed, diversified, AI cold‑turnover. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 130
+    },
+    {
+     "main": [
+      4,
+      11,
+      14,
+      32,
+      43
+     ],
+     "bonus": [
+      16
+     ],
+     "why": "Hot, delayed, high‑frequency, extra AI suggestion. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 149
+    },
+    {
+     "main": [
+      1,
+      13,
+      17,
+      22,
+      38
+     ],
+     "bonus": [
+      11
+     ],
+     "why": "Mixed hot and diversified delayed. · ajustat: acoperire mai bună / numere mai puțin populare",
+     "score": 159
+    }
+   ],
+   "portfolio": {
+    "min_prize_hits": 2,
+    "p_any_prize_before": 0.7052,
+    "p_any_prize_after": 0.9254,
+    "mean_overlap_before": 0.968,
+    "mean_overlap_after": 0.347,
+    "popularity_before": 0.795,
+    "popularity_after": 0.77,
+    "simulated_draws": 20000
+   },
+   "status": "checked",
+   "checked_at": "2026-09-17T21:12:30",
+   "draw_numbers": [
+    26,
+    27,
+    33,
+    43,
+    45
+   ],
+   "draw_bonus": [
+    20
+   ],
+   "results": [
+    {
+     "main": [
+      6,
+      8,
+      10,
+      18,
+      37
+     ],
+     "played_bonus": [
+      15
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Hot core with hot‑delayed boost."
+    },
+    {
+     "main": [
+      3,
+      20,
+      30,
+      33,
+      36
+     ],
+     "played_bonus": [
+      9
+     ],
+     "hits": [
+      33
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Hot plus delayed, diversified, moderate weight. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      20,
+      24,
+      27,
+      29,
+      39
+     ],
+     "played_bonus": [
+      13
+     ],
+     "hits": [
+      27
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Hot mix with delayed and sector variety. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      24,
+      32,
+      33,
+      40,
+      42
+     ],
+     "played_bonus": [
+      14
+     ],
+     "hits": [
+      33
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Hot core with diversified and extra frequency. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      16,
+      18,
+      31,
+      33,
+      35
+     ],
+     "played_bonus": [
+      2
+     ],
+     "hits": [
+      33
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Hot blend with secondary delayed, diversified. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      3,
+      26,
+      28,
+      34,
+      45
+     ],
+     "played_bonus": [
+      4
+     ],
+     "hits": [
+      26,
+      45
+     ],
+     "hit_count": 2,
+     "bonus_hits": [],
+     "prize": {
+      "category": "Categoria IV",
+      "amount": 40,
+      "currency": "RON"
+     },
+     "why": "Balanced hot, delayed, and recent numbers. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      7,
+      22,
+      31,
+      40,
+      45
+     ],
+     "played_bonus": [
+      20
+     ],
+     "hits": [
+      45
+     ],
+     "hit_count": 1,
+     "bonus_hits": [
+      20
+     ],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Late-stage exploration, retains hot anchors. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      4,
+      17,
+      23,
+      25,
+      40
+     ],
+     "played_bonus": [
+      8
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Hot, delayed, diversified, plus secondary frequency. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      9,
+      23,
+      30,
+      39,
+      44
+     ],
+     "played_bonus": [
+      17
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Diversified delayed with sector spread. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      1,
+      14,
+      16,
+      34,
+      37
+     ],
+     "played_bonus": [
+      7
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Anchor pair plus core hot set. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      2,
+      7,
+      9,
+      15,
+      20
+     ],
+     "played_bonus": [
+      19
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Hot majority with diversified delayed numbers. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      12,
+      27,
+      28,
+      36,
+      41
+     ],
+     "played_bonus": [
+      10
+     ],
+     "hits": [
+      27
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Hot‑delayed pair with diversifiers and mid‑range. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      5,
+      12,
+      24,
+      25,
+      44
+     ],
+     "played_bonus": [
+      3
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Anchor delayed, extra frequent, balanced. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      21,
+      32,
+      34,
+      37,
+      41
+     ],
+     "played_bonus": [
+      5
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Hot‑delayed, diversified, plus hot hot. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      8,
+      11,
+      26,
+      36,
+      42
+     ],
+     "played_bonus": [
+      6
+     ],
+     "hits": [
+      26
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Hot‑delayed with diversified, secondary hot. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      5,
+      19,
+      35,
+      42,
+      43
+     ],
+     "played_bonus": [
+      1
+     ],
+     "hits": [
+      43
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Exploratory pair, AI sector, moderate hot. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      10,
+      13,
+      15,
+      41,
+      45
+     ],
+     "played_bonus": [
+      12
+     ],
+     "hits": [
+      45
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Top anchor, maximum hot convergence. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      2,
+      6,
+      21,
+      29,
+      38
+     ],
+     "played_bonus": [
+      18
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Hot‑delayed, diversified, AI cold‑turnover. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      4,
+      11,
+      14,
+      32,
+      43
+     ],
+     "played_bonus": [
+      16
+     ],
+     "hits": [
+      43
+     ],
+     "hit_count": 1,
+     "bonus_hits": [],
+     "prize": {
+      "category": "1 lovituri (fără premiu)",
+      "amount": 0.0,
+      "currency": ""
+     },
+     "why": "Hot, delayed, high‑frequency, extra AI suggestion. · ajustat: acoperire mai bună / numere mai puțin populare"
+    },
+    {
+     "main": [
+      1,
+      13,
+      17,
+      22,
+      38
+     ],
+     "played_bonus": [
+      11
+     ],
+     "hits": [],
+     "hit_count": 0,
+     "bonus_hits": [],
+     "prize": null,
+     "why": "Mixed hot and diversified delayed. · ajustat: acoperire mai bună / numere mai puțin populare"
+    }
+   ],
+   "estimated_prize": {
+    "amount": 40,
+    "currency": "RON"
+   }
+  }
+ ]
+}

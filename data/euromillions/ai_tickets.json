@@ -1,0 +1,299 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "draw_date": "2026-09-08",
+   "next_draw_times": [
+    "21:45"
+   ],
+   "model": "glm-5.3-flash:cloud",
+   "created_at": "2026-09-08T08:15:33",
+   "reasoning": "Pondere dominantă bal=4.0: am menținut sumele între ~93-151 și echilibrul pe decile. Biletele 1-5 ancorează topul determinist (17, 5, 8, 14, 44, 47); 6-10 amestecă strategie+AI prin numerele prezente în ambele clasamente; 11-15 aplică concentrarea AI (nucleul 10-47, întârziatele 13/32, perechea 25-45); 16-20 explorează perechile de co-ocurență 10-47 și 5-29 plus sectoare slab acoperite. Fiecare bilet are 2-3 numere calde, maximum 1-2 întârziate, mix par/impar, fără serii lungi consecutive. Stelele bonus sunt distribuite uniform pe intervalul 1-12 pentru acoperire.",
+   "strategy_metric": 1.0,
+   "tickets": [
+    {
+     "main": [
+      5,
+      14,
+      17,
+      29,
+      44
+     ],
+     "bonus": [
+      3,
+      9
+     ],
+     "why": "Ancoră top strategie: 17, 5, 14, pereche 5-29."
+    },
+    {
+     "main": [
+      6,
+      8,
+      17,
+      41,
+      47
+     ],
+     "bonus": [
+      2,
+      11
+     ],
+     "why": "Nucleu cald 17-47 cu 8, 41, 6 echilibru."
+    },
+    {
+     "main": [
+      5,
+      10,
+      14,
+      26,
+      47
+     ],
+     "bonus": [
+      5,
+      12
+     ],
+     "why": "Pereche 10-47 nucleu, 5, 14, 26 sprijin."
+    },
+    {
+     "main": [
+      5,
+      8,
+      17,
+      26,
+      44
+     ],
+     "bonus": [
+      1,
+      7
+     ],
+     "why": "Top 5 strategie, sumă 100, mix par-impar."
+    },
+    {
+     "main": [
+      6,
+      14,
+      29,
+      44,
+      47
+     ],
+     "bonus": [
+      4,
+      10
+     ],
+     "why": "Sector înalt 44-47, 29-14-6 completează echilibrat."
+    },
+    {
+     "main": [
+      5,
+      13,
+      17,
+      29,
+      45
+     ],
+     "bonus": [
+      6,
+      12
+     ],
+     "why": "17 cald, pereche 5-29, 13 întârziat, echilibru decile."
+    },
+    {
+     "main": [
+      10,
+      14,
+      25,
+      43,
+      47
+     ],
+     "bonus": [
+      2,
+      8
+     ],
+     "why": "10-47 nucleu; 14, 25, 43 comune ambelor clasamente."
+    },
+    {
+     "main": [
+      4,
+      10,
+      17,
+      45,
+      48
+     ],
+     "bonus": [
+      3,
+      11
+     ],
+     "why": "Cald 17-10, medii 45-48, 4 din clasament."
+    },
+    {
+     "main": [
+      5,
+      8,
+      37,
+      39,
+      42
+     ],
+     "bonus": [
+      5,
+      9
+     ],
+     "why": "Numere comune ambelor clasamente, sumă centrală 131."
+    },
+    {
+     "main": [
+      14,
+      18,
+      26,
+      45,
+      46
+     ],
+     "bonus": [
+      1,
+      10
+     ],
+     "why": "Mix ambele surse, sector 40-48 puternic, 18 suport."
+    },
+    {
+     "main": [
+      10,
+      13,
+      17,
+      32,
+      47
+     ],
+     "bonus": [
+      7,
+      12
+     ],
+     "why": "Concentrare AI: nucleu 10-47 plus întârziate 13, 32."
+    },
+    {
+     "main": [
+      5,
+      13,
+      14,
+      29,
+      32
+     ],
+     "bonus": [
+      2,
+      6
+     ],
+     "why": "Întârziate 13-32 cu perechea 5-29 și 14 stabil."
+    },
+    {
+     "main": [
+      2,
+      15,
+      17,
+      20,
+      45
+     ],
+     "bonus": [
+      4,
+      9
+     ],
+     "why": "Exclusive AI: 2, 15, 20 cu suport 17, 45."
+    },
+    {
+     "main": [
+      10,
+      13,
+      20,
+      42,
+      47
+     ],
+     "bonus": [
+      1,
+      11
+     ],
+     "why": "13-20 întârziate, nucleu 10-47, 42 completare echilibrată."
+    },
+    {
+     "main": [
+      2,
+      13,
+      25,
+      32,
+      45
+     ],
+     "bonus": [
+      3,
+      8
+     ],
+     "why": "Duble gap 13-32, pereche 25-45, 2 din AI."
+    },
+    {
+     "main": [
+      5,
+      10,
+      29,
+      43,
+      47
+     ],
+     "bonus": [
+      5,
+      10
+     ],
+     "why": "Ambele nuclee de co-ocurență: 10-47 și 5-29."
+    },
+    {
+     "main": [
+      4,
+      6,
+      13,
+      26,
+      44
+     ],
+     "bonus": [
+      6,
+      11
+     ],
+     "why": "Explorare sector jos: 4-6 dublă, gap 13, 26-44."
+    },
+    {
+     "main": [
+      6,
+      26,
+      34,
+      39,
+      46
+     ],
+     "bonus": [
+      1,
+      4
+     ],
+     "why": "Explorare decile medii: 26, 34, 39 din clasament."
+    },
+    {
+     "main": [
+      5,
+      13,
+      17,
+      44,
+      47
+     ],
+     "bonus": [
+      7,
+      9
+     ],
+     "why": "Pereche 17-47, 13 gap mare, ancore 5-44."
+    },
+    {
+     "main": [
+      2,
+      14,
+      25,
+      34,
+      48
+     ],
+     "bonus": [
+      10,
+      12
+     ],
+     "why": "Extreme 2-48, mijloc 14-25-34, spread complet decile."
+    }
+   ],
+   "status": "cancelled",
+   "cancel_note": "loterie retrasă din exploatare (2026-09-08)"
+  }
+ ]
+}
